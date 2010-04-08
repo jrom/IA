@@ -24,7 +24,7 @@ public class SquareBoard
 		parades = new Parada[P];
 		crearParades();
 		for (i = 0; i < K; i++)
-			rutes[i] = new Ruta();
+			rutes[i] = new Ruta(i);
 			
 		solIni2();
   }
@@ -105,7 +105,7 @@ public class SquareBoard
     {
       for(j = 0; j < N; j++)
       {
-        if (paradaOcupada(i,j)) out +=" " + idParada(i,j) + " ";
+        if (paradaOcupada(i,j)) out += " " + idParada(i,j) + " ";
 				else out += " - ";
       }
       out +="\n";
@@ -115,10 +115,10 @@ public class SquareBoard
 		out += "Rutes:\n";
 		for (i = 0; i < K; i++)
 		{
-			out += "Ruta "+i+": ";
+			out += "Ruta " + i + ": ";
 			for(j = 0; j < rutes[i].numparades; j++)
 			{
-				out += rutes[i].parades[j]+" ";
+				out += rutes[i].paradesRuta[j] + " ";
 			}
 			out += "\n";
 		}
@@ -126,40 +126,85 @@ public class SquareBoard
     return out;
   }
 
+	public boolean canviarRuta(int paradaOrigen, int rutaDesti)
+	{
+		if (rutes[parades[paradaOrigen].ruta].treureParada(paradaOrigen))
+		{
+			rutes[rutaDesti].afegirParada(paradaOrigen);
+			return true;
+		}
+		else return false;
+	}
+	
+	//Mou sempre cap a la dreta
+	public boolean moureParada(int parada) 
+	{
+		return rutes[parades[parada].ruta].moureParada(parada);
+	}
+	
 
 	class Parada
 	{
 		public int id;
 		public int x;
 		public int y;
+		public int ruta;
 
 		public Parada(int x_, int y_, int id_)
 		{
 			id = id_;
 			x = x_;
 			y = y_;
+			ruta = -1;
 		}
 	}
 
 	class Ruta
 	{
-		int[] parades;
+		int id;
+		int[] paradesRuta;
 		int numparades;
 	// Suma de les distancies entre totes les parades seguint l'ordre de la ruta
 		int dist;
 
-		public Ruta()
+		public Ruta(int id_)
 		{
 			numparades = 0;
 			dist = 0;
-			parades = new int[P];
+			paradesRuta = new int[P];
+			this.id = id_;
 		}
 
 		public void afegirParada(int id_)
 		{
 			// TODO Comprovar que la parada no estigui ja a la ruta
-			parades[numparades] = id_;
+			paradesRuta[numparades] = id_;
+			parades[id_].ruta = this.id;
 			numparades++;
+		}
+		
+		public boolean treureParada(int id_)
+		{
+			int i;
+			if (numparades <= 1) return false;
+			for (i = 0; i < numparades && paradesRuta[i] != id_; i++);
+			for(; i < numparades-1; i++)
+			{
+				paradesRuta[i] = paradesRuta[i+1];
+			}
+			paradesRuta[numparades] = -1;
+			numparades--;
+			return true;
+		}
+		
+		public boolean moureParada(int id_)
+		{
+			int i, aux;
+			for (i = 0; i < numparades && paradesRuta[i] != id_; i++);
+			aux = paradesRuta[i];
+			paradesRuta[i] = paradesRuta[(i+1) % numparades];
+			paradesRuta[(i+1) % numparades] = aux;
+			return true;
 		}
 	}
 }
