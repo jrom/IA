@@ -9,7 +9,9 @@ public class SquareGoalTest implements GoalTest
   {
 		SquareBoard board = (SquareBoard) state;
     // TODO check if is a fucking goal state...
-		return true; // Because I'm worth it XD
+
+    // Per ara retornem fals, segons l'enunciat en busqueda local no es pot saber si s'ha arribat a un estat final, per tant s'ha de negar sempre
+		return false;
 	}
 
 }
