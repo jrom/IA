@@ -1,0 +1,12 @@
+package IA.TSP2;
+
+import aima.search.framework.GoalTest;
+
+
+public class ProbTSPGoalTest implements GoalTest {
+
+  public boolean isGoalState(Object aState) {
+    return(false);
+  }
+
+}

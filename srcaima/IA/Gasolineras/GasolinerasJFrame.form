@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.6" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="ctrlGeneracion">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="ctrlHeu">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="ctrlGrafico">
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jMenuBar1" noResource="true"/>
+      </Properties>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="jMenu1.text"/>
+            <Property name="name" type="java.lang.String" value="jMenu1" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem1.text"/>
+                <Property name="name" type="java.lang.String" value="jMenuItem1" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="790" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="mainPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="670" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                  <Component id="mainPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="mainPanel">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="mainPanel" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="TabMaster" pref="766" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="TabMaster" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JTabbedPane" name="TabMaster">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="TabMaster" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="PanelInicializar">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Inicializaci&#xf3;n del problema"/>
+                  </Border>
+                </Property>
+                <Property name="name" type="java.lang.String" value="PanelInicializar" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Inicializar Valores">
+                    <Property name="tabTitle" type="java.lang.String" resourceKey="PanelInicializar.TabConstraints.tabTitle"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ctrlAleatorio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ctrlExportar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ctrlImportar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ctrlConsistencia" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="1"/>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblListaDepositos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblListaGasolineras" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane1" alignment="1" min="-2" max="-2" attributes="1"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblListaGasolineras" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="240" max="-2" attributes="1"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblListaDepositos" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="242" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jPanel1" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="ctrlAleatorio" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ctrlConsistencia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ctrlExportar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ctrlImportar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="ctrlConsistencia">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlConsistencia.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlConsistencia" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlConsistenciaMouseClicked"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jScrollPane1" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="ctrlListaGasolineras">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="4" rowCount="0">
+                            <Column editable="false" title="Identificador" type="java.lang.Integer"/>
+                            <Column editable="true" title="Posici&#xf3;n X" type="java.lang.Integer"/>
+                            <Column editable="true" title="Posici&#xf3;n Y" type="java.lang.Integer"/>
+                            <Column editable="true" title="Prioridad" type="java.lang.Integer"/>
+                          </Table>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="ctrlListaGasolineras" noResource="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jScrollPane2" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="ctrlListaDepositos">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="5" rowCount="0">
+                            <Column editable="false" title="Identificador" type="java.lang.Integer"/>
+                            <Column editable="true" title="Posici&#xf3;n X" type="java.lang.Integer"/>
+                            <Column editable="true" title="Posici&#xf3; Y" type="java.lang.Integer"/>
+                            <Column editable="true" title="Viajes M&#xe1;x" type="java.lang.Integer"/>
+                            <Column editable="true" title="Km M&#xe1;x" type="java.lang.Integer"/>
+                          </Table>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="ctrlListaDepositos" noResource="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="jPanel1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="panelParametrosSimulated" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblYmaxima" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblXMaxima" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblDepositos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblViajesFijos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbllKmFijos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="lblNumeroPeticiones" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ctrlYMaxima" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlXMaxima" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlDepositos" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlNumeroPeticiones" alignment="0" pref="70" max="32767" attributes="1"/>
+                                          <Component id="ctrlViaje" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlKm" alignment="0" max="32767" attributes="1"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="ctrlNumeroPeticiones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumeroPeticiones" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="ctrlDepositos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDepositos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="ctrlXMaxima" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblXMaxima" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="ctrlYMaxima" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblYmaxima" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblViajesFijos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ctrlViaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbllKmFijos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ctrlKm" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="8" max="32767" attributes="0"/>
+                              <Component id="panelParametrosSimulated" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="lblXMaxima">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" resourceKey="lblXMaxima.text"/>
+                        <Property name="name" type="java.lang.String" value="lblXMaxima" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ctrlDepositos">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="ctrlDepositos" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="panelParametrosSimulated">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Parametros para Simulated Annealing">
+                              <Font PropertyName="font" name="Tahoma" size="11" style="0"/>
+                            </TitledBorder>
+                          </Border>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="panelParametrosSimulated" noResource="true"/>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblIteraciones" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTemperatura" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblL" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblK" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="ctrlK" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="ctrlL" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="ctrlGrado" alignment="0" pref="46" max="32767" attributes="1"/>
+                                      <Component id="ctrlIteracion" alignment="0" min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ctrlGrado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTemperatura" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ctrlIteracion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblIteraciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblK" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ctrlK" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ctrlL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="lblTemperatura">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" resourceKey="lblTemperatura.text"/>
+                            <Property name="name" type="java.lang.String" value="lblTemperatura" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblIteraciones">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" resourceKey="lblIteraciones.text"/>
+                            <Property name="name" type="java.lang.String" value="lblIteraciones" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="ctrlGrado">
+                          <Properties>
+                            <Property name="name" type="java.lang.String" value="ctrlGrado" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="ctrlIteracion">
+                          <Properties>
+                            <Property name="name" type="java.lang.String" value="ctrlIteracion" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblK">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" resourceKey="lblK.text"/>
+                            <Property name="name" type="java.lang.String" value="lblK" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblL">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" resourceKey="lblL.text"/>
+                            <Property name="name" type="java.lang.String" value="lblL" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="ctrlK">
+                          <Properties>
+                            <Property name="name" type="java.lang.String" value="ctrlK" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="ctrlL">
+                          <Properties>
+                            <Property name="name" type="java.lang.String" value="ctrlL" noResource="true"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="lblDepositos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" resourceKey="lblDepositos.text"/>
+                        <Property name="name" type="java.lang.String" value="lblDepositos" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ctrlNumeroPeticiones">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="ctrlNumeroPeticiones" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ctrlXMaxima">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="ctrlXMaxima" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ctrlYMaxima">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="ctrlYMaxima" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblYmaxima">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" resourceKey="lblYmaxima.text"/>
+                        <Property name="name" type="java.lang.String" value="lblYmaxima" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblNumeroPeticiones">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" resourceKey="lblNumeroPeticiones.text"/>
+                        <Property name="name" type="java.lang.String" value="lblNumeroPeticiones" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblViajesFijos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" resourceKey="lblViajesFijos.text"/>
+                        <Property name="name" type="java.lang.String" value="lblViajesFijos" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lbllKmFijos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" resourceKey="lbllKmFijos.text"/>
+                        <Property name="name" type="java.lang.String" value="lbllKmFijos" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ctrlViaje">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="ctrlViaje" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ctrlKm">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="ctrlKm" noResource="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="lblListaGasolineras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="lblListaGasolineras.text"/>
+                    <Property name="name" type="java.lang.String" value="lblListaGasolineras" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblListaDepositos">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="lblListaDepositos.text"/>
+                    <Property name="name" type="java.lang.String" value="lblListaDepositos" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="ctrlAleatorio">
+                  <Properties>
+                    <Property name="actionCommand" type="java.lang.String" resourceKey="ctrlAleatorio.actionCommand"/>
+                    <Property name="label" type="java.lang.String" resourceKey="ctrlAleatorio.label"/>
+                    <Property name="name" type="java.lang.String" value="ctrlAleatorio" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlAleatorioMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ctrlExportar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlExportar.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlExportar" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlExportarMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ctrlImportar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlImportar.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlImportar" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlImportarMouseClicked"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="PanelGeneracion">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="PanelGeneracion" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Generaci&#xf3;n del estado Inicial">
+                    <Property name="tabTitle" type="java.lang.String" resourceKey="PanelGeneracion.TabConstraints.tabTitle"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ctrlGenGreedy" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="conGenBuenGreedy" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ctrlTiempoIni" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
+                                          <Component id="ctrlCrearEstadoInicial" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctrlTiempoTemp" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="ctrlGenAleatoria" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ctrlGenVacio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" pref="90" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="294" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Component id="ctrlGenVacio" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ctrlGenAleatoria" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ctrlGenGreedy" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="conGenBuenGreedy" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="ctrlCrearEstadoInicial" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                  <Component id="ctrlTiempoTemp" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ctrlTiempoIni" min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JRadioButton" name="ctrlGenAleatoria">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlGenAleatoria.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="ctrlGenAleatoria.toolTipText"/>
+                    <Property name="name" type="java.lang.String" value="ctrlGenAleatoria" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="ctrlGenGreedy">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlGenGreedy.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="ctrlGenGreedy.toolTipText"/>
+                    <Property name="name" type="java.lang.String" value="ctrlGenGreedy" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="ctrlCrearEstadoInicial">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlCrearEstadoInicial.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlCrearEstadoInicial" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlCrearEstadoInicialMouseClicked"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jScrollPane3" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="ctrlEstadoInicialInf">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="5" rowCount="0">
+                            <Column editable="false" title="Deposito" type="java.lang.Object"/>
+                            <Column editable="false" title="Km Max." type="java.lang.Object"/>
+                            <Column editable="false" title="Km quedan" type="java.lang.Object"/>
+                            <Column editable="false" title="Via Max" type="java.lang.Object"/>
+                            <Column editable="false" title="Via quedan" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="ctrlEstadoInicialInf" noResource="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jScrollPane4" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="ctrlEstadoInicial">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="2" rowCount="0">
+                            <Column editable="false" title="Gasolinera" type="java.lang.Object"/>
+                            <Column editable="false" title="Deposito" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="ctrlEstadoInicial" noResource="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JRadioButton" name="conGenBuenGreedy">
+                  <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="conGenBuenGreedy.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="conGenBuenGreedy.toolTipText"/>
+                    <Property name="name" type="java.lang.String" value="conGenBuenGreedy" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="ctrlGenVacio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlGenVacio.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlGenVacio" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlTiempoIni">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="ctrlTiempoIni.foreground"/>
+                    <Property name="name" type="java.lang.String" value="ctrlTiempoIni" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlTiempoTemp">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="ctrlTiempoTemp.foreground"/>
+                    <Property name="name" type="java.lang.String" value="ctrlTiempoTemp" noResource="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="PanelDistancias">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="PanelDistancias" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Representaci&#xf3;n gr&#xe0;fica">
+                    <Property name="tabTitle" type="java.lang.String" resourceKey="PanelDistancias.TabConstraints.tabTitle"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="Y0" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Y1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Y3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Y2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="dibujo" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="1">
+                                          <Component id="X0" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                                          <Component id="X1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="X2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="X3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="ctrlLey3" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlLey1" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="XKm" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctrlLey2" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlLey5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jScrollPane5" alignment="0" min="0" pref="0" max="32767" attributes="1"/>
+                                          <Component id="ctrlRutas" alignment="0" max="32767" attributes="1"/>
+                                      </Group>
+                                      <Component id="ctrlLey4" alignment="0" pref="142" max="32767" attributes="1"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="1">
+                                  <Component id="YKm" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="optEI" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="optEF" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="287" max="32767" attributes="0"/>
+                                  <Component id="ctrlDibujarEstadoInicial" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="optEI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="optEF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctrlDibujarEstadoInicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="YKm" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="1">
+                                          <Component id="Y3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                          <Component id="ctrlLey1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="ctrlLey2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="ctrlLey3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                                  <Component id="Y2" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="Y1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                                  <Component id="Y0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                                  <Component id="ctrlLey5" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane5" min="-2" pref="85" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                  <Component id="ctrlRutas" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Component id="dibujo" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="X0" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="X3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="XKm" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="X2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="X1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                                  <Component id="ctrlLey4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="117" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="java.awt.Canvas" name="dibujo">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="dibujo.background"/>
+                    <Property name="name" type="java.lang.String" value="dibujo" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dibujoMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ctrlDibujarEstadoInicial">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlDibujarEstadoInicial.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlDibujarEstadoInicial" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlDibujarEstadoInicialMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="X0">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="X0.text"/>
+                    <Property name="name" type="java.lang.String" value="X0" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Y0">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="Y0.text"/>
+                    <Property name="name" type="java.lang.String" value="Y0" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="X1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="X1.text"/>
+                    <Property name="name" type="java.lang.String" value="X1" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="X2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="X2.text"/>
+                    <Property name="name" type="java.lang.String" value="X2" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="X3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="X3.text"/>
+                    <Property name="name" type="java.lang.String" value="X3" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Y1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="Y1.text"/>
+                    <Property name="name" type="java.lang.String" value="Y1" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Y2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="Y2.text"/>
+                    <Property name="name" type="java.lang.String" value="Y2" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Y3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="Y3.text"/>
+                    <Property name="name" type="java.lang.String" value="Y3" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="YKm">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="YKm.text"/>
+                    <Property name="name" type="java.lang.String" value="YKm" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="XKm">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="XKm.text"/>
+                    <Property name="name" type="java.lang.String" value="XKm" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="optEI">
+                  <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="optEI.text"/>
+                    <Property name="name" type="java.lang.String" value="optEI" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="optEF">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="optEF.text"/>
+                    <Property name="name" type="java.lang.String" value="optEF" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlLey1">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="ctrlLey1.foreground"/>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlLey1.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlLey1" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlLey2">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="ctrlLey2.background"/>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="ctrlLey2.foreground"/>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlLey2.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlLey2" noResource="true"/>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlLey3">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="ctrlLey3.background"/>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="ctrlLey3.foreground"/>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlLey3.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlLey3" noResource="true"/>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlLey4">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="ctrlLey4.foreground"/>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlLey4.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlLey4" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlLey5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlLey5.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlLey5" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                    <Property name="name" type="java.lang.String" value="jScrollPane5" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" resourceKey="jTextArea1.font"/>
+                        <Property name="rows" type="int" value="3"/>
+                        <Property name="text" type="java.lang.String" resourceKey="jTextArea1.text"/>
+                        <Property name="name" type="java.lang.String" value="jTextArea1" noResource="true"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="ctrlRutas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlRutas.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlRutas" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlRutasMouseClicked"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="tabFinal">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="tabFinal" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Busqueda de un mejor estado">
+                    <Property name="tabTitle" type="java.lang.String" resourceKey="tabFinal.TabConstraints.tabTitle"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ctrlAnnealing" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ctrlHill" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="optHeu1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                              <Component id="ctrlTiempo" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                          <Component id="jScrollPane6" min="-2" pref="459" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane6" alignment="0" min="-2" pref="433" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="optHeu1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="ctrlTiempo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="ctrlHill" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="ctrlAnnealing" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="138" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="ctrlHill">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlHill.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlHill" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlHillMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ctrlAnnealing">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="ctrlAnnealing.text"/>
+                    <Property name="name" type="java.lang.String" value="ctrlAnnealing" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ctrlAnnealingMouseClicked"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jScrollPane6" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="ctrlPasos">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="name" type="java.lang.String" value="ctrlPasos" noResource="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JRadioButton" name="optHeu1">
+                  <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="optHeu1.text"/>
+                    <Property name="actionCommand" type="java.lang.String" resourceKey="optHeu1.actionCommand"/>
+                    <Property name="name" type="java.lang.String" value="optHeu1" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="jLabel1.text"/>
+                    <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ctrlTiempo">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="ctrlTiempo" noResource="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

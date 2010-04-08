@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.3" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Menu"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="Salir">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/door_out.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Salir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalirActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Travelling Salesman Problem"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="hillClimbTA" min="-2" pref="313" max="-2" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="annealingTA" min="-2" pref="317" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="NiterL" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NiterS" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="ParKL" min="-2" max="-2" attributes="1"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="ParKS" max="32767" attributes="1"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LambdaFT" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="LambdaL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="AnnealingPL" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                      <Component id="ejecutarB" min="-2" max="-2" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ejecutarPrB" min="-2" max="-2" attributes="1"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="SemillaL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="SemillaTF" min="-2" pref="89" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                      <Component id="ciudadesL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="CiudadesS" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                      <Component id="HillClimbingL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                      <Component id="AnnealingL" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="CiudadesS" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="ciudadesL" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="HillClimbingL" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="AnnealingL" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="AnnealingPL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="NiterL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LambdaL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ParKL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Component id="NiterS" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="71" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="LambdaFT" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ParKS" alignment="3" pref="266" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Component id="annealingTA" alignment="0" pref="343" max="32767" attributes="1"/>
+                  <Component id="hillClimbTA" alignment="1" pref="343" max="32767" attributes="1"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ejecutarPrB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SemillaL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SemillaTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ejecutarB" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="HillClimbingL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hill Climbing"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="AnnealingL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Simulated Annealing"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.TextArea" name="annealingTA">
+      <Properties>
+        <Property name="columns" type="int" value="40"/>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="rows" type="int" value="30"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.TextArea" name="hillClimbTA">
+      <Properties>
+        <Property name="columns" type="int" value="37"/>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="name" type="java.lang.String" value="hillClimbingTA" noResource="true"/>
+        <Property name="rows" type="int" value="30"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="ciudadesL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Num Ciudades:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ejecutarB">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ejecutar Prob Aleatorio"/>
+        <Property name="actionCommand" type="java.lang.String" value=" Ejecutar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ejecutarBMousePressed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JSlider" name="CiudadesS">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="5"/>
+        <Property name="maximum" type="int" value="40"/>
+        <Property name="minimum" type="int" value="10"/>
+        <Property name="minorTickSpacing" type="int" value="5"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Elige el n&#xfa;mero de ciudades"/>
+        <Property name="value" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ejecutarPrB">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ejecutar Prob Espec&#xed;fico"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ejecutarPrBActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="SemillaL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Semilla:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="SemillaTF">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="formSeed" type="code"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Integer(1));"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="AnnealingPL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Parametros Annealing"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="NiterL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Num It:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="NiterS">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="1000"/>
+        <Property name="maximum" type="int" value="10000"/>
+        <Property name="minimum" type="int" value="1000"/>
+        <Property name="minorTickSpacing" type="int" value="1000"/>
+        <Property name="orientation" type="int" value="1"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Numero de iteraciones total"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LambdaL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lambda"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="ParKS">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="1"/>
+        <Property name="maximum" type="int" value="20"/>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="minorTickSpacing" type="int" value="1"/>
+        <Property name="orientation" type="int" value="1"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Lambda"/>
+        <Property name="value" type="int" value="5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ParKL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="K"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="LambdaFT">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="formLambda" type="code"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Parametro Lambda"/>
+        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Double(0.01)" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
