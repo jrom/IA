@@ -30,7 +30,7 @@ public class SquareBoard
 		for (i = 0; i < K; i++)
 			rutes[i] = new Ruta(i);
 
-		solIni2();
+		solIni1();
   }
 
   // Copy operator
@@ -78,26 +78,53 @@ public class SquareBoard
 		boolean[] assignades = new boolean[P]; // Vector de parades assignades
 		int numassignades = 0;
 		int currentdist = 0;
-		int mindist = 99999;
-		int paradaProxima = -1;
-
-		for (ki = 0; ki < K; ki++) paradaActual[ki] = -1;
-		for (pi = 0; pi < P; pi++) assignades[pi] = false;
-		ki = 0;
+		int mindist = Integer.MAX_VALUE;
 		
-		while(numassignades < P)
+		for (pi = 0; pi < P; pi++) assignades[pi] = false; // Inicialitzem vector d'assignades
+		
+		for (ki = 0; ki < K; ki++) // Afegeixo una primera parada a totes les rutes
 		{
-			for (pi = 0; pi < P && pi != paradaActual[ki] && !assignades[pi] ; pi++)
+			for (pi = 0; pi < P; pi++) 
 			{
-				currentdist = parades[paradaActual[ki]].distParadaFisica(new Parada(19, 19, -1)); // Distància amb parada fi
-				currentdist += parades[paradaActual[ki]].distParadaFisica(parades[pi]); // + Distància amb nova parada qualsevol
-				if(currentdist < mindist) // En cas que sigui mínim l'assignem a la ruta
+					if(!assignades[pi])
+					{
+						currentdist = (new Parada(0, 0, -1)).distParadaFisica(parades[pi]);	
+						if(currentdist < mindist)
+						{
+							mindist = currentdist;
+							paradaActual[ki] = pi;
+						}
+					}
+			}
+			
+			mindist = Integer.MAX_VALUE;
+			rutes[ki].afegirParada(paradaActual[ki]);
+			assignades[paradaActual[ki]] = true;
+			numassignades++;	
+		}
+		
+		ki = 0;
+		mindist = Integer.MAX_VALUE;
+		currentdist = 0;
+		
+		while(numassignades < P) // Afegeixo la resta de parades
+		{	
+			for (pi = 0; pi < P; pi++)
+			{
+				if(!assignades[pi] && pi != paradaActual[ki])
 				{
-					mindist = currentdist;
-					paradaActual[ki] = pi;
+					currentdist = parades[paradaActual[ki]].distParadaFisica(new Parada(19, 19, -1)); // Distància amb parada fi
+					currentdist += parades[paradaActual[ki]].distParadaFisica(parades[pi]); // + Distància amb nova parada qualsevol
+					if(currentdist < mindist) // En cas que sigui mínim l'assignem a la ruta
+					{
+						mindist = currentdist;
+						paradaActual[ki] = pi;
+					}
 				}
 			}
-			mindist = 99999;
+			
+			currentdist = 0;
+			mindist = Integer.MAX_VALUE;
 			rutes[ki].afegirParada(paradaActual[ki]);
 			assignades[paradaActual[ki]] = true;
 			numassignades++;
