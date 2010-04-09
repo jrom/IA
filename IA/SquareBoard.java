@@ -67,12 +67,42 @@ public class SquareBoard
 		}
 	}
 
+	// Solució Inicial Bona
 	public void solIni1()
 	{
+		int pi, ki;
+		int[] paradaActual = new int[K]; // Parada Actual per cada ruta
+		boolean[] assignades = new boolean[P]; // Vector de parades assignades
+		int numassignades = 0;
+		int currentdist = 0;
+		int mindist = 99999;
+		int paradaProxima = -1;
 
+		for (ki = 0; ki < K; ki++) paradaActual[ki] = -1;
+		for (pi = 0; pi < P; pi++) assignades[pi] = false;
+		ki = 0;
+		
+		while(numassignades < P)
+		{
+			for (pi = 0; pi < P && pi != paradaActual[ki] && !assignades[pi] ; pi++)
+			{
+				currentdist = parades[paradaActual[ki]].distParadaFisica(new Parada(19, 19, -1)); // Distància amb parada fi
+				currentdist += parades[paradaActual[ki]].distParadaFisica(parades[pi]); // + Distància amb nova parada qualsevol
+				if(currentdist < mindist) // En cas que sigui mínim l'assignem a la ruta
+				{
+					mindist = currentdist;
+					paradaActual[ki] = pi;
+				}
+			}
+			mindist = 99999;
+			rutes[ki].afegirParada(paradaActual[ki]);
+			assignades[paradaActual[ki]] = true;
+			numassignades++;
+			ki = (ki + 1) % K;
+		}		
 	}
 
-	//dolent
+	// Solució Inicial Ràpida
 	public void solIni2()
 	{
 		int pi, ki;
