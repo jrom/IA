@@ -44,8 +44,11 @@ public class SquareBoard
     parades = new Parada[P];
     rutes = new Ruta[K];
 
-    System.arraycopy(original.parades, 0, parades, 0, P);
-    System.arraycopy(original.rutes, 0, rutes, 0, K);
+    for(i = 0; i < P; i++)
+      parades[i] = new Parada(original.parades[i]);
+    for(i = 0; i < K; i++)
+      rutes[i] = new Ruta(original.rutes[i]);
+
   }
 
 	private void crearParades()
@@ -142,6 +145,15 @@ public class SquareBoard
 			out += " dist: " + rutes[i].dist + "\n";
 		}
 
+		// Mostra distancies entre tots els parells de parades
+    // for(i = 0; i < P; i++)
+    // {
+    //   for(j = i+1; j < P; j++)
+    //   {
+    //           out += "Dist entre "+i+" i "+j+" :"+ parades[i].distParada(parades[j]) + "\n";
+    //   }
+    // }
+
     return out;
   }
 
@@ -199,16 +211,35 @@ public class SquareBoard
 	public double getHeuristic1()
 	{
 	  double h;
-
-	  h = Math.random() * 100;
+	  int d = 0;
+    for (int i = 0; i < K; i++)
+      d += rutes[i].dist;
+	  h = (double) d;
+    System.out.println("Heuristic: " + h);
 	  return h;
 	}
 
+  // TODO Optimitzar...
 	public double getHeuristic2()
 	{
-	  double h;
+	  double h = 0;
+	  int i,j,c = 0;
+	  int total = 0;
+	  double avg = 0;
+	  double stdev = 0;
 
-	  h = Math.random() * 100;
+    for(i = 0; i < P; i++)
+      for(j = i+1; j < P; j++, c++)
+            total += parades[i].distParada(parades[j]);
+
+    avg = total / c;
+
+    for(i = 0; i < P; i++)
+      for(j = i+1; j < P; j++)
+            stdev += Math.abs(parades[i].distParada(parades[j]) - avg);
+
+    h = stdev;
+    System.out.println("Heuristic: " + h);
 	  return h;
 	}
 
@@ -247,11 +278,20 @@ public class SquareBoard
 		public int distParada(Parada desti)
 		{
 		  int d;
-      if (ruta == desti.ruta)
+      if (this.ruta == desti.ruta)
       { // Estan a la mateixa ruta, calcular distancia directa
-        // TODO
+        // Fem un petit truco: dist entre dos parades d'una ruta és la resta de la dist entre origen i parada1 i origen i parada2...
+        d = Math.abs(rutes[this.ruta].distOrigen(this) - rutes[this.ruta].distOrigen(desti));
       }
-      return 3;
+      else
+      {
+        // Cal calcular quina es la versio mes rapida, passant per origen o per final
+        int dorig, dfin;
+        dorig = rutes[this.ruta].distOrigen(this) + rutes[desti.ruta].distOrigen(desti);
+        dfin = rutes[this.ruta].distFinal(this) + rutes[desti.ruta].distFinal(desti);
+        d = Math.min(dorig, dfin);
+      }
+      return d;
 		}
 	}
 
@@ -274,10 +314,11 @@ public class SquareBoard
 		// Operador de copia
 		public Ruta(Ruta original)
 		{
-		  id = original.id;
-		  numparades = original.numparades;
-		  dist = original.dist;
-      System.arraycopy(original.paradesRuta, 0, paradesRuta, 0, original.paradesRuta.length);
+		  this.id = original.id;
+		  this.numparades = original.numparades;
+		  this.dist = original.dist;
+      this.paradesRuta = new int[P];
+      System.arraycopy(original.paradesRuta, 0, this.paradesRuta, 0, original.paradesRuta.length);
 		}
 
 		public void afegirParada(int id_)
@@ -285,10 +326,9 @@ public class SquareBoard
 			// TODO Comprovar que la parada no estigui ja a la ruta
 			paradesRuta[numparades] = id_;
 			parades[id_].ruta = this.id;
-			
+			numparades++;
 			// Recalcular dist ruta
       dist = this.calcularDist();
-			numparades++;
 		}
 
 		public boolean treureParada(int id_)
@@ -335,6 +375,42 @@ public class SquareBoard
         d += new Parada(19,19,-1).distParadaFisica(parades[paradesRuta[numparades-1]]);
       }
       return d;
+		}
+
+		// Assumim que parada forma part de la ruta, es una precondicio
+		public int distOrigen(Parada parada)
+		{
+		  int i, d;
+		  d = new Parada(0,0,-1).distParadaFisica(parades[paradesRuta[0]]); // Dist entre origen i primera parada
+
+      // Si ja hem trobat la que buscave, finito
+      if (paradesRuta[0] == parada.id) return d;
+
+		  // Comencem des d'1 perque assumim que aquesta ruta com a minim te una parada
+		  for(i = 1; i < numparades; i++)
+		  {
+        d += parades[paradesRuta[i]].distParadaFisica(parades[paradesRuta[i-1]]);
+        if(paradesRuta[i] == parada.id) break;
+		  }
+		  return d;
+		}
+
+		// Assumim que parada forma part de la ruta, es una precondicio
+		public int distFinal(Parada parada)
+		{
+		  int i, d;
+		  d = new Parada(19,19,-1).distParadaFisica(parades[paradesRuta[numparades-1]]); // Dist entre final i ultima parada
+
+		  // Ja hem trobat la que buscavem, finito
+      if (paradesRuta[numparades-1] == parada.id) return d;
+		  // Comencem des d'1 perque assumim que aquesta ruta com a minim te una parada
+		  for(i = numparades - 2; i >= 0; i--)
+		  {
+        d += parades[paradesRuta[i]].distParadaFisica(parades[paradesRuta[i+1]]);
+        if(paradesRuta[i] == parada.id) break;
+		  }
+
+		  return d;
 		}
 	}
 }
