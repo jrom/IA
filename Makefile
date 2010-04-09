@@ -6,7 +6,7 @@ all:
 	javac -cp $(JavaLibraries) $(JavaPackages)/*.java
 	
 run:
-	java $(JavaMainClass)
+	java -cp $(JavaLibraries):. $(JavaMainClass)
 	
 clean:
 	rm $(JavaPackages)/*.class
