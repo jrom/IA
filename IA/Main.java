@@ -19,7 +19,7 @@ public class Main
     problem = new Problem(board,
                           new SquareSuccessorFunction(),
                           new SquareGoalTest(),
-                          new SquareHeuristic());
+                          new SquareHeuristicDistTotal());
 
     HillClimbingSearch search = new HillClimbingSearch();
     SearchAgent agent = new SearchAgent(problem, search);

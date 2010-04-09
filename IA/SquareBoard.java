@@ -13,7 +13,7 @@ public class SquareBoard
   public static int N = 20;
 	public static int K;
 	public static int P;
-	
+
   // Data
 
 	public Ruta[] rutes;
@@ -29,10 +29,10 @@ public class SquareBoard
 		crearParades();
 		for (i = 0; i < K; i++)
 			rutes[i] = new Ruta(i);
-			
+
 		solIni2();
   }
-  
+
   // Copy operator
   public SquareBoard(SquareBoard original)
   {
@@ -69,7 +69,7 @@ public class SquareBoard
 
 	public void solIni1()
 	{
-		
+
 	}
 
 	//dolent
@@ -82,14 +82,14 @@ public class SquareBoard
 			rutes[ki].afegirParada(pi);
 			ki = (ki + 1) % K;
 		}
-		
+
 	}
-	
+
 	private int aleatori(int max)
 	{
-		return new Double(Math.random() * max).intValue();		
+		return new Double(Math.random() * max).intValue();
 	}
-	
+
 	private boolean paradaOcupada(int x, int y)
 	{
 		if ((x == 0 && y == 0) || (x == 19 && y == 19)) return true;
@@ -97,11 +97,11 @@ public class SquareBoard
 		{
 			if (parades[i].x == x && parades[i].y == y) return true;
 		}
-			
+
 
 		return false;
 	}
-	
+
 	private int idParada(int x, int y)
 	{
 		if (x == 0 && y == 0) return -10; // 0,0
@@ -112,7 +112,7 @@ public class SquareBoard
 		}
 		return -1; // No hi ha parada
 	}
-	
+
   public String toString()
   {
     String out = "";
@@ -154,13 +154,13 @@ public class SquareBoard
 		}
 		else return false;
 	}
-	
+
 	//Mou sempre cap a la dreta
-	public boolean moureParada(int parada) 
+	public boolean moureParada(int parada)
 	{
 		return rutes[parades[parada].ruta].moureParada(parada);
 	}
-	
+
 	public List<Successor> getSuccessors()
 	{
 	  int i,j;
@@ -178,7 +178,7 @@ public class SquareBoard
         list.add(new Successor("P " +i+ " move in route " + parades[i].ruta + " ", newboard));
 	    }
 	  }
-	  
+
 	  // Fem tots els intercanvis de parada possibles:
 	  for(i = 0; i < P; i++) // per cada parada
 	  {
@@ -195,7 +195,23 @@ public class SquareBoard
 	  }
     return list;
 	}
-	
+
+	public double getHeuristic1()
+	{
+	  double h;
+
+	  h = Math.random() * 100;
+	  return h;
+	}
+
+	public double getHeuristic2()
+	{
+	  double h;
+
+	  h = Math.random() * 100;
+	  return h;
+	}
+
 
 	class Parada
 	{
@@ -211,7 +227,7 @@ public class SquareBoard
 			y = y_;
 			ruta = -1;
 		}
-		
+
 		// Operador de copia
 		public Parada(Parada original)
 		{
@@ -219,6 +235,21 @@ public class SquareBoard
 		  x = original.x;
 		  y = original.y;
 		  ruta = original.ruta;
+		}
+
+		// Retorna la distanfia fisica entre dues parades, independent de les rutes
+		public int distParadaFisica(Parada desti)
+		{
+      return Math.abs(x - desti.x) + Math.abs(y - desti.y);
+		}
+
+		// Retorna la distancia entre dues parades, fent transbord si cal
+		public int distParada(Parada desti)
+		{
+      if (ruta == desti.ruta)
+      { // Estan a la mateixa ruta, calcular distancia directa
+        // TODO
+      }
 		}
 	}
 
@@ -237,7 +268,7 @@ public class SquareBoard
 			paradesRuta = new int[P];
 			this.id = id_;
 		}
-		
+
 		// Operador de copia
 		public Ruta(Ruta original)
 		{
@@ -254,7 +285,7 @@ public class SquareBoard
 			parades[id_].ruta = this.id;
 			numparades++;
 		}
-		
+
 		public boolean treureParada(int id_)
 		{
 			int i;
@@ -268,7 +299,7 @@ public class SquareBoard
 			numparades--;
 			return true;
 		}
-		
+
 		public boolean moureParada(int id_)
 		{
 			int i, aux;
