@@ -1,6 +1,10 @@
 package IA;
+
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import aima.search.framework.Successor;
 
 public class SquareBoard
 {
@@ -12,8 +16,8 @@ public class SquareBoard
 	
   // Data
 
-	Ruta[] rutes;
-	Parada[] parades;
+	public Ruta[] rutes;
+	public Parada[] parades;
 
   public SquareBoard(int k, int p)
   {
@@ -27,6 +31,21 @@ public class SquareBoard
 			rutes[i] = new Ruta(i);
 			
 		solIni2();
+  }
+  
+  // Copy operator
+  public SquareBoard(SquareBoard original)
+  {
+    int i;
+
+    N = original.N;
+    K = original.K;
+    P = original.P;
+    parades = new Parada[P];
+    rutes = new Ruta[K];
+
+    System.arraycopy(original.parades, 0, parades, 0, P);
+    System.arraycopy(original.rutes, 0, rutes, 0, K);
   }
 
 	private void crearParades()
@@ -142,6 +161,14 @@ public class SquareBoard
 		return rutes[parades[parada].ruta].moureParada(parada);
 	}
 	
+	public List<Successor> getSuccessors()
+	{
+	  List<Successor> list = new ArrayList<Successor>();
+	  SquareBoard newboard = new SquareBoard(this);
+    list.add(new Successor("Hola hola", this));
+    return list;
+	}
+	
 
 	class Parada
 	{
@@ -156,6 +183,15 @@ public class SquareBoard
 			x = x_;
 			y = y_;
 			ruta = -1;
+		}
+		
+		// Operador de copia
+		public Parada(Parada original)
+		{
+		  id = original.id;
+		  x = original.x;
+		  y = original.y;
+		  ruta = original.ruta;
 		}
 	}
 
@@ -173,6 +209,15 @@ public class SquareBoard
 			dist = 0;
 			paradesRuta = new int[P];
 			this.id = id_;
+		}
+		
+		// Operador de copia
+		public Ruta(Ruta original)
+		{
+		  id = original.id;
+		  numparades = original.numparades;
+		  dist = original.dist;
+      System.arraycopy(original.paradesRuta, 0, paradesRuta, 0, original.paradesRuta.length);
 		}
 
 		public void afegirParada(int id_)
