@@ -191,6 +191,9 @@ public class SquareBoard
     }
     out += "########################################\n";
 
+    out += "\nSuma total rutes: "+getHeuristic1()+"\n";
+    out += "StDev dist entre totes les parades: "+getHeuristic2()+"\n\n";
+
 		out += "Rutes:\n";
 		for (i = 0; i < K; i++)
 		{
@@ -211,6 +214,14 @@ public class SquareBoard
     //   }
     // }
 
+    return out;
+  }
+
+  public String info()
+  {
+    String out = "";
+    out += "Suma total rutes: "+getHeuristic1()+"\n";
+    out += "StDev dist entre totes les parades: "+getHeuristic2();
     return out;
   }
 
@@ -272,7 +283,7 @@ public class SquareBoard
     for (int i = 0; i < K; i++)
       d += rutes[i].dist;
 	  h = (double) d;
-    System.out.println("Heuristic: " + h);
+    // System.out.println("Heuristic: " + h);
 	  return h;
 	}
 
@@ -296,7 +307,7 @@ public class SquareBoard
             stdev += Math.abs(parades[i].distParada(parades[j]) - avg);
 
     h = stdev;
-    System.out.println("Heuristic: " + h);
+    // System.out.println("Heuristic: " + h);
 	  return h;
 	}
 
