@@ -134,12 +134,12 @@ public class SquareBoard
 		out += "Rutes:\n";
 		for (i = 0; i < K; i++)
 		{
-			out += "Ruta " + i + ": ";
+			out += "Ruta " + i + " ("+rutes[i].numparades+") :";
 			for(j = 0; j < rutes[i].numparades; j++)
 			{
 				out += rutes[i].paradesRuta[j] + " ";
 			}
-			out += "\n";
+			out += " dist: " + rutes[i].dist + "\n";
 		}
 
     return out;
@@ -246,10 +246,12 @@ public class SquareBoard
 		// Retorna la distancia entre dues parades, fent transbord si cal
 		public int distParada(Parada desti)
 		{
+		  int d;
       if (ruta == desti.ruta)
       { // Estan a la mateixa ruta, calcular distancia directa
         // TODO
       }
+      return 3;
 		}
 	}
 
@@ -264,7 +266,7 @@ public class SquareBoard
 		public Ruta(int id_)
 		{
 			numparades = 0;
-			dist = 0;
+			dist = new Parada(0,0,-1).distParadaFisica(new Parada(19, 19, -1));
 			paradesRuta = new int[P];
 			this.id = id_;
 		}
@@ -283,6 +285,9 @@ public class SquareBoard
 			// TODO Comprovar que la parada no estigui ja a la ruta
 			paradesRuta[numparades] = id_;
 			parades[id_].ruta = this.id;
+			
+			// Recalcular dist ruta
+      dist = this.calcularDist();
 			numparades++;
 		}
 
@@ -297,6 +302,7 @@ public class SquareBoard
 			}
 			paradesRuta[numparades] = -1;
 			numparades--;
+			calcularDist(); // Recalculem distancia de la ruta
 			return true;
 		}
 
@@ -307,7 +313,28 @@ public class SquareBoard
 			aux = paradesRuta[i];
 			paradesRuta[i] = paradesRuta[(i+1) % numparades];
 			paradesRuta[(i+1) % numparades] = aux;
+			dist = calcularDist(); // Recalculem distancia de la ruta
 			return true;
+		}
+		
+		// Retorna la distancia total de la ruta
+		public int calcularDist()
+		{
+		  int d;
+		  if (numparades == 0) // Si no hi ha cap parada, distancia entre origen i final
+        d = new Parada(0,0,-1).distParadaFisica(new Parada(19, 19, -1));
+      else
+      {
+        // Si hi ha parades, calculem la dist entre origen i la primera parada...
+        d = new Parada(0,0,-1).distParadaFisica(parades[paradesRuta[0]]);
+        for (int i = 1; i < numparades; i++)
+        { // Per cada parada sumem la distancia entre ella i l'anterior a ella
+          d += parades[paradesRuta[i]].distParadaFisica(parades[paradesRuta[i-1]]);
+        }
+        // Finalment sumem la distancia entre la darrera parada i el final de ruta
+        d += new Parada(19,19,-1).distParadaFisica(parades[paradesRuta[numparades-1]]);
+      }
+      return d;
 		}
 	}
 }

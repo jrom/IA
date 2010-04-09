@@ -13,7 +13,7 @@ public class Main
 {
   public static void main (String[] args) throws Exception
   {
-    SquareBoard board = new SquareBoard(10, 50);
+    SquareBoard board = new SquareBoard(2, 10);
     Problem problem;
     
     problem = new Problem(board,
