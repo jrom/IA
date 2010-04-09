@@ -12,6 +12,7 @@ public class SquareSuccessorFunction implements SuccessorFunction
     SquareBoard board = (SquareBoard) state;
 		List<Successor> successors;
 		successors = board.getSuccessors();
+		System.out.println("Successor list size: " + successors.size());
 		return successors;
   }
 }

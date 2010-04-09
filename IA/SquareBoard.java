@@ -125,7 +125,7 @@ public class SquareBoard
       for(j = 0; j < N; j++)
       {
         if (paradaOcupada(i,j)) out += " " + idParada(i,j) + " ";
-				else out += " - ";
+           else out += " - ";
       }
       out +="\n";
     }
@@ -163,9 +163,36 @@ public class SquareBoard
 	
 	public List<Successor> getSuccessors()
 	{
+	  int i,j;
 	  List<Successor> list = new ArrayList<Successor>();
-	  SquareBoard newboard = new SquareBoard(this);
-    list.add(new Successor("Hola hola", this));
+	  SquareBoard newboard;
+
+	  // Fem tots els moviments de parada possibles:
+	  for(i = 0; i < P; i++) // Per cada parada
+	  {
+	    for(j = 0; j < rutes[parades[i].ruta].numparades; j++) // per cada posicio de la ruta a la que pertany
+	    {
+	      newboard = new SquareBoard(this);
+        newboard.moureParada(i);
+        // System.out.println(newboard);
+        list.add(new Successor("P " +i+ " move in route " + parades[i].ruta + " ", newboard));
+	    }
+	  }
+	  
+	  // Fem tots els intercanvis de parada possibles:
+	  for(i = 0; i < P; i++) // per cada parada
+	  {
+	    for(j = 0; j < K; j++) // per cada ruta
+	    {
+	      if (j != parades[i].ruta) // Nomes la movem a rutes diferents...
+	      {
+	        newboard = new SquareBoard(this);
+	        newboard.canviarRuta(i, j);
+          // System.out.println(newboard);
+          list.add(new Successor("P " +i+ " move to route " + j + " ", newboard));
+	      }
+	    }
+	  }
     return list;
 	}
 	
