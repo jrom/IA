@@ -13,12 +13,12 @@ import aima.search.informed.SimulatedAnnealingSearch;
 
 public class Main
 {
-  public static int ITER = 10;
+  public static int ITER = 5;
   static ArrayList<Stats> stats = new ArrayList<Stats>();
 
   public static void main (String[] args) throws Exception
   {
-    SquareBoard board = new SquareBoard(8, 20);
+    SquareBoard board = new SquareBoard(5, 20);
     board.solIni1();
     Problem problem1, problem2;
 
@@ -36,39 +36,80 @@ public class Main
 
     // Heuristic 1
     // Hill Climbing
-		experimenta("Hill Climbing - Heuristic 1",
+		experimenta("Hill Climbing - Heu 1",
                 problem1,
                 new HillClimbingSearch());
 
 
 		// Simulated Annealing
-    experimenta("Simulated Annealing - Heuristic 1",
+    experimenta("Simulated Annealing - Heu 1",
                 problem1,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
 
     // Heuristic 2
     // Hill Climbing
-		experimenta("Hill Climbing - Heuristic 2",
+		experimenta("Hill Climbing - Heu 2",
                 problem2,
                 new HillClimbingSearch());
 
 
 		// Simulated Annealing
-    experimenta("Simulated Annealing - Heuristic 2",
+    experimenta("Simulated Annealing - Heu 2",
                 problem2,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
+                
+    // Heuristic 1
+    problem1 = new Problem(board,
+                          new SquareSuccessorFunction(),
+                          new SquareGoalTest(),
+                          new SquareHeuristicDistTotal());
 
-    System.out.println("+-------------------------------------+---------+-------+-------+----------+----------+");
-    System.out.println("| Experiment                          | Elapsed | Nodes | Steps |    H1    |    H2    |");
-    System.out.println("+-------------------------------------+---------+-------+-------+----------+----------+");
+    // Heuristic 2
+    problem2 = new Problem(board,
+                          new SquareSuccessorFunction(),
+                          new SquareGoalTest(),
+                          new SquareHeuristicDistSemblant());
+
+    // Heuristic 1
+    // Hill Climbing
+		experimenta("Hill Climbing - Heu 1 - Ini 2",
+                problem1,
+                new HillClimbingSearch());
+
+
+		// Simulated Annealing
+    experimenta("Simulated Annealing - Heu 1 - Ini 2",
+                problem1,
+                new SimulatedAnnealingSearch(5000,100,50,0.01)
+                );
+
+    // Heuristic 2
+    // Hill Climbing
+		experimenta("Hill Climbing - Heu 2 - Ini 2",
+                problem2,
+                new HillClimbingSearch());
+
+
+		// Simulated Annealing
+    experimenta("Simulated Annealing - Heu 2 - Ini 2",
+                problem2,
+                new SimulatedAnnealingSearch(5000,100,50,0.01)
+                );
+                
+    board = new SquareBoard(8, 20);
+    board.solIni2();
+
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
+    System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |");
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
     for(int i = 0; i < stats.size(); i++)
     {
       Exec ex = stats.get(i).stats();
-      System.out.format("| %35s |   %5d | %5d | %5d | %8.2f | %8.2f |\n", stats.get(i).name, ex.elapsed, ex.nodes, ex.steps, ex.h1, ex.h2);
+      System.out.format("| %45s |   %5d | %5d | %5d | %8.2f | %8.2f |\n", stats.get(i).name, ex.elapsed, ex.nodes, ex.steps, ex.h1, ex.h2);
     }
-    System.out.println("+-------------------------------------+---------+-------+-------+----------+----------+");
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
   }
 
   public static void experimenta(String nom, Problem problem, Search search) throws Exception
