@@ -30,7 +30,8 @@ public class SquareBoard
 		for (i = 0; i < K; i++)
 			rutes[i] = new Ruta(i);
 
-		solIni1();
+    // solIni1();
+    // Now this is done in the Main class
   }
 
   // Copy operator
