@@ -23,15 +23,35 @@ En el cas d'aplicar la restricció addicional, és redueix a
 \Large{$\Theta(\frac{C_{p}^{k} P(P) 2K}{P}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
 \end{center}
 
-\subsubsection{Estructures de dades}
+\subsubsection{Estructures de dades}	
 
-Per emmagatzemar l'estat comptem amb les següents estructures de dades.
+Per emmagatzemar l'estat hem dissenyat les següents estructures de dades.
 
-\textbf{Parada}:
+\textbf{Parada}
 
-\textbf{Ruta}:
+Una parada consta d'una posició (x, y) (per les columnes i files respectivament) dins del taulell i un identificador de parada. La parada és la unitat bàsica del nostre problema, és el que s'assignarà a diferents rutes i en diferents posicions dins d'una mateixa ruta. Per facilitar la feina, i posat que la independència i reutilització de les classes no és cap prioritat en aquesta pràctica, hem inclòs la informació de la ruta actual a la parada. També hem implementat dos mètodes per calcular les distàncies entre parades. 
 
-\textbf{Vector de rutes}: El vector de rutes conté totes les rutes assignades.
+El primer \textbf{distParadaFisica} calcula la distància física entre dos parades, que sempre és la mínima. Ho fa de la següent manera:
 
-\textbf{Vector de parades}:
+\begin{center}
+$(p1,p2)=|p1_{x} - p2_{x}|+|p1_{y} - p2_{y}|$ 
+\end{center}
+
+El segon mètode \textbf{distParada} calcula la distància entre parades a través de les rutes. En cas que l'altra parada no es trobi a la mateixa ruta, es calcula la distància fent transbord entre rutes a la prada (1,1) o (19,19).
+
+Ambdós mètodes calculen sempre la distància mínima, ja que la minimització del recorregut de les rutes és objectiu del problema.
+
+\textbf{Ruta}
+
+Una ruta consta principalment d'un vector de parades (en particular, emmagatzemem tant sols l'identificador de les parades d'aquella ruta). L'algorisme que implementa la nostra solució farà variar aquestes parades fins trobar l'òptim local entre totes les rutes. Per ajudar en l'implementació, les rutes també contenen la informació del seu nombre de parades i la seva distància (el mètode calcularDist() s'encarrega de calcular-la després de l'aplicació d'un operador).
+
+Dins de la classe Ruta s'implementen també els operadors, dels quals es parlarà més endavant.
+
+\textbf{Vector de rutes}
+
+El vector de rutes conté totes les rutes creades en cada moment. La solució inicial les inicialitza al principi i els operadors el modifiquen fins obtenir l'òptim local.
+
+\textbf{Vector de parades}
+
+El vector de parades conté la configuració de parades de la ciutat. Aquesta configuració s'obté aleatòriament des d'un inici i no és modificable pel problema.
 
