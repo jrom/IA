@@ -1,1 +1,37 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%!TEX root = document.tex
+
+El primer a plantejar-se és què és el que considerem \textbf{estat} en el context del nostre problema. 
+
+Un estat és qualsevol configuració vàlida (o solució candidata) de rutes, recordem que qualsevol problema de cerca local es mou sempre dins l'espai de solucions i no en tot l'espai de camins, per tant, tot estat és solució. 
+
+Definim una configuració com a vàlida quan compleix que totes les rutes comencen per la casella (1,1) i acaben a la (19, 19). A més, totes tenen almenys una parada assignada i, en el cas d'aplicació de la restricció addicional, cada ruta té almenys p / (2 x k) parades.
+
+\subsubsection{Espai de cerca}
+
+L'espai de cerca és molt gran tenint en compte la quantitat de combinacions possibles que es poden donar. Precisament per això, s'encara el problema mitjançant una estratègia de cerca local, que omet gran part de l'espai de cerca. En general, l'espai de cerca s'obté recorrent totes les possibles permutacions de parades dins d'una mateixa ruta per cada configuració nova de parades de la ruta. Això és així, evidentment, sempre que la nova configuració sigui un estat vàlid. 
+
+Es pot comprovar que l'espai de cerca creix exponencialment segons els paràmetres P i K. En particular, és de l'ordre següent:
+
+\begin{center}
+\Large{$\Theta(C_{p}^{k} P(P)) = \Theta({P \choose K} P!) = \Theta(\frac{P!P!}{K!(P-K)!}) $}
+\end{center}
+
+
+En el cas d'aplicar la restricció addicional, és redueix a 
+
+\begin{center}
+\Large{$\Theta(\frac{C_{p}^{k} P(P) 2K}{P}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
+\end{center}
+
+\subsubsection{Estructures de dades}
+
+Per emmagatzemar l'estat comptem amb les següents estructures de dades.
+
+\textbf{Parada}:
+
+\textbf{Ruta}:
+
+\textbf{Vector de rutes}: El vector de rutes conté totes les rutes assignades.
+
+\textbf{Vector de parades}:
+

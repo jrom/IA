@@ -1,23 +1,32 @@
+En aquesta pràctica es planteja optimitzar l'organització de les rutes d'autobús del poble de \emph{Squaretown}. Es tracta d'una ciutat urbanitzada de forma reticular quadrada (quadrícula de 20 x 20). Per facilitar l'anàlisis del problema, i sense pèrdua de generalitat, d'ara en endavant parlarem d'un taulell quadrat, amb files, columnes i caselles. Es dóna la ubicació fixa de les dues úniques cotxeres d'autobusos que hi haurà disponibles, d'on unívocament començarà o acabarà qualsevol ruta. Aquestes es troben a les caselles (1,1) i (19,19). La nostra primera decisió consisteix en determinar que la generació de rutes es farà sempre des de la cotxera (1,1) a la (19,19). Òbviament, per qualsevol escenari real això seria fàcilment canviable paramètricament.
 
-\section{Intro}
+El problema plantejat és definir K $\epsilon$ \{2-10\} rutes d'autobús que connecten P $\epsilon$ \{10-50\} parades obtingudes aleatòriament. Tenim dos criteris a optimitzar. El primer és la minimització del recorregut total de les rutes. El segon és la maximització de la similitud de les distàncies entre parades.
 
-\subsection{Blablabla}
-asdfasdf
+Una restricció addicional (i opcional) assenyala que totes les rutes tinguin almenys p / (2 x k) parades.
 
-\subsubsection{Lol}
+Els algoritmes que usarem per realitzar aquests càlculs són el \textbf{Hill Climbing} i el \textbf{Simulated Annealing}. Amb ells haurem d'experimentar modificant paràmetres, usant diferents configuracions inicials, aplicant o traient restriccions i provant els diferents heurístics per veure quins són els que ofereixen millors resultats.
 
-Amb textmate es compila femt pometa-R
 
-Ah, i has de deixar una línia en blanc entre dos paràgrafs si vols que surtin separats, sinó anirà a continuació...
+% 
+% \section{Intro}
+% 
+% \subsection{Blablabla}
+% asdfasdf
+% 
+% \subsubsection{Lol}
+% 
+% Amb textmate es compila femt pometa-R
+% 
+% Ah, i has de deixar una línia en blanc entre dos paràgrafs si vols que surtin separats, sinó anirà a continuació...
+% 
+% Negreta: \textbf{text en negreta}
+% 
+% Cursiva: \textbf{Text en cursiva}
 
-Negreta: \textbf{text en negreta}
-
-Cursiva: \textbf{Text en cursiva}
-
-Variable o similar: \codi{x.y}
-
-\begin{lstlisting}[label=compi, caption=Comanda de compilació, language=Java]
-codi
-llarg
-\end{lstlisting}
-
+% Variable o similar: \codi{x.y}
+% 
+% \begin{lstlisting}[label=compi, caption=Comanda de compilació, language=Java]
+% codi
+% llarg
+% \end{lstlisting}
+% 

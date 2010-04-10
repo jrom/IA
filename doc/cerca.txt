@@ -38,7 +38,7 @@ El primer a plantejar-se és què considerem estat en el context del nostre prob
 === Maximització de la similitud de distàncies ===
 
 == Experimentació ==
-
+	
 === Solucions Inicials ===
 	/*Bernat: Ojo, per alguna raó amb les dues solucions inicials s'obtenen els mateixos resultats en Hill Climbing! */
 	
