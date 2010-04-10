@@ -11,6 +11,7 @@ public class SquareBoard
   // Globals and misc
   // Global N value
   public static int N = 20;
+  public static double KH21 = 0.1;
 	public static int K;
 	public static int P;
 
@@ -344,6 +345,10 @@ public class SquareBoard
 	  return h;
 	}
 
+  public double getHeuristic3()
+	{
+	  return getHeuristic1() + KH21 * getHeuristic2();
+	}
 
 	class Parada
 	{

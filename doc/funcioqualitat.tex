@@ -1,1 +1,84 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%!TEX root = document.tex
+
+\section{Definició} % (fold)
+\label{sec:definicio}
+
+Per tal d'avaluar la qualitat d'una solució cal fer un càlcul respecte certs paràmetres de l'estat.
+
+Segons l'enunciat, la qualitat d'una solució ve definida pels següents factors:
+
+\begin{itemize}
+	\item El recorregut total de les rutes ha de ser mínim
+	\item La distància del recorregut entre qualsevol parell de parades ha de ser el més similar possible
+\end{itemize}
+
+En el context del problema, amb el primer factor es pretén estalviar combustible, mentre que amb el segon es pretén crear recorreguts equitatius per viatjar entre quasevol parell de parades de la ciutat.
+
+En termes directament aplicables a la nostra implementació de l'estat això es pot transformar en:
+
+\begin{itemize}
+	\item La suma de les distàncies totals de totes les rutes ha de ser mínima
+	\item La suma de desviacions estàndard de les distancies entre tots els parells de rutes ha de ser mínima
+\end{itemize}
+
+% section definicio (end)
+
+\section{Heurístics} % (fold)
+\label{sec:heuristics}
+
+\subsection{Heurístic 1: Recorregut total de les rutes} % (fold)
+\label{sub:heuristic1}
+
+Per tal d'obtenir aquest valor heurístic, com hem explicat, sumarem les distàncies totals de cada ruta, càlcul que podem fer només consultant per cada ruta un camp on s'emmagatzema aquest valor.
+
+\begin{center}
+	\large
+	\[
+		h_1 = \sum_{i=1}^{K} \sum_{j=1}^{P_{i} - 1} dist(parada_j, parada_{j+1})
+	\]
+\end{center}
+
+On $K$ és el número de rutes, $P_i$ és el número de parades que té la ruta $i$ (incloent origen i final) i $dist(a, b)$ retorna la distància entre la parada $a$ i la $b$ anant en autobús.
+
+% subsection heuristic1 (end)
+
+\subsection{Heurístic 2: Desviació estàndard de distàncies entre parades} % (fold)
+\label{sub:heuristic2}
+
+En aquest cas el que ens interessa és minimitzar la diferència de distàncies entre un parell qualsevol de parades, per tant el que fem és calcular la desviació estàndard de totes les distàncies entre parells de parades. Això ho fem amb la fórmula següent
+
+\begin{center}
+	\large
+	\[
+		h_2 = \sum_{i=1}^{P} \sum_{j=i+1}^{P} \| dist(parada_i, parada_j) - \overline{X} \|
+	\]
+\end{center}
+
+On $P$ és el número total de parades, $dist(a, b)$ retorna la distància entre la parada $a$ i la $b$ anant en autobús i $\overline{X}$ és el promig de totes les distàncies entre parells de parades, calculat així:
+
+\begin{center}
+	\large
+	\[
+		\overline{X} = \dfrac{2}{P^2 - P} \sum_{i=1}^{P} \sum_{j=i+1}^{P} dist(parada_i, parada_j)
+	\]
+\end{center}
+
+
+% subsection heuristic2 (end)
+
+\subsection{Heurístic 3: Combinació dels anteriors} % (fold)
+\label{sub:heuristic3}
+
+Per tal de trobar una solució al problema que potencii els dos paràmetres de qualitat definits, cal provar una funció heurística que combini les dues anteriors. Aquesta combinació s'ha de fer ponderant els valors d'aquestes per tal de compensar el pes d'una i l'altra.
+
+\begin{center}
+	\large
+	\[
+		h_3 = h_1 + k_{h_{21}} \times h_2
+	\]
+\end{center}
+
+Anomenem $k_{h_{21}}$ al valor que utilitzem per ponderar el segon heurístic respecte el primer.
+% subsection heuristic3 (end)
+
+% section heuristics (end)
