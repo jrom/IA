@@ -102,15 +102,15 @@ public class Main
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
 
-    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
-    System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |");
-    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
+    System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |    H3    |");
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
     for(int i = 0; i < stats.size(); i++)
     {
       Exec ex = stats.get(i).stats();
-      System.out.format("| %45s |   %5d | %5d | %5d | %8.2f | %8.2f |\n", stats.get(i).name, ex.elapsed, ex.nodes, ex.steps, ex.h1, ex.h2);
+      System.out.format("| %45s |   %5d | %5d | %5d | %8.2f | %8.2f | %8.2f |\n", stats.get(i).name, ex.elapsed, ex.nodes, ex.steps, ex.h1, ex.h2, ex.h3);
     }
-    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
   }
 
   public static void experimenta(String nom, Problem problem, Search search) throws Exception
@@ -119,7 +119,7 @@ public class Main
     SearchAgent agent;
     long ini, fi;
     int nodes, steps;
-    double h1 = 0.0, h2 = 0.0;
+    double h1 = 0.0, h2 = 0.0, h3 = 0.0;
 
 		System.out.print(nom+" ");
 		for(int i = 0; i < ITER; i++)
@@ -135,14 +135,16 @@ public class Main
       {
         h1 = ((SquareBoard) ((HillClimbingSearch) search).getLastSearchState()).getHeuristic1();
         h2 = ((SquareBoard) ((HillClimbingSearch) search).getLastSearchState()).getHeuristic2();
+        h3 = ((SquareBoard) ((HillClimbingSearch) search).getLastSearchState()).getHeuristic3();
       }
       else if (search.getClass().isInstance(new SimulatedAnnealingSearch()))
       {
         h1 = ((SquareBoard) ((SimulatedAnnealingSearch) search).getLastSearchState()).getHeuristic1();
         h2 = ((SquareBoard) ((SimulatedAnnealingSearch) search).getLastSearchState()).getHeuristic2();
+        h3 = ((SquareBoard) ((SimulatedAnnealingSearch) search).getLastSearchState()).getHeuristic3();
 
       }
-      st.add(nodes, steps, h1, h2, (fi-ini));
+      st.add(nodes, steps, h1, h2, h3, (fi-ini));
       System.out.print(("."));
 		}
     stats.add(st);
@@ -177,6 +179,7 @@ public class Main
     int steps;
     double h1;
     double h2;
+    double h3;
     long elapsed;
 
     Exec()
@@ -188,12 +191,13 @@ public class Main
       elapsed = 0;
     }
 
-    Exec(int nodes_, int steps_, double h1_, double h2_, long elapsed_)
+    Exec(int nodes_, int steps_, double h1_, double h2_, double h3_, long elapsed_)
     {
       nodes = nodes_;
       steps = steps_;
       h1 = h1_;
       h2 = h2_;
+      h3 = h3_;
       elapsed = elapsed_;
     }
   }
@@ -208,9 +212,9 @@ public class Main
       name = desc;
     }
 
-    void add(int n, int s, double h1, double h2, long e)
+    void add(int n, int s, double h1, double h2, double h3, long e)
     {
-      Exec ex = new Exec(n,s,h1,h2,e);
+      Exec ex = new Exec(n,s,h1,h2,h3,e);
       execs.add(ex);
     }
 
@@ -223,12 +227,14 @@ public class Main
         ex.steps += execs.get(i).steps;
         ex.h1 += execs.get(i).h1;
         ex.h2 += execs.get(i).h2;
+        ex.h3 += execs.get(i).h3;
         ex.elapsed += execs.get(i).elapsed;
       }
       ex.nodes /= execs.size();
       ex.steps /= execs.size();
       ex.h1 /= execs.size();
       ex.h2 /= execs.size();
+      ex.h3 /= execs.size();
       ex.elapsed /= execs.size();
       return ex;
     }
