@@ -131,7 +131,12 @@ public class SquareBoard
 			numassignades++;
 			ki = (ki + 1) % K;
 		}		
-	}
+		String out;
+		out = "############Solució Inicial 1#############\n";
+		out += "Heuristic 1: " + getHeuristic1() + "\n";
+		out += "Heuristic 2: " + getHeuristic2() + "\n";
+		out += "##########################################";
+		System.out.println(out);	}
 
 	// Solució Inicial Ràpida
 	public void solIni2()
@@ -143,7 +148,12 @@ public class SquareBoard
 			rutes[ki].afegirParada(pi);
 			ki = (ki + 1) % K;
 		}
-
+		String out;
+		out = "############Solució Inicial 2#############\n";
+		out += "Heuristic 1: " + getHeuristic1() + "\n";
+		out += "Heuristic 2: " + getHeuristic2() + "\n";
+		out += "##########################################";
+		System.out.println(out);
 	}
 
 	private int aleatori(int max)

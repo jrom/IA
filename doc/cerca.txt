@@ -38,7 +38,10 @@ El primer a plantejar-se és què considerem estat en el context del nostre prob
 
 == Experimentació ==
 
-=== Paràmetres Simulated Annealing ===
+=== Configuracions inicials per Hill Climbing ===
+			(Random Restarting Hill Climbing)
+	
+=== Paràmetres funció d'energia del Simulated Annealing ===
 === Aplicació dels heurístics ===
 
 ===[ALTRES]===

@@ -36,26 +36,26 @@ public class Main
 
     // Heuristic 1
     // Hill Climbing
-		experimenta("Hill Climbing - Heu 1",
+		experimenta("Hill Climbing - Heu 1 - Ini 1",
                 problem1,
                 new HillClimbingSearch());
 
 
 		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 1",
+    experimenta("Simulated Annealing - Heu 1 - Ini 1",
                 problem1,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
 
     // Heuristic 2
     // Hill Climbing
-		experimenta("Hill Climbing - Heu 2",
+		experimenta("Hill Climbing - Heu 2 - Ini 1",
                 problem2,
                 new HillClimbingSearch());
 
 
 		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 2",
+    experimenta("Simulated Annealing - Heu 2 - Ini 1",
                 problem2,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
