@@ -60,6 +60,10 @@ public class Main
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
                 
+
+
+    // Ara amb sol ini 2
+    board.solIni2();
     // Heuristic 1
     problem1 = new Problem(board,
                           new SquareSuccessorFunction(),
@@ -97,9 +101,6 @@ public class Main
                 problem2,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
-                
-    board = new SquareBoard(8, 20);
-    board.solIni2();
 
     System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+");
     System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |");
