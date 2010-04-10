@@ -1,0 +1,46 @@
+= Pràctica de Cerca Local = 
+
+
+== Introducció ==
+
+En aquesta pràctica es planteja optimitzar l'organització de les rutes d'autobús del poble de Squaretown. Es tracta d'una ciutat urbanitzada de forma reticular quadrada (quadrícula de 20 x 20). Per facilitar l'anàlisis del problema, i sense pèrdua de generalitat, d'ara en endavant parlarem d'un taulell quadrat, amb files, columnes i caselles. Es dóna la ubicació fixa de les dues úniques cotxeres d'autobusos que hi haurà disponibles, d'on unívocament començarà o acabarà qualsevol ruta. Aquestes es troben a les caselles (1,1) i (19,19). La nostra primera decisió consisteix en determinar que la generació de rutes es farà sempre des de la cotxera (1,1) a la (19,19). Òbviament, per qualsevol escenari real això seria fàcilment canviable paramètricament.
+
+El problema plantejat és definir K ∈ {2-10} rutes d'autobús que connecten P ∈ {10-50} parades obtingudes aleatòriament. Tenim dos criteris a optimitzar. El primer és la minimització del recorregut total de les rutes. El segon és la maximització de la similitud de les distàncies entre parades.
+
+Una restricció addicional (i opcional) assenyala que totes les rutes tinguin almenys p / (2 x k) parades.
+
+Els algoritmes que usarem per realitzar aquests càlculs són el Hill Climbing i el Simulated Annealing. Amb ells haurem d'experimentar movent paràmetres, usant diferents configuracions inicials, aplicant o traient restriccions i provant els diferents heurístics per veure quin ofereix millors resultats.
+
+
+== Representació de l'estat ==
+
+El primer a plantejar-se és què considerem estat en el context del nostre problema. Un estat és qualsevol configuració vàlida de parades en rutes (solució candidata), recordem que qualsevol problema en Cerca Local es mou sempre dins l'espai de solucions i no en l'espai de tots els possibles camins. En el nostre context, una configuració vàlida compleix que totes les rutes comencen per la casella (1,1) i acaben a la (19, 19). A més, cal tenen almenys una parada assignada i, en el cas d'aplicació de la restricció addicional, cada ruta té almenys p / (2 x k) parades.
+
+=== Espai de cerca ===
+
+=== Estructures de dades ===
+
+
+== Generació de l'estat inicial ==
+
+=== Solució inicial aleatòria ===
+=== Solució inicial de qualitat ===
+
+== Operadors ==
+
+=== Operador Moure Parada ===
+=== Operador Canviar ruta ===
+
+== Funció de qualitat ==
+
+=== Minimització del recorregut total ===
+=== Maximització de la similitud de distàncies ===
+
+== Experimentació ==
+
+=== Paràmetres Simulated Annealing ===
+=== Aplicació dels heurístics ===
+
+===[ALTRES]===
+
+== Conclusions obtingudes ==
