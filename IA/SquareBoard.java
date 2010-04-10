@@ -26,7 +26,7 @@ public class SquareBoard
 		this.P = p;
 		rutes = new Ruta[K];
 		parades = new Parada[P];
-		crearParadesFixades();
+		crearParades();
 		for (i = 0; i < K; i++)
 			rutes[i] = new Ruta(i);
 
@@ -92,6 +92,15 @@ public class SquareBoard
 				j = 0;
 			}
 	}
+	
+	public void delRutes()
+	{
+	  for(int i = 0; i < K; i++)
+	    rutes[i] = new Ruta(i);
+
+    for(int i = 0; i < P; i++)
+	    parades[i].ruta = -1;
+	}
 
 	// Solució Inicial Bona
 	public void solIni1()
@@ -102,42 +111,31 @@ public class SquareBoard
 		int numassignades = 0;
 		int currentdist = 0;
 		int mindist = Integer.MAX_VALUE;
-		
+
+    //MOLT IMPORTANT: Esborra qualsevol ruta que hi hagi pogut haver... 
+		delRutes();
+
 		for (pi = 0; pi < P; pi++) assignades[pi] = false; // Inicialitzem vector d'assignades
-		
-		for (ki = 0; ki < K; ki++) // Afegeixo una primera parada a totes les rutes
-		{
-			for (pi = 0; pi < P; pi++) 
-			{
-					if(!assignades[pi])
-					{
-						currentdist = (new Parada(0, 0, -1)).distParadaFisica(parades[pi]);	
-						if(currentdist < mindist)
-						{
-							mindist = currentdist;
-							paradaActual[ki] = pi;
-						}
-					}
-			}
-			
-			mindist = Integer.MAX_VALUE;
-			rutes[ki].afegirParada(paradaActual[ki]);
-			assignades[paradaActual[ki]] = true;
-			numassignades++;	
-		}
-		
-		ki = 0;
-		mindist = Integer.MAX_VALUE;
-		currentdist = 0;
-		
-		while(numassignades < P) // Afegeixo la resta de parades
+		for (ki = 0; ki < K; ki++) paradaActual[ki] = -1; // Inicialitzem vector de parades actuals..
+
+
+		for(ki = 0; numassignades < P; numassignades++, ki = (ki + 1) % K) // Afegeixo la resta de parades
 		{	
 			for (pi = 0; pi < P; pi++)
 			{
 				if(!assignades[pi] && pi != paradaActual[ki])
 				{
-					currentdist = parades[paradaActual[ki]].distParadaFisica(new Parada(19, 19, -1)); // Distància amb parada fi
-					currentdist += parades[paradaActual[ki]].distParadaFisica(parades[pi]); // + Distància amb nova parada qualsevol
+          // Aixo nomes ho fem si ja estem per la segona o més rondes de rutes... en la primera no ho fem perque no hi ha paradaActual
+					if (ki >= K)
+					{
+					  currentdist = parades[paradaActual[ki]].distParadaFisica(new Parada(19, 19, -1)); // Distància amb parada fi
+            currentdist += parades[paradaActual[ki]].distParadaFisica(parades[pi]); // + Distància amb nova parada qualsevol
+					}
+					else
+					{
+					  currentdist = (new Parada(0, 0, -1)).distParadaFisica(parades[pi]);	
+					}
+
 					if(currentdist < mindist) // En cas que sigui mínim l'assignem a la ruta
 					{
 						mindist = currentdist;
@@ -145,14 +143,11 @@ public class SquareBoard
 					}
 				}
 			}
-			
-			currentdist = 0;
 			mindist = Integer.MAX_VALUE;
 			rutes[ki].afegirParada(paradaActual[ki]);
 			assignades[paradaActual[ki]] = true;
-			numassignades++;
-			ki = (ki + 1) % K;
 		}		
+
 		String out;
 		out = "############Solució Inicial 1#############\n";
 		out += "Heuristic 1: " + getHeuristic1() + "\n";
@@ -165,11 +160,16 @@ public class SquareBoard
 	{
 		int pi, ki;
 		ki = 0;
+
+		//MOLT IMPORTANT: Esborra qualsevol ruta que hi hagi pogut haver... 
+    delRutes();
+
 		for (pi = 0; pi < P; pi++)
 		{
 			rutes[ki].afegirParada(pi);
 			ki = (ki + 1) % K;
 		}
+
 		String out;
 		out = "############Solució Inicial 2#############\n";
 		out += "Heuristic 1: " + getHeuristic1() + "\n";
