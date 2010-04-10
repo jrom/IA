@@ -25,6 +25,7 @@ El primer a plantejar-se és què considerem estat en el context del nostre prob
 
 === Solució inicial aleatòria ===
 === Solució inicial de qualitat ===
+	 /*Bernat: Ojo! No se m'ha acudit cap possible solució inicial bona pel segon heurístic. */
 
 == Operadors ==
 
@@ -38,11 +39,17 @@ El primer a plantejar-se és què considerem estat en el context del nostre prob
 
 == Experimentació ==
 
-=== Configuracions inicials per Hill Climbing ===
+=== Solucions Inicials ===
+	/*Bernat: Ojo, per alguna raó amb les dues solucions inicials s'obtenen els mateixos resultats en Hill Climbing! */
+	
+=== Configuracions inicials de Hill Climbing ===
 			(Random Restarting Hill Climbing)
 	
 === Paràmetres funció d'energia del Simulated Annealing ===
-=== Aplicació dels heurístics ===
+=== Aplicació dels diferents heurístics ===
+
+	/* Com perjudica l'aplicació d'un sobre l'altre
+		Combinació d'ambdós */
 
 ===[ALTRES]===
 

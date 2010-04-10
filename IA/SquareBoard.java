@@ -26,7 +26,7 @@ public class SquareBoard
 		this.P = p;
 		rutes = new Ruta[K];
 		parades = new Parada[P];
-		crearParades();
+		crearParadesFixades();
 		for (i = 0; i < K; i++)
 			rutes[i] = new Ruta(i);
 
@@ -69,6 +69,28 @@ public class SquareBoard
 			}
 			parades[i] = new Parada(x,y, i);
 		}
+	}
+	
+	private void crearParadesFixades() 
+	{
+			int x,y, i;
+			int j = 0;
+			for (i=0; i<P; i++)
+				parades[i] = new Parada(-1,-1,-1);
+
+			for (i=0; i<P; i++)
+			{
+				x = (Integer)(i * 4025 / 345) % N;
+				y = (Integer)(i * 6043 / 245) % N;
+				while (paradaOcupada(x,y))
+				{
+					j = j + i + 1;
+					x = (Integer)(j * 4025 / 345) % N;
+					y = (Integer)(j * 6043 / 245) % N;
+				}
+				parades[i] = new Parada(x,y, i);
+				j = 0;
+			}
 	}
 
 	// Solució Inicial Bona
