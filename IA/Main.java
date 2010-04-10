@@ -20,7 +20,7 @@ public class Main
   {
     SquareBoard board = new SquareBoard(5, 20);
     board.solIni1();
-    Problem problem1, problem2;
+    Problem problem1, problem2, problem3;
 
     // Heuristic 1
     problem1 = new Problem(board,
@@ -33,6 +33,13 @@ public class Main
                           new SquareSuccessorFunction(),
                           new SquareGoalTest(),
                           new SquareHeuristicDistSemblant());
+
+      // Heuristic 3
+      problem3 = new Problem(board,
+                            new SquareSuccessorFunction(),
+                            new SquareGoalTest(),
+                            new SquareHeuristicComb());
+
 
     // Heuristic 1
     // Hill Climbing
@@ -59,7 +66,20 @@ public class Main
                 problem2,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
-                
+
+
+    // Heuristic 3
+    // Hill Climbing
+		experimenta("Hill Climbing - Heu 3 - Ini 1",
+                problem3,
+                new HillClimbingSearch());
+
+
+		// Simulated Annealing
+    experimenta("Simulated Annealing - Heu 3 - Ini 1",
+                problem3,
+                new SimulatedAnnealingSearch(5000,100,50,0.01)
+                );
 
 
     // Ara amb sol ini 2
@@ -75,6 +95,12 @@ public class Main
                           new SquareSuccessorFunction(),
                           new SquareGoalTest(),
                           new SquareHeuristicDistSemblant());
+                          
+    // Heuristic 2
+    problem3 = new Problem(board,
+                          new SquareSuccessorFunction(),
+                          new SquareGoalTest(),
+                          new SquareHeuristicComb());
 
     // Heuristic 1
     // Hill Climbing
@@ -101,6 +127,20 @@ public class Main
                 problem2,
                 new SimulatedAnnealingSearch(5000,100,50,0.01)
                 );
+                
+    // Heuristic 3
+    // Hill Climbing
+		experimenta("Hill Climbing - Heu 3 - Ini 2",
+                problem3,
+                new HillClimbingSearch());
+
+
+		// Simulated Annealing
+    experimenta("Simulated Annealing - Heu 3 - Ini 2",
+                problem3,
+                new SimulatedAnnealingSearch(5000,100,50,0.01)
+                );
+
 
     System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
     System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |    H3    |");
