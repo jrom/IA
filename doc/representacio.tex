@@ -6,24 +6,25 @@ Un estat és qualsevol configuració vàlida (o solució candidata) de rutes, re
 
 Definim una configuració com a vàlida quan compleix que totes les rutes comencen per la casella (1,1) i acaben a la (19, 19). A més, totes tenen almenys una parada assignada i, en el cas d'aplicació de la restricció addicional, cada ruta té almenys p / (2 x k) parades.
 
-\subsubsection{Espai de cerca}
+\subsubsection{Espai de cerca} % (fold)
+\label{sec:espaicerca}
 
 L'espai de cerca és molt gran tenint en compte la quantitat de combinacions possibles que es poden donar. Precisament per això, s'encara el problema mitjançant una estratègia de cerca local, que omet gran part de l'espai de cerca. En general, l'espai de cerca s'obté recorrent totes les possibles permutacions de parades dins d'una mateixa ruta per cada configuració nova de parades de la ruta. Això és així, evidentment, sempre que la nova configuració sigui un estat vàlid. 
 
-Es pot comprovar que l'espai de cerca creix exponencialment segons els paràmetres P i K. En particular, és de l'ordre següent:
+Es pot comprovar que l'espai de cerca creix ràpidament segons els paràmetres P i K. En particular, és de l'ordre següent:
 
 \begin{center}
 \Large{$\Theta(C_{p}^{k} P(P)) = \Theta({P \choose K} P!) = \Theta(\frac{P!P!}{K!(P-K)!}) $}
 \end{center}
 
 
-En el cas d'aplicar la restricció addicional, és redueix a 
+En el cas d'aplicar la restricció addicional, el cost es redueix a:
 
 \begin{center}
 \Large{$\Theta(\frac{C_{p}^{k} P(P) 2K}{P}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
 \end{center}
 
-\subsubsection{Estructures de dades}	
+\subsubsection{Estructures de dades}	% (fold)
 
 Per emmagatzemar l'estat hem dissenyat les següents estructures de dades.
 
@@ -43,7 +44,7 @@ Ambdós mètodes calculen sempre la distància mínima, ja que la minimització 
 
 \textbf{Ruta}
 
-Una ruta consta principalment d'un vector de parades (en particular, emmagatzemem tant sols l'identificador de les parades d'aquella ruta). L'algorisme que implementa la nostra solució farà variar aquestes parades fins trobar l'òptim local entre totes les rutes. Per ajudar en l'implementació, les rutes també contenen la informació del seu nombre de parades i la seva distància (el mètode calcularDist() s'encarrega de calcular-la després de l'aplicació d'un operador).
+Una ruta consta principalment d'un vector de parades (en particular, emmagatzemem tant sols l'identificador de les parades d'aquella ruta). L'algorisme que implementa la nostra solució farà variar aquestes parades fins trobar l'òptim local entre totes les rutes. Per ajudar en l'implementació, les rutes també contenen la informació del seu nombre de parades i la seva distància (el mètode \textbf{calcularDist()} s'encarrega de calcular-la després de l'aplicació d'un operador).
 
 Dins de la classe Ruta s'implementen també els operadors, dels quals es parlarà més endavant.
 
