@@ -1,7 +1,26 @@
 %!TEX root = ../document.tex
 
-\section{Cerca del paràmetre de ponderació dels heurístics} % (fold)
-\label{sec:expkh}
+Com que volem una funció heurística que combini els dos paràmetres de qualitat esmentats (apartat ~\ref{sub:heuristic3}
+), cal saber com conbinar-los. 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-% section expkh (end)
+Per tal de calcular una constant de ponderació $k_{h_{21}}$ hem realitzat un experiment que consisteix en observar el valor dels heurístics 1 (recorregut total de les rutes) i 2 (distància entre rutes homogènia) depenent de com els ponderéssim, i evidentment fent que l'algorisme intenti minimitzar la combinació d'ambdós.
+
+Hem utilitzat els paràmetres que han donat millor solucions fins al moment per dur a terme aquest experiment, o sigui:
+\begin{itemize}
+	\item La solució inicial de qualitat
+	\item L'algorisme de Simulated Annealing amb els paràmetres trobats a l'apartat ~\ref{sec:expSA}
+	\item Tots els valors de ponderació entre $0.1$ i $1.0$
+\end{itemize}
+
+La fórmula per ponderar els heurístics $h_1$ i $h_2$ és la següent:
+
+\begin{center}
+	\large
+	\[
+		h_3 = (1 - k_{h_{21}}) \times h_1 + k_{h_{21}} \times h_2
+	\]
+\end{center}
+
+\imatge{images/gkh.png}{Valor dels heurístics 1 i 2 amb diferents ponderacions}
+
+Es pot observar a la figura ~\ref{fig:{images/gkh.png}} que com és d'esperar l'heurístic 1 comença oferint un resultat pobre (un valor alt) ja que no se l'està tenint gens en compte, i acaba per estabilitzar-se amb valors de $k_{h_{21}} \in \{ 0.5 .. 0.9\}$. Per altra banda l'heurístic 2 mostra millor resultats amb els valors mitjos, on els dos heurístics es combinen paritàriament. Per això s'ha fixat per a la resta de proves que el valor ideal de $k_{h_{21}}$ sigui \textbf{0.5}.

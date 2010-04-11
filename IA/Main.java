@@ -161,15 +161,15 @@ public class Main
       experimenta("Provant KH = "+kh, problem3, new SimulatedAnnealingSearch(5000,100,50,0.01));
     }
     printStats(stats);
+		}
 	}
 
-  }
-
+  	
 	
 	public static void mainBernat(int experiment) throws Exception
 	{
 		if(experiment == 1)
-	{
+		{
 			System.out.println("Experiment Hill Climbing amb reinici aleatori");
 			SquareBoard board = new SquareBoard(5, 20);
 
