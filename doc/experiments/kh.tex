@@ -1,7 +1,4 @@
 %!TEX root = ../document.tex
-\newpage
-\section{Cerca del paràmetre de ponderació dels heurístics} % (fold)
-\label{sec:expkh}
 
 Com que volem una funció heurística que combini els dos paràmetres de qualitat esmentats (apartat ~\ref{sub:heuristic3}
 ), cal saber com conbinar-los. 
@@ -27,4 +24,3 @@ La fórmula per ponderar els heurístics $h_1$ i $h_2$ és la següent:
 \imatge{images/gkh.png}{Valor dels heurístics 1 i 2 amb diferents ponderacions}
 
 Es pot observar a la figura ~\ref{fig:{images/gkh.png}} que com és d'esperar l'heurístic 1 comença oferint un resultat pobre (un valor alt) ja que no se l'està tenint gens en compte, i acaba per estabilitzar-se amb valors de $k_{h_{21}} \in \{ 0.5 .. 0.9\}$. Per altra banda l'heurístic 2 mostra millor resultats amb els valors mitjos, on els dos heurístics es combinen paritàriament. Per això s'ha fixat per a la resta de proves que el valor ideal de $k_{h_{21}}$ sigui \textbf{0.5}.
-% section expkh (end)
