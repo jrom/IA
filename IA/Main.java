@@ -153,7 +153,7 @@ public class Main
     System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
   }
 
-  public static void experimenta(String nom, Problem problem, Search search) throws Exception
+  public static Stats experimenta(String nom, Problem problem, Search search) throws Exception
   {
     Stats st = new Stats(nom);
     SearchAgent agent;
@@ -189,6 +189,7 @@ public class Main
 		}
     stats.add(st);
 		System.out.println("");
+		return st;
   }
   
   
