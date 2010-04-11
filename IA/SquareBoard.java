@@ -104,7 +104,7 @@ public class SquareBoard
 	}
 
 	// Solució Inicial Bona
-	public void solIni1()
+	public String solIni1()
 	{
 		int pi, ki;
 		int[] paradaActual = new int[K]; // Parada Actual per cada ruta
@@ -150,14 +150,15 @@ public class SquareBoard
 		}		
 
 		String out;
-		out = "############Solució Inicial 1#############\n";
-		out += "Heuristic 1: " + getHeuristic1() + "\n";
-		out += "Heuristic 2: " + getHeuristic2() + "\n";
-		out += "##########################################";
-		System.out.println(out);	}
+			out = "############Solució Inicial 1#############\n";
+			out += "Heuristic 1: " + getHeuristic1() + "\n";
+			out += "Heuristic 2: " + getHeuristic2() + "\n";
+			out += "##########################################";
+		return out;
+	}
 
 	// Solució Inicial Ràpida
-	public void solIni2()
+	public String solIni2()
 	{
 		int pi, ki;
 		ki = 0;
@@ -172,15 +173,15 @@ public class SquareBoard
 		}
 
 		String out;
-		out = "############Solució Inicial 2#############\n";
-		out += "Heuristic 1: " + getHeuristic1() + "\n";
-		out += "Heuristic 2: " + getHeuristic2() + "\n";
-		out += "##########################################";
-		System.out.println(out);
+			out = "############Solució Inicial 2#############\n";
+			out += "Heuristic 1: " + getHeuristic1() + "\n";
+			out += "Heuristic 2: " + getHeuristic2() + "\n";
+			out += "##########################################";
+		return out;
 	}
 	
 	// Solució inicial completament aleatòria
-	public void solIni3()
+	public String solIni3()
 	{
 		int ki = 0;
 		int pi = 0;
@@ -205,12 +206,12 @@ public class SquareBoard
 			if (numassignades >= K) ki = (ki + 1) % K;
 		}
 
-		// String out;
-		// 	out = "############Solució Inicial 3#############\n";
-		// 	out += "Heuristic 1: " + getHeuristic1() + "\n";
-		// 	out += "Heuristic 2: " + getHeuristic2() + "\n";
-		// 	out += "##########################################";
-		// 	System.out.println(out);
+		String out;
+			out = "############Solució Inicial 3#############\n";
+			out += "Heuristic 1: " + getHeuristic1() + "\n";
+			out += "Heuristic 2: " + getHeuristic2() + "\n";
+			out += "##########################################";
+		return out;
 	}
 
 	private int aleatori(int max)

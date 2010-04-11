@@ -1,3 +1,15 @@
 %!TEX root = ../document.tex
 
-¿Como varia la dificultad del problema dependiendo del número de rutas que se quieren obtener? Usad solo la heurística que minimiza el recorrido total.
+
+Per comprovar com afecta el número de rutes en la dificultat del problema hem aplicat 10 vegades els algorismes de Hill Climbing i Simulated Annealing sobre una configuració inicial aleatòria de 30 parades i n'hem obtingut la mitjana. Els resultats es mostren als següents gràfics (que han estat normalitzats).
+
+\imatge{images/HC_K.png}{Heurístic 1, temps d'execució (\emph{elapsed}) i passos (\emph{steps}) de l'algorisme Hill Climbing en funció de K.} 
+
+En el gràfic de la Figura ~\ref{fig:{images/HC_K.png}} es pot comprovar com evolucionen els paràmetres en l'algorisme de Hill Climbing a mesura que va augmentant el nombre de rutes (K). La primera observació és el pic del temps d'execució de l'algorisme quan la K és 2 (es troba en l'ordre de 30 u.t.) i es redueix progressivament a partir de 3 fins mantenir-se estable per la resta de valors de K. Els passos de l'algorisme canvien relativament poc (es mouen en l'interval de 10 a 15) i el seu màxim es troba en la K = 5, que realitza 15 passos. El recorregut de les rutes (Heurístic 1) augmenta progressivament a mesura que la K augmenta, del qual se'n dedueix que li resulta més fàcil a l'algoritme trobar valors millors quan es tenen menys rutes.
+
+
+\imatge{images/SA_K.png}{Heurístic 1, temps d'execució (\emph{elapsed}) i passos (\emph{steps}) de l'algorisme Simulated Annealing en funció de K.}  
+
+En el cas del Simulated Annealing (Figura ~\ref{fig:{images/SA_K.png}}), s'observa altre cop un pic en el temps d'execució de l'algorisme per K = 2 (en particular 4344 u.t.). El temps d'execució baixa progressivament fins que veu el seu mínim en K = 5 (3094 u.t.) i torna a pujar fins quasi 5000 u.t. per K = 10. Els passos segueixen més o menys el mateix patró de creixement que el temps d'execució. El recorregut de les rutes, però, creix igual que el Hill Climbing progressivament a mesura que s'afegeixen més rutes al problema. Tanmateix, per qualsevol K, sempre millora el valor de l'algorisme de Hill Climbing per un valor entre 75 i 125.
+
+Així doncs, s'extreu com a conclusió que la K augmenta la dificultat del problema en ambdós casos i empitjora els resultats en els dos algorismes, tot i que el temps d'execució augmenta de forma més evident en el Simulated Annealing.

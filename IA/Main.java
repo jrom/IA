@@ -13,17 +13,17 @@ import aima.search.informed.SimulatedAnnealingSearch;
 
 public class Main
 {
-  public static int ITER = 2;
+  public static int ITER = 5;
   static ArrayList<Stats> stats = new ArrayList<Stats>();
 	public static boolean bernat = true; // Activen els experiments del Bernat -> ja ho canviarem!
 	
   public static void main (String[] args) throws Exception
   {
-		if(bernat) mainBernat(1);
+		if(bernat) mainBernat(2);
 		else 
 		{
       SquareBoard board = new SquareBoard(5, 20);
-      board.solIni1();
+      System.out.println(board.solIni1());
       Problem problem1, problem2, problem3;
 
       // Heuristic 1
@@ -196,7 +196,8 @@ public class Main
 		{
 			System.out.println("Experiment Hill Climbing amb reinici aleatori");
 			SquareBoard board = new SquareBoard(5, 20);
-
+			
+			String out;
 			Stats s;
 			Problem problem1;
 			
@@ -216,7 +217,7 @@ public class Main
 				for (int i = 0;i < 50; i++)
 				{
 			
-					  board.solIni3();
+					  out = board.solIni3();
 						problem1 = new Problem(board,                        
 						                         new SquareSuccessorFunction(),
 						                         new SquareGoalTest(),        
@@ -224,7 +225,11 @@ public class Main
 						s = experimenta("Hill Climbing random restart",                          
 			    	            problem1,                                 
 			    	            new HillClimbingSearch());                
-						if (s.stats().h1 < minim) minim = s.stats().h1;
+						if (s.stats().h1 < minim) 
+						{
+							minim = s.stats().h1;
+							if (i==49) System.out.println("It" + k + " " + out);
+						}
 				}
 
 
@@ -242,7 +247,7 @@ public class Main
 				
 				
 			
-			  board.solIni1();
+			  System.out.println(board.solIni1());
 				problem1 = new Problem(board,                        
 				                         new SquareSuccessorFunction(),
 				                         new SquareGoalTest(),        
@@ -254,7 +259,7 @@ public class Main
 		
 		
 		
-			  board.solIni2();	
+			 System.out.println(board.solIni1());
 				problem1 = new Problem(board,                        
 				                         new SquareSuccessorFunction(),
 				                         new SquareGoalTest(),        
@@ -265,7 +270,7 @@ public class Main
 				h1ini2sa += s.stats().h1;
 				
 
-			  board.solIni2();				
+			  System.out.println(board.solIni2());				
 				problem1 = new Problem(board,                        
 				                         new SquareSuccessorFunction(),
 				                         new SquareGoalTest(),        
@@ -276,7 +281,7 @@ public class Main
 				h1ini2 += s.stats().h1;
 				
 
-			  board.solIni3();
+			  System.out.println(board.solIni3());
 				problem1 = new Problem(board,                        
 				                         new SquareSuccessorFunction(),
 				                         new SquareGoalTest(),        
@@ -287,7 +292,7 @@ public class Main
 				h1ini3sa += s.stats().h1;
 				
 				
-			  board.solIni3();			
+			  System.out.println(board.solIni3());	
 				problem1 = new Problem(board,                        
 				                         new SquareSuccessorFunction(),
 				                         new SquareGoalTest(),        
@@ -297,18 +302,41 @@ public class Main
 												new HillClimbingSearch());
 				h1ini32 += s.stats().h1;
 			}
-			
-			System.out.println("H1 amb solIni1 x 10: " + h1ini1/10);
-			System.out.println("H1 amb solIni2 x 10: " + h1ini2/10);
-			System.out.println("H1 amb solIni3 x 10: " + h1ini32/10);			
+			System.out.println"(*************** Valors H1 *****************");
+			System.out.println("HC amb solIni1 x 10: " + h1ini1/10);
+			System.out.println("HC amb solIni2 x 10: " + h1ini2/10);
+			System.out.println("HC amb solIni3 x 10: " + h1ini32/10);			
 			System.out.println("SA amb solIni1 x 10: " + h1ini1sa/10);
 			System.out.println("SA amb solIni2 x 10: " + h1ini2sa/10);
 			System.out.println("SA amb solIni3 x 10: " + h1ini3sa/10);
-			System.out.println("Valor Mínim 50 execucions HC - RandomRestart x 10: " + h1ini3/10);
+			System.out.println("Valor Mínim 50 execucions HCRR amb solIni3 x 10: " + h1ini3/10);
 		} else if(experiment == 2)
 		{
+			Stats s;
 			
-			
+			for (int k = 2; k <= 10; k++)
+			{
+					SquareBoard board = new SquareBoard(k, 30);
+					System.out.println("====================== K = " + k + " ======================");
+		      board.solIni2();
+		      Problem problem1;
+					problem1 = new Problem(board,                        
+					                         new SquareSuccessorFunction(),
+					                         new SquareGoalTest(),        
+					                         new SquareHeuristicDistTotal());
+					s = experimenta("",
+													problem1,	
+													new HillClimbingSearch());
+					System.out.println("HC: Steps=" + s.stats().steps + " Elapsed=" + s.stats().elapsed + " H1=" + s.stats().h1 + " Nodes=" + s.stats().nodes);
+					board.solIni1();
+					s = experimenta("",
+													problem1,
+													new SimulatedAnnealingSearch(5500,150,50,0.01));
+					System.out.println("SA: Steps=" + s.stats().steps + " Elapsed=" + s.stats().elapsed + " H1=" + s.stats().h1 + " Nodes=" + s.stats().nodes);
+				
+			}
+		
+		
 			
 		}
 
