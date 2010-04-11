@@ -9,44 +9,13 @@ Els experiments a fer són els següents:
 
 \section{Influència de les solucions inicials} % (fold)
 \label{sec:expsolini}
-
-	¿Tiene alguna influencia la solución inicial en la calidad de la solució final? Usad solo
-	la heurística que minimiza el recorrido total.
-
-Dues configuracions diferents de parades:
-
-\begin{verbatim}
-	+-----------------------------+---------+----------+
-	|                 Experiment  | Elapsed |    H1    |
-	+-----------------------------+---------+----------+
-	|       Hill Climbing - Ini 1 |       6 |   230,00 |
-	| Simulated Annealing - Ini 1 |    1266 |   226,00 |
-	|       Hill Climbing - Ini 2 |       0 |   318,00 |
-	| Simulated Annealing - Ini 2 |    1096 |   212,80 |
-	+-----------------------------+---------+----------+
-\end{verbatim}
-	
-	Quan s'aplica la solució de qualitat l'algorisme de Hill Climbing ofereix resultats un 36\% més bons. L'algorisme de Simulated Annealing, en canvi, no ofereix millors resultats. Per quèe??????
-	
-\begin{verbatim}
-	+-----------------------------+---------+----------+
-	|                 Experiment  | Elapsed |    H1    |
-	+-----------------------------+---------+----------+
-	|       Hill Climbing - Ini 1 |      15 |   282,00 |
-	| Simulated Annealing - Ini 1 |    1277 |   249,20 |
-	|       Hill Climbing - Ini 2 |       4 |   246,00 |
-	| Simulated Annealing - Ini 2 |    1137 |   247,20 |
-	+-----------------------------+---------+----------+
-\end{verbatim}	
-	
-	-> Provar el "Random Restarting Hill Climbing": Consisteix en quedar-se amb el mínim (no la mitjana) dels resultats obtinguts mitjançant l'aplicació de la solució inicial aleatòria.
+\input{experiments/SI}
 	
 % section expsolini (end)
 
 \section{Com varia la dificultat del problema en funció de K?} % (fold)
 \label{sec:expk}
-
-¿Como varia la dificultad del problema dependiendo del número de rutas que se quieren obtener? Usad solo la heurística que minimiza el recorrido total.
+\input{experiments/EK}
 
 % section expk (end)
 
