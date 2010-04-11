@@ -10,16 +10,10 @@ Aquesta solució (mètode anomenat \textbf{solIni2}) té com a prioritat la rapi
 
 Aquesta solució (mètode anomenat \textbf{solIni1}), en canvi, intenta ser bona d'entrada amb l'esperança que facilitarà als algoritmes de cerca local arribar a un bon òptim local o bé a l'òptim global. Per fer-ho, la solució incorpora coneixement del problema a minimitzar. 
 
-En concret, el procediment consisteix en anar afegint a cada ruta la parada més propera a l'última parada afegida i, a la vegada, més propera a la parada final. Aquesta última restricció evita que apareguin \emph{recorreguts en cercle} (veure gràfics 1 i 2). Aquestes comprovacions faciliten que la solució obtinguda segueixi el primer criteri a optimitzar (minimitzar el recorregut de les rutes), però no garanteixen explícitament millores pel que fa al segon criteri. Tanmateix, pel fet d'escollir sempre les distàncies menors entre parades estarem també reduint la diferència de la separació entre parades (que altrament seria aleatòria), així que també oferirà millors resultats pel que fa al compliment del segon criteri a optimitzar (minimitzar diferència entre separació de parades) respecte a la solució aleatòria.
+En concret, el procediment consisteix en anar afegint a cada ruta la parada més propera a l'última parada afegida i, a la vegada, més propera a la parada final. Aquesta última restricció evita que apareguin \emph{recorreguts en cercle} (veure figures 3.1 i 3.2). Aquestes comprovacions faciliten que la solució obtinguda segueixi el primer criteri a optimitzar (minimitzar el recorregut de les rutes), però no garanteixen explícitament millores pel que fa al segon criteri. Tanmateix, pel fet d'escollir sempre les distàncies menors entre parades estarem també reduint la diferència de la separació entre parades (que altrament seria aleatòria), així que també oferirà millors resultats pel que fa al compliment del segon criteri a optimitzar (minimitzar diferència entre separació de parades) respecte a la solució aleatòria.
 
 En definitiva, aquest algorisme ofereix una solució raonablement bona amb un cost de l'ordre $\Theta(K * P)$.
 
-\graphicspath{{./images}}
+\imatgePetita{images/grafic_sense_control_final.png}{No es té en compte la distància entre la parada candidata i el final, les solucions poden caure en recorreguts en cercle.}
 
-\includegraphics{grafic_sense_control_final.jpg}
-
-Gràfic 1: No es té en compte la distància entre la parada candidata i el final, les solucions poden caure en recorreguts en cercle.
-
-\includegraphics{grafic_amb_control_final.jpg}
-
-Gràfic 2: Es tenen en compte ambdues distàncies, el problema desapareix.
+\imatgePetita{images/grafic_amb_control_final.png} {Es tenen en compte ambdues distàncies, el problema desapareix.}
