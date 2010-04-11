@@ -365,7 +365,7 @@ public class Main
 												new HillClimbingSearch());
 				h1ini32 += s.stats().h1;
 			}
-			System.out.println"(*************** Valors H1 *****************");
+			System.out.println("*************** Valors H1 *****************");
 			System.out.println("HC amb solIni1 x 10: " + h1ini1/10);
 			System.out.println("HC amb solIni2 x 10: " + h1ini2/10);
 			System.out.println("HC amb solIni3 x 10: " + h1ini32/10);			
