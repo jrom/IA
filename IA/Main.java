@@ -22,151 +22,175 @@ public class Main
 		if(bernat) mainBernat(1);
 		else 
 		{
-			
-			
-    SquareBoard board = new SquareBoard(5, 20);
-    board.solIni1();
-    Problem problem1, problem2, problem3;
+      SquareBoard board = new SquareBoard(5, 20);
+      board.solIni1();
+      Problem problem1, problem2, problem3;
 
-    // Heuristic 1
-    problem1 = new Problem(board,
-                          new SquareSuccessorFunction(),
-                          new SquareGoalTest(),
-                          new SquareHeuristicDistTotal());
-
-    // Heuristic 2
-    problem2 = new Problem(board,
-                          new SquareSuccessorFunction(),
-                          new SquareGoalTest(),
-                          new SquareHeuristicDistSemblant());
-
-      // Heuristic 3
-      problem3 = new Problem(board,
+      // Heuristic 1
+      problem1 = new Problem(board,
                             new SquareSuccessorFunction(),
                             new SquareGoalTest(),
-                            new SquareHeuristicComb());
+                            new SquareHeuristicDistTotal());
+
+      // Heuristic 2
+      problem2 = new Problem(board,
+                            new SquareSuccessorFunction(),
+                            new SquareGoalTest(),
+                            new SquareHeuristicDistSemblant());
+
+        // Heuristic 3
+        problem3 = new Problem(board,
+                              new SquareSuccessorFunction(),
+                              new SquareGoalTest(),
+                              new SquareHeuristicComb());
 
 
-    // Heuristic 1
-    // Hill Climbing
-		experimenta("Hill Climbing - Heu 1 - Ini 1",
-                problem1,
-                new HillClimbingSearch());
+      if (false)
+      {
+        // Heuristic 1
+        // Hill Climbing
+    		experimenta("Hill Climbing - Heu 1 - Ini 1",
+                    problem1,
+                    new HillClimbingSearch());
 
 
-		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 1 - Ini 1",
-                problem1,
-                new SimulatedAnnealingSearch(5000,100,50,0.01)
-                );
+    		// Simulated Annealing
+        experimenta("Simulated Annealing - Heu 1 - Ini 1",
+                    problem1,
+                    new SimulatedAnnealingSearch(5000,100,50,0.01)
+                    );
 
-    // Heuristic 2
-    // Hill Climbing
-		experimenta("Hill Climbing - Heu 2 - Ini 1",
-                problem2,
-                new HillClimbingSearch());
-
-
-		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 2 - Ini 1",
-                problem2,
-                new SimulatedAnnealingSearch(5000,100,50,0.01)
-                );
+        // Heuristic 2
+        // Hill Climbing
+    		experimenta("Hill Climbing - Heu 2 - Ini 1",
+                    problem2,
+                    new HillClimbingSearch());
 
 
-    // Heuristic 3
-    // Hill Climbing
-		experimenta("Hill Climbing - Heu 3 - Ini 1",
-                problem3,
-                new HillClimbingSearch());
+    		// Simulated Annealing
+        experimenta("Simulated Annealing - Heu 2 - Ini 1",
+                    problem2,
+                    new SimulatedAnnealingSearch(5000,100,50,0.01)
+                    );
 
 
-		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 3 - Ini 1",
-                problem3,
-                new SimulatedAnnealingSearch(5000,100,50,0.01)
-                );
+        // Heuristic 3
+        // Hill Climbing
+    		experimenta("Hill Climbing - Heu 3 - Ini 1",
+                    problem3,
+                    new HillClimbingSearch());
 
 
-    // Ara amb sol ini 2
-    board.solIni2();
-    // Heuristic 1
-    problem1 = new Problem(board,
-                          new SquareSuccessorFunction(),
-                          new SquareGoalTest(),
-                          new SquareHeuristicDistTotal());
-
-    // Heuristic 2
-    problem2 = new Problem(board,
-                          new SquareSuccessorFunction(),
-                          new SquareGoalTest(),
-                          new SquareHeuristicDistSemblant());
-                          
-    // Heuristic 2
-    problem3 = new Problem(board,
-                          new SquareSuccessorFunction(),
-                          new SquareGoalTest(),
-                          new SquareHeuristicComb());
-
-    // Heuristic 1
-    // Hill Climbing
-		experimenta("Hill Climbing - Heu 1 - Ini 2",
-                problem1,
-                new HillClimbingSearch());
+    		// Simulated Annealing
+        experimenta("Simulated Annealing - Heu 3 - Ini 1",
+                    problem3,
+                    new SimulatedAnnealingSearch(5000,100,50,0.01)
+                    );
 
 
-		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 1 - Ini 2",
-                problem1,
-                new SimulatedAnnealingSearch(5000,100,50,0.01)
-                );
+        // Ara amb sol ini 2
+        board.solIni2();
+        // Heuristic 1
+        problem1 = new Problem(board,
+                              new SquareSuccessorFunction(),
+                              new SquareGoalTest(),
+                              new SquareHeuristicDistTotal());
 
-    // Heuristic 2
-    // Hill Climbing
-		experimenta("Hill Climbing - Heu 2 - Ini 2",
-                problem2,
-                new HillClimbingSearch());
+        // Heuristic 2
+        problem2 = new Problem(board,
+                              new SquareSuccessorFunction(),
+                              new SquareGoalTest(),
+                              new SquareHeuristicDistSemblant());
 
+        // Heuristic 2
+        problem3 = new Problem(board,
+                              new SquareSuccessorFunction(),
+                              new SquareGoalTest(),
+                              new SquareHeuristicComb());
 
-		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 2 - Ini 2",
-                problem2,
-                new SimulatedAnnealingSearch(5000,100,50,0.01)
-                );
-                
-    // Heuristic 3
-    // Hill Climbing
-		experimenta("Hill Climbing - Heu 3 - Ini 2",
-                problem3,
-                new HillClimbingSearch());
-
-
-		// Simulated Annealing
-    experimenta("Simulated Annealing - Heu 3 - Ini 2",
-                problem3,
-                new SimulatedAnnealingSearch(5000,100,50,0.01)
-                );
+        // Heuristic 1
+        // Hill Climbing
+    		experimenta("Hill Climbing - Heu 1 - Ini 2",
+                    problem1,
+                    new HillClimbingSearch());
 
 
-    printStats(stats); // Imprimim els resultats que tenim guardats fins ara
+    		// Simulated Annealing
+        experimenta("Simulated Annealing - Heu 1 - Ini 2",
+                    problem1,
+                    new SimulatedAnnealingSearch(5000,100,50,0.01)
+                    );
+
+        // Heuristic 2
+        // Hill Climbing
+    		experimenta("Hill Climbing - Heu 2 - Ini 2",
+                    problem2,
+                    new HillClimbingSearch());
 
 
-    // Experiment per provar el valor de ponderació dels heurístics
-    // Fem servir el board i problem3 que ja tenen els valors que desitgem!
-    System.out.println(" ## PROVEM VALORS DE PONDERACIO HEURISTIC 3 ## ");
-    stats = new ArrayList<Stats>(); // Netegem
-    for(double kh = 0.1; kh <= 1.0; kh += 0.1)
-    {
-      board.KH21 = kh; // Modifiquem ponderació
-      experimenta("Provant KH = "+kh, problem3, new SimulatedAnnealingSearch(5000,100,50,0.01));
+    		// Simulated Annealing
+        experimenta("Simulated Annealing - Heu 2 - Ini 2",
+                    problem2,
+                    new SimulatedAnnealingSearch(5000,100,50,0.01)
+                    );
+
+        // Heuristic 3
+        // Hill Climbing
+    		experimenta("Hill Climbing - Heu 3 - Ini 2",
+                    problem3,
+                    new HillClimbingSearch());
+
+
+    		// Simulated Annealing
+        experimenta("Simulated Annealing - Heu 3 - Ini 2",
+                    problem3,
+                    new SimulatedAnnealingSearch(5000,100,50,0.01)
+                    );
+
+
+        printStats(stats); // Imprimim els resultats que tenim guardats fins ara
+      }
+
+      if (false)
+      {
+        // Experiment per provar el valor de ponderació dels heurístics
+        // Fem servir el board i problem3 que ja tenen els valors que desitgem!
+        board.solIni1();
+        System.out.println(" ## PROVEM VALORS DE PONDERACIO HEURISTIC 3 ## ");
+        stats = new ArrayList<Stats>(); // Netegem
+        for(double kh = 0.1; kh <= 1.0; kh += 0.1)
+        {
+          board.KH21 = kh; // Modifiquem ponderació
+          experimenta("Provant KH = "+kh, problem3, new SimulatedAnnealingSearch());
+        }
+        printStats(stats);
+      }
+    
+      if (true) // Modificar a true si volem realitzar aquest experiment
+      {
+        for(int exp = 0; exp < 5; exp++)
+        {
+          board = new SquareBoard(5,20);
+          problem3 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicComb());
+          // Experiment per els parametres de SA
+          board.solIni1(); // Of course, solucio inicial bona
+          System.out.println(" ## PROVEM VALORS DE Simulated Annealing ## ");
+          stats = new ArrayList<Stats>(); // Netegem
+          for(int steps = 500; steps <= 10000; steps += 500)
+          {
+            experimenta("Provant SA steps = "+steps, problem3, new SimulatedAnnealingSearch(steps,100,50,0.01)); // steps, limit, K, lambda
+          }
+          printStats(stats);
+        }
+      }
+    
     }
-    printStats(stats);
-		}
-	}
+  }
 
-  	
-	
-	public static void mainBernat(int experiment) throws Exception
+  public static void mainBernat(int experiment) throws Exception
 	{
 		if(experiment == 1)
 		{
@@ -226,7 +250,6 @@ public class Main
 		// printStats(stats); 
 		
 	}
-
 
   public static Stats experimenta(String nom, Problem problem, Search search) throws Exception
   {
