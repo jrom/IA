@@ -1,1 +1,54 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%!TEX root = document.tex
+
+Els experiments a fer són els següents:
+
+\begin{enumerate}
+\item Canvi de solucions Inicials
+
+	¿Tiene alguna influencia la solución inicial en la calidad de la solució final? Usad solo
+	la heurística que minimiza el recorrido total.
+
+Dues configuracions diferents de parades:
+
+	+-----------------------------+---------+----------+
+	|                 Experiment  | Elapsed |    H1    |
+	+-----------------------------+---------+----------+
+	|       Hill Climbing - Ini 1 |       6 |   230,00 |
+	| Simulated Annealing - Ini 1 |    1266 |   226,00 |
+	|       Hill Climbing - Ini 2 |       0 |   318,00 |
+	| Simulated Annealing - Ini 2 |    1096 |   212,80 |
+	+-----------------------------+---------+----------+
+	
+	Quan s'aplica la solució de qualitat l'algorisme de Hill Climbing ofereix resultats un 36\% més bons. L'algorisme de Simulated Annealing, en canvi, no ofereix millors resultats. Per quèe??????
+	
+	+-----------------------------+---------+----------+
+	|                 Experiment  | Elapsed |    H1    |
+	+-----------------------------+---------+----------+
+	|       Hill Climbing - Ini 1 |      15 |   282,00 |
+	| Simulated Annealing - Ini 1 |    1277 |   249,20 |
+	|       Hill Climbing - Ini 2 |       4 |   246,00 |
+	| Simulated Annealing - Ini 2 |    1137 |   247,20 |
+	+-----------------------------+---------+----------+
+	
+	
+	
+	-> Provar el "Random Restarting Hill Climbing": Consisteix en quedar-se amb el mínim (no la mitjana) dels resultats obtinguts mitjançant l'aplicació de la solució inicial aleatòria.
+
+\item Com varia la dificultat del problema en funció de K?
+
+		¿Como varia la dificultad del problema dependiendo del número de rutas que se quieren obtener? Usad solo la heurística que minimiza el recorrido total.
+
+\item Diferència entre els dos heurístics i comparació
+
+Escoge un conjunto de instancias diferentes del problema y resuélvelas con cada una de las dos heurísticas ¿cual es la diferencia respecto a longitud total de recorrido que se obtiene? ¿Merece la pena no discriminar a los usuarios respecto a ahorrar recorrido?
+
+\item Combinació dels dos heurístics i ponderació d'equilibri
+
+Experimenta con los pesos para combinar las dos heurísticas. Encuentra una ponderación que permita hallar soluciones que no aumenten mucho el recorrido y que equilibren las distancias entre las paradas. ¿Son mejores estas soluciones que las que se obtienen solo con el segundo heurístico?
+
+\item En els experiments anteriors:
+\begin{itemize}
+\item Quins algorismes responen millor HC o SA?
+\item Quins paràmetres del Simulated Annealing fan obtenir millors resultats?
+	\end{itemize}
+		\end{enumerate}
