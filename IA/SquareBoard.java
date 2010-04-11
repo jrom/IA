@@ -178,6 +178,40 @@ public class SquareBoard
 		out += "##########################################";
 		System.out.println(out);
 	}
+	
+	// Solució inicial completament aleatòria
+	public void solIni3()
+	{
+		int ki = 0;
+		int pi = 0;
+		int numassignades = 0;
+		boolean[] assignades = new boolean[P];
+		
+		for (pi = 0; pi < P; pi++) assignades[pi] = false;
+		
+		//MOLT IMPORTANT: Esborra qualsevol ruta que hi hagi pogut haver... 
+    delRutes();
+
+		while (numassignades < P)
+		{
+			pi = aleatori(P);
+			if(!assignades[pi])
+			{
+				rutes[ki].afegirParada(pi);
+				numassignades++;
+				assignades[pi] = true;
+				if (numassignades < K) ki = (ki + 1) % K;
+			} 
+			if (numassignades >= K) ki = (ki + 1) % K;
+		}
+
+		String out;
+		out = "############Solució Inicial 3#############\n";
+		out += "Heuristic 1: " + getHeuristic1() + "\n";
+		out += "Heuristic 2: " + getHeuristic2() + "\n";
+		out += "##########################################";
+		System.out.println(out);
+	}
 
 	private int aleatori(int max)
 	{
