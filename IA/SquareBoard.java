@@ -205,12 +205,12 @@ public class SquareBoard
 			if (numassignades >= K) ki = (ki + 1) % K;
 		}
 
-		String out;
-		out = "############Solució Inicial 3#############\n";
-		out += "Heuristic 1: " + getHeuristic1() + "\n";
-		out += "Heuristic 2: " + getHeuristic2() + "\n";
-		out += "##########################################";
-		System.out.println(out);
+		// String out;
+		// 	out = "############Solució Inicial 3#############\n";
+		// 	out += "Heuristic 1: " + getHeuristic1() + "\n";
+		// 	out += "Heuristic 2: " + getHeuristic2() + "\n";
+		// 	out += "##########################################";
+		// 	System.out.println(out);
 	}
 
 	private int aleatori(int max)

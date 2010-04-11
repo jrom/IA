@@ -15,9 +15,15 @@ public class Main
 {
   public static int ITER = 5;
   static ArrayList<Stats> stats = new ArrayList<Stats>();
-
+	public static boolean bernat = false; // Activen els experiments del Bernat -> ja ho canviarem!
+	
   public static void main (String[] args) throws Exception
   {
+		if(bernat) mainBernat(1);
+		else 
+		{
+			
+			
     SquareBoard board = new SquareBoard(5, 20);
     board.solIni1();
     Problem problem1, problem2, problem3;
@@ -155,8 +161,72 @@ public class Main
       experimenta("Provant KH = "+kh, problem3, new SimulatedAnnealingSearch(5000,100,50,0.01));
     }
     printStats(stats);
+	}
 
   }
+
+	
+	public static void mainBernat(int experiment) throws Exception
+	{
+		if(experiment == 1)
+	{
+			System.out.println("Experiment Hill Climbing amb reinici aleatori");
+			SquareBoard board = new SquareBoard(5, 20);
+
+			Stats s;
+			Problem problem1;
+		
+			double minim = Double.MAX_VALUE;
+			for (int i = 0;i < 50; i++)
+			{
+			
+				  board.solIni3();
+					problem1 = new Problem(board,                        
+					                         new SquareSuccessorFunction(),
+					                         new SquareGoalTest(),        
+					                         new SquareHeuristicDistTotal());
+					s = experimenta("Hill Climbing random restart",                          
+		    	            problem1,                                 
+		    	            new HillClimbingSearch());                
+					if (s.stats().h1 < minim) minim = s.stats().h1;
+			}
+
+			System.out.println("Valor Mínim 50 execucions HC - RandomRestart: " + minim);
+		  board.solIni1();
+			problem1 = new Problem(board,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			s = experimenta("Hill Climbing solIni1",
+											problem1,
+											new HillClimbingSearch());
+
+			System.out.println("H1 amb solIni1: " + s.stats().h1);
+		
+		  board.solIni2();
+			problem1 = new Problem(board,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			s = experimenta("Hill Climbing solIni2",
+											problem1,
+											new HillClimbingSearch());
+
+			System.out.println("H1 amb solIni2: " + s.stats().h1);
+		  board.solIni3();
+			problem1 = new Problem(board,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			experimenta("Hill Climbing solIni3",
+											problem1,	
+											new HillClimbingSearch());
+			System.out.println("H1 amb solIni3 1 execució: " + s.stats().h1);
+		}
+		// printStats(stats); 
+		
+	}
+
 
   public static Stats experimenta(String nom, Problem problem, Search search) throws Exception
   {
@@ -166,7 +236,7 @@ public class Main
     int nodes, steps;
     double h1 = 0.0, h2 = 0.0, h3 = 0.0;
 
-		System.out.print(nom+" ");
+    if (!bernat) System.out.print(nom+" ");
 		for(int i = 0; i < ITER; i++)
 		{
 		  ini = System.currentTimeMillis();
@@ -190,10 +260,10 @@ public class Main
 
       }
       st.add(nodes, steps, h1, h2, h3, (fi-ini));
-      System.out.print(("."));
+      if (!bernat) System.out.print(("."));
 		}
     stats.add(st);
-		System.out.println("");
+    if (!bernat) System.out.println("");
 		return st;
   }
   

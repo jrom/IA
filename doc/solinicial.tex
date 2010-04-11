@@ -4,7 +4,7 @@ Hem implementat dos algorismes diferents d'obtenció de l'estat inicial per tal 
 
 \subsubsection{Solució inicial aleatòria}
 
-Aquesta solució (mètode anomenat \textbf{solIni2}) té com a prioritat la rapidesa i l'aleatorietat de la seva obtenció i no la seva qualitat. En cada iteració es procedeix a afegir una parada escollida a l'atzar per cada ruta. Quan totes les parades han estat assignades a alguna ruta, l'algorisme s'atura. La configuració obtinguda no només és solució del problema, sinó que compleix amb la restricció addicional proposada d'entrada. L'assignació de parades és homogènia i basada en el factor aleatori. El cost de la funció és lineal de l'ordre $\Theta(P)$.
+Aquesta solució (mètode anomenat \textbf{solIni2}) té com a prioritat la rapidesa i l'aleatorietat de la seva obtenció i no la seva qualitat. En cada iteració es procedeix a afegir una parada escollida consecutivament a la ruta. Quan totes les parades han estat assignades a alguna ruta, l'algorisme s'atura. La configuració obtinguda no només és solució del problema, sinó que compleix amb la restricció addicional proposada d'entrada. L'assignació de parades és homogènia entre les rutes i l'aleatorietat no prové de l'algorisme en si sinó de la configuració de les parades que es genera aleatòriament per cada escenari. El cost de la funció és lineal $\Theta(P)$.
 
 \subsubsection{Solució inicial de qualitat}
 
@@ -17,3 +17,8 @@ En definitiva, aquest algorisme ofereix una solució raonablement bona amb un co
 \imatgePetita{images/grafic_sense_control_final.png}{No es té en compte la distància entre la parada candidata i el final, les solucions poden caure en recorreguts en cercle.}
 
 \imatgePetita{images/grafic_amb_control_final.png} {Es tenen en compte ambdues distàncies, el problema desapareix.}
+
+\subsubsection{Variant de la solució aleatòria}
+
+Malgrat que la solució aleatòria proporcionada anteriorment és perfectament vàlida, hem creat una última solució inicial (mètode anomenat \textbf{solIni3}) que és indeterminista. Per un taulell donat, els dos mètodes anteriors sempre ofereixen la mateixa solució inicial. En canvi, aquest mètode és totalment aleatori. El nombre de parades per ruta no és homogeni i compleix només el criteri que cada ruta tingui almenys una parada assignada. El cost de l'algorisme és indeterminat, depèn de les col·lisions que es produeixen en el bucle que assigna aleatòriament una parada per ruta (tampoc determinada). La creació d'aquesta solució addicional està motivada pel fet d'experimentar amb l'estratègia de Hill Climbing amb reinici aleatori, explicada més endavant.
+
