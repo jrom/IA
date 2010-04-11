@@ -381,7 +381,7 @@ public class SquareBoard
 
   public double getHeuristic3()
 	{
-	  return getHeuristic1() / KH21 + KH21 * getHeuristic2();
+	  return getHeuristic1() * (1.0-KH21) + KH21 * getHeuristic2();
 	}
 
 	class Parada

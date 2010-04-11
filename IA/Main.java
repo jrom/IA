@@ -145,17 +145,20 @@ public class Main
     printStats(stats); // Imprimim els resultats que tenim guardats fins ara
 
 
-    // Experiment per provar el valor de ponderació dels heurístics
-    // Fem servir el board i problem3 que ja tenen els valors que desitgem!
-    System.out.println(" ## PROVEM VALORS DE PONDERACIO HEURISTIC 3 ## ");
-    stats = new ArrayList<Stats>(); // Netegem
-    for(double kh = 0.1; kh <= 1.0; kh += 0.1)
+    if (false) // Modificar a true si volem realitzar aquest experiment
     {
-      board.KH21 = kh; // Modifiquem ponderació
-      experimenta("Provant KH = "+kh, problem3, new SimulatedAnnealingSearch(5000,100,50,0.01));
+      // Experiment per provar el valor de ponderació dels heurístics
+      // Fem servir el board i problem3 que ja tenen els valors que desitgem!
+      board.solIni1();
+      System.out.println(" ## PROVEM VALORS DE PONDERACIO HEURISTIC 3 ## ");
+      stats = new ArrayList<Stats>(); // Netegem
+      for(double kh = 0.1; kh <= 1.0; kh += 0.1)
+      {
+        board.KH21 = kh; // Modifiquem ponderació
+        experimenta("Provant KH = "+kh, problem3, new HillClimbingSearch());
+      }
+      printStats(stats);
     }
-    printStats(stats);
-
   }
 
   public static Stats experimenta(String nom, Problem problem, Search search) throws Exception
