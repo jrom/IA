@@ -10,6 +10,7 @@ Hem utilitzat els paràmetres que han donat millor solucions fins al moment per 
 	\item La solució inicial de qualitat
 	\item L'algorisme de Simulated Annealing amb els paràmetres trobats a l'apartat ~\ref{sec:expSA}
 	\item Tots els valors de ponderació entre $0.1$ i $1.0$
+	\item 10 possibles taulers i 10 iteracions per cada tauler
 \end{itemize}
 
 La fórmula per ponderar els heurístics $h_1$ i $h_2$ és la següent:
@@ -23,4 +24,4 @@ La fórmula per ponderar els heurístics $h_1$ i $h_2$ és la següent:
 
 \imatge{images/gkh.png}{Valor dels heurístics 1 i 2 amb diferents ponderacions}
 
-Es pot observar a la figura ~\ref{fig:{images/gkh.png}} que com és d'esperar l'heurístic 1 comença oferint un resultat pobre (un valor alt) ja que no se l'està tenint gens en compte, i acaba per estabilitzar-se amb valors de $k_{h_{21}} \in \{ 0.5 .. 0.9\}$. Per altra banda l'heurístic 2 mostra millor resultats amb els valors mitjos, on els dos heurístics es combinen paritàriament. Per això s'ha fixat per a la resta de proves que el valor ideal de $k_{h_{21}}$ sigui \textbf{0.5}.
+Es pot observar a la figura ~\ref{fig:{images/gkh.png}} que clarament els dos heurístics troben un punt mínim a la zona mitja del gràfic, on $k_{h_{21}} \in \{ 0.5 .. 0.6\}$. Per això s'ha fixat per a la resta de proves que el valor ideal de $k_{h_{21}}$ sigui \textbf{0.5}.
