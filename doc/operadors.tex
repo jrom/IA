@@ -1,1 +1,59 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%!TEX root = document.tex
+
+De cara a que l'algorisme de cerca local en qüestió sigui capaç de moure's per l'espai de solucions és necessari implementar uns operadors. Aquests operadors tenen com a finalitat crear un estat diferent (on els paràmetres de qualitat tenen valors potencialment diferents) veí a l'estat al que se li aplica l'operador. Això significa que aquests ens permeten obtenir un estat contigu a l'original. D'aquesta manera, l'algorisme de cerca local pot consultar tots els estats propers per veure quin és el que promet millors resultats.
+
+El mecanisme utilitzat per la implementació d'AIMA és sol·licitar per un estat quins són tots els possibles successors partint d'ell. Per això, el que fem és generar tots els possibles estats que sorgeixen d'aplicar un operador (en un sol pas) i retornar-los a l'algorisme perquè segueixi amb la cerca.
+
+\emph{Per la implementació del problema que hem dut a terme, els operadors mai s'apliquen a les parades corresponents a les cotxeres, i pel que fa a aquest apartat, aquestes parades les considerem especials i no entren en joc.}
+
+En el problema que tractem, hem reduit qualsevol possible canvi d'estat en l'aplicació d'un d'aquests dos operadors:
+
+\begin{itemize}
+	\item Canviar una parada de ruta
+	\item Moure de posició una parada dins d'una ruta
+\end{itemize}
+
+Amb una combinació d'aquests dos operadors es pot arribar a qualsevol possible que sigui solució. Com expliquem a continuació, el comportament d'aquests operadors està restringit de manera que no puguin conduir a ambigüitats del seu comportament.
+
+\section{Canviar de ruta} % (fold)
+\label{sec:canviar_de_ruta}
+
+Amb aquest operador pretenem assolir que qualsevol parada pugui acabar a qualsevol ruta. Per tant, aplicant aquest operador per totes les parades i per totes les rutes tenim totes les possibles combinacions parada-ruta (o sigui $C_{P}^{K}$).
+
+\[
+	C_{P}^{K} = \binom{P}{K} = \dfrac{P!}{K!(P-K)!}
+\]
+
+La única \textbf{condició d'aplicabilitat} d'aquest operador és que:
+
+\begin{itemize}
+	\item La ruta a la que pertany la parada en qüestió ha de tenir més d'una parada
+\end{itemize}
+
+Això ens garanteix no sortir en cap momenet de l'espai de solucions. Aquesta restricció però no implica que no es pugui arribar a tot l'espai de solucions, perquè l'únic que cal és aplicar-la en un altre estat on aquella parada no sigui la única que queda en la seva ruta.
+
+% TODO Factor de ramificacio operador canviar de ruta?
+
+% section canviar_de_ruta (end)
+
+\section{Moure en ruta} % (fold)
+\label{sec:moure_en_ruta}
+
+Un cop vist que podem arribar a qualsevol combinació entre parades i rutes, l'únic que falta per poder cobrir l'espai de solucions complet és que les parades dins d'una ruta puguin estar ordenades de qualsevol manera. Això significa generar totes les permutacions de les parades d'una ruta, o sigui $P_{P_i}$ on $P_i$ és el número de parades de la ruta $i$.
+
+\[
+	P_{P_i} = P_i!
+\]
+
+En la implementació de l'operador l'hem simplificat de manera que compleixi el mateix objectiu però aplicant sempre el mateix moviment:
+\begin{itemize}
+	\item Intercanviar la parada en qüestió amb la propera parada de la seva ruta, menys quan es tracta de la darrera parada que aleshores s'intercanvia amb la primera.
+\end{itemize}
+
+Amb aquesta simplificació del moviment podem igualment assolir qualsevol ordenació possible ($P_{P_i}$) però amb més control de quin és el moviment que s'està efectuant.
+
+Aquest operador no té \textbf{condicions d'aplicabilitat}, ja que es pot usar sempre, fins i tot quan es tracta de l'única parada de la seva ruta, doncs l'intercanvi amb si mateixa és semànticament correcte, tot i que evitem utilitzar-lo en aquest cas perquè no es genera un estat diferent.
+
+% TODO Factor de ramificacio operador moure en ruta?
+
+% section moure_en_ruta (end)
