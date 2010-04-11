@@ -142,15 +142,20 @@ public class Main
                 );
 
 
-    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
-    System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |    H3    |");
-    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
-    for(int i = 0; i < stats.size(); i++)
+    printStats(stats); // Imprimim els resultats que tenim guardats fins ara
+
+
+    // Experiment per provar el valor de ponderació dels heurístics
+    // Fem servir el board i problem3 que ja tenen els valors que desitgem!
+    System.out.println(" ## PROVEM VALORS DE PONDERACIO HEURISTIC 3 ## ");
+    stats = new ArrayList<Stats>(); // Netegem
+    for(double kh = 0.1; kh <= 1.0; kh += 0.1)
     {
-      Exec ex = stats.get(i).stats();
-      System.out.format("| %45s |   %5d | %5d | %5d | %8.2f | %8.2f | %8.2f |\n", stats.get(i).name, ex.elapsed, ex.nodes, ex.steps, ex.h1, ex.h2, ex.h3);
+      board.KH21 = kh; // Modifiquem ponderació
+      experimenta("Provant KH = "+kh, problem3, new SimulatedAnnealingSearch(5000,100,50,0.01));
     }
-    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
+    printStats(stats);
+
   }
 
   public static Stats experimenta(String nom, Problem problem, Search search) throws Exception
@@ -190,6 +195,19 @@ public class Main
     stats.add(st);
 		System.out.println("");
 		return st;
+  }
+  
+  private static void printStats(ArrayList<Stats> ss)
+  {
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
+    System.out.println("|                                   Experiment  | Elapsed | Nodes | Steps |    H1    |    H2    |    H3    |");
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
+    for(int i = 0; i < ss.size(); i++)
+    {
+      Exec ex = ss.get(i).stats();
+      System.out.format("| %45s |   %5d | %5d | %5d | %8.2f | %8.2f | %8.2f |\n", ss.get(i).name, ex.elapsed, ex.nodes, ex.steps, ex.h1, ex.h2, ex.h3);
+    }
+    System.out.println("+-----------------------------------------------+---------+-------+-------+----------+----------+----------+");
   }
   
   
