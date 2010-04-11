@@ -19,6 +19,20 @@ public class SquareBoard
 
 	public Ruta[] rutes;
 	public Parada[] parades;
+	int restaddicional = 1; //Minim de parades per ruta
+
+	public SquareBoard(int k, int p, boolean rest)
+	{
+		if(rest) restaddicional = (Integer)(p / (2 * k));
+		int i;
+		this.K = k;
+		this.P = p;
+		rutes = new Ruta[K];
+		parades = new Parada[P];
+		crearParades();
+		for (i = 0; i < K; i++)
+			rutes[i] = new Ruta(i);
+	}
 
   public SquareBoard(int k, int p)
   {
@@ -296,12 +310,15 @@ public class SquareBoard
 
 	public boolean canviarRuta(int paradaOrigen, int rutaDesti)
 	{
-		if (rutes[parades[paradaOrigen].ruta].treureParada(paradaOrigen))
+		if (rutes[parades[paradaOrigen].ruta].numparades > restaddicional)
 		{
-			rutes[rutaDesti].afegirParada(paradaOrigen);
-			return true;
+			if (rutes[parades[paradaOrigen].ruta].treureParada(paradaOrigen))
+			{
+				rutes[rutaDesti].afegirParada(paradaOrigen);
+				return true;
+			}
 		}
-		else return false;
+		return false;
 	}
 
 	//Mou sempre cap a la dreta

@@ -13,13 +13,13 @@ import aima.search.informed.SimulatedAnnealingSearch;
 
 public class Main
 {
-  public static int ITER = 5;
+  public static int ITER = 10;
   static ArrayList<Stats> stats = new ArrayList<Stats>();
 	public static boolean bernat = true; // Activen els experiments del Bernat -> ja ho canviarem!
 	
   public static void main (String[] args) throws Exception
   {
-		if(bernat) mainBernat(2);
+		if(bernat) mainBernat(3);
 		else 
 		{
       SquareBoard board = new SquareBoard(5, 20);
@@ -255,7 +255,8 @@ public class Main
 
   public static void mainBernat(int experiment) throws Exception
 	{
-		if(experiment == 1)
+		stats = new ArrayList<Stats>(); 
+		if(experiment == 1) // Es prova les diferents solucions inicials
 		{
 			System.out.println("Experiment Hill Climbing amb reinici aleatori");
 			SquareBoard board = new SquareBoard(5, 20);
@@ -373,7 +374,7 @@ public class Main
 			System.out.println("SA amb solIni2 x 10: " + h1ini2sa/10);
 			System.out.println("SA amb solIni3 x 10: " + h1ini3sa/10);
 			System.out.println("Valor Mínim 50 execucions HCRR amb solIni3 x 10: " + h1ini3/10);
-		} else if(experiment == 2)
+		} else if(experiment == 2) // Es prova l'increment de K
 		{
 			Stats s;
 			
@@ -391,7 +392,7 @@ public class Main
 													problem1,	
 													new HillClimbingSearch());
 					System.out.println("HC: Steps=" + s.stats().steps + " Elapsed=" + s.stats().elapsed + " H1=" + s.stats().h1 + " Nodes=" + s.stats().nodes);
-					board.solIni1();
+					board.solIni2();
 					s = experimenta("",
 													problem1,
 													new SimulatedAnnealingSearch(5500,150,50,0.01));
@@ -401,6 +402,55 @@ public class Main
 		
 		
 			
+		} else if (experiment == 3) // Es prova la restricció addicional
+		{
+			bernat = false;
+			SquareBoard board1 = new SquareBoard(5, 30, true);
+			Problem problem1;
+		 
+			
+			board1.solIni1();
+			problem1 = new Problem(board1,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			experimenta("HC amb restricció addicional",
+											problem1,
+											new HillClimbingSearch());
+		
+			
+			board1.solIni1();
+			problem1 = new Problem(board1,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			experimenta("SA amb restricció addicional",
+											problem1,
+											new SimulatedAnnealingSearch(5500,150,50,0.01));
+		
+			
+			SquareBoard board2 = new SquareBoard(5, 30, false);
+			
+			board2.solIni1();
+			problem1 = new Problem(board2,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			experimenta("HC sense restricció addicional",
+											problem1,
+											new HillClimbingSearch());
+	
+			
+			board2.solIni1();
+			problem1 = new Problem(board2,                        
+			                         new SquareSuccessorFunction(),
+			                         new SquareGoalTest(),        
+			                         new SquareHeuristicDistTotal());
+			experimenta("SA sense restricció addicional",
+											problem1,
+											new SimulatedAnnealingSearch(5500,150,50,0.01));
+	
+			printStats(stats);
 		}
 
 		
