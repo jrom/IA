@@ -186,7 +186,70 @@ public class Main
           printStats(stats);
         }
       }
-    
+
+      if (false) // Modificar a true si volem realitzar aquest experiment
+      {
+        for(int exp = 0; exp < 5; exp++)
+        {
+          board = new SquareBoard(5,20);
+          problem3 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicComb());
+          // Experiment per els parametres de SA
+          board.solIni1(); // Of course, solucio inicial bona
+          System.out.println(" ## PROVEM VALORS DE Simulated Annealing ## ");
+          stats = new ArrayList<Stats>(); // Netegem
+          for(int limit = 20; limit <= 200; limit += 10)
+          {
+            experimenta(""+limit, problem3, new SimulatedAnnealingSearch(3000,limit,50,0.01)); // steps, limit, K, lambda
+          }
+          printStats(stats);
+        }
+      }
+
+      if (false) // Modificar a true si volem realitzar aquest experiment
+      {
+        for(int exp = 0; exp < 5; exp++)
+        {
+          board = new SquareBoard(5,20);
+          problem3 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicComb());
+          // Experiment per els parametres de SA
+          board.solIni1(); // Of course, solucio inicial bona
+          System.out.println(" ## PROVEM VALORS DE Simulated Annealing ## ");
+          stats = new ArrayList<Stats>(); // Netegem
+          for(int kk = 10; kk <= 200; kk += 10)
+          {
+            experimenta(""+kk, problem3, new SimulatedAnnealingSearch(5500,150,kk,0.01)); // steps, limit, K, lambda
+          }
+          printStats(stats);
+        }
+      }
+
+      if (true) // Modificar a true si volem realitzar aquest experiment
+      {
+        for(int exp = 0; exp < 5; exp++)
+        {
+          board = new SquareBoard(5,20);
+          problem3 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicComb());
+          // Experiment per els parametres de SA
+          board.solIni1(); // Of course, solucio inicial bona
+          System.out.println(" ## PROVEM VALORS DE Simulated Annealing ## ");
+          stats = new ArrayList<Stats>(); // Netegem
+          for(double lambda = 0.0005; lambda <= 0.2; lambda *= 2)
+          {
+            experimenta(""+lambda, problem3, new SimulatedAnnealingSearch(5500,150,110,lambda)); // steps, limit, K, lambda
+          }
+          printStats(stats);
+        }
+      }
+
     }
   }
 
