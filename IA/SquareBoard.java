@@ -334,14 +334,14 @@ public class SquareBoard
 	  SquareBoard newboard;
 
 	  // Fem tots els moviments de parada possibles:
-	  for(i = 0; i < P; i++) // Per cada parada
+	  for(i = 0; i < K; i++) // Per cada parada
 	  {
-	    for(j = 0; j < rutes[parades[i].ruta].numparades; j++) // per cada posicio de la ruta a la que pertany
+	    for(j = 0; j < rutes[i].numparades; j++) // per cada posicio de la ruta a la que pertany
 	    {
 	      newboard = new SquareBoard(this);
-        newboard.moureParada(i);
+        newboard.moureParada(rutes[i].paradesRuta[j]);
         // System.out.println(newboard);
-        list.add(new Successor("P " +i+ " move in route " + parades[i].ruta + " ", newboard));
+        list.add(new Successor("P " +rutes[i].paradesRuta[j]+ " move in route " + i + " ", newboard));
 	    }
 	  }
 
