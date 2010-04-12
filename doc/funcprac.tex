@@ -1,11 +1,28 @@
 %!TEX root = document.tex
 
-Aquí posem un README de com fer funcionar la pràctica.
+El codi principal de la pràctica es troba en la classe \emph{SquareBoard.java}. Per tal d'efectuar els experiments, hem creat un programa principal que s'executa amb la comanda \emph{make run} i prova els diferents escenaris.
 
 \begin{lstlisting}[caption=Comandes, label=comandes, language=Bash]
-make
-make clean
-make run
+make # Compila els .java
+make run # Executa el programa principal
+make clean # Esborra fitxers font
 \end{lstlisting}
 
-Explicar que hi ha un Main, que s'executa fent només \emph{make run} i que llavors cal triar l'experiment desitjat de la llista i el mostrarà per pantalla.
+El menú es mostra de la següent manera:
+
+\begin{verbatim}
+--------------------- Selecció d'experiments -------------
+Experiment 1: Comparació solucions inicials
+Experiment 2: Estudi creixement de K
+Experiment 3: Efectes de la restricció addicional
+Experiment 6: Ponderació entre heurístics
+Experiment 7: Parametre It. Totals de SimulatedAnnealing
+Experiment 8: Parametre It. per pas de SimulatedAnnealing
+Experiment 9: Parametre K de SimulatedAnnealing
+Experiment 10: Parametre Lambda de SimulatedAnnealing
+Experiment 11: Comparació heurístics h1 i h2
+----------------------------------------------------------
+Introdueix el número d'experiment desitjat (de 1 a 11)
+\end{verbatim}
+
+Tant sols cal introduir el número d'experiment i prémer Intro per executar el codi de proves. En alguns casos es genera un taulell sobre el qual es realitzen 10 simulacions i s'extreu la mitjana, en altres casos es genera més d'un taulell. Hem escollit cada escenari de proves segons hem cregut que reflexa més fidelment els valors mitjans.
