@@ -3,5 +3,6 @@ DOC
 
 * Factors de ramificació, cal acabar de pensar-ho i escriure-ho
 * Experiments
-  * Paràmetres de SA
-  * Ponderació heurístic 3
+  * <del>Paràmetres de SA</del>
+  * <del>Ponderació heurístic 3</del>
+* Comentar als operadors la restricció addicional!
