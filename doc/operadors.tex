@@ -18,10 +18,10 @@ Amb una combinació d'aquests dos operadors es pot arribar a qualsevol possible 
 \section{Canviar de ruta} % (fold)
 \label{sec:canviar_de_ruta}
 
-Amb aquest operador pretenem assolir que qualsevol parada pugui acabar a qualsevol ruta. Per tant, aplicant aquest operador per totes les parades i per totes les rutes tenim totes les possibles combinacions parada-ruta (o sigui $C_{P}^{K}$).
+Amb aquest operador pretenem assolir que qualsevol parada pugui acabar a qualsevol ruta. Per tant, aplicant aquest operador per totes les parades i per totes les rutes tenim totes les possibles combinacions parada-ruta (o sigui $C_{P-K}^{K}$).
 
 \[
-	C_{P}^{K} = \binom{P}{K} = \dfrac{P!}{K!(P-K)!}
+	C_{P-K}^{K} = \binom{P-K}{K} = \dfrac{(P-K)!}{K!((P-K)-K)!}
 \]
 
 La única \textbf{condició d'aplicabilitat} d'aquest operador és que:
@@ -32,7 +32,18 @@ La única \textbf{condició d'aplicabilitat} d'aquest operador és que:
 
 Això ens garanteix no sortir en cap momenet de l'espai de solucions. Aquesta restricció però no implica que no es pugui arribar a tot l'espai de solucions, perquè l'únic que cal és aplicar-la en un altre estat on aquella parada no sigui la única que queda en la seva ruta.
 
-% TODO Factor de ramificacio operador canviar de ruta?
+El \textbf{factor de ramificació} d'aquest operador és $P \times K-1$. Podem moure cada parada a qualsevol de les altres rutes.
+
+\subsection{Restricció addicional} % (fold)
+\label{sub:restadd}
+
+En aquest operador s'aplica la restricció addicional creant una nova condició d'aplicabilitat, que és que:
+
+\begin{itemize}
+	\item La ruta a la que pertany la parada en qüestió té al menys $\frac{P}{2*K}$ parades
+\end{itemize}
+
+% subsection restadd (end)
 
 % section canviar_de_ruta (end)
 
@@ -52,8 +63,6 @@ En la implementació de l'operador l'hem simplificat de manera que compleixi el 
 
 Amb aquesta simplificació del moviment podem igualment assolir qualsevol ordenació possible ($P_{P_i}$) però amb més control de quin és el moviment que s'està efectuant.
 
-Aquest operador no té \textbf{condicions d'aplicabilitat}, ja que es pot usar sempre, fins i tot quan es tracta de l'única parada de la seva ruta, doncs l'intercanvi amb si mateixa és semànticament correcte, tot i que evitem utilitzar-lo en aquest cas perquè no es genera un estat diferent.
-
-% TODO Factor de ramificacio operador moure en ruta?
+Aquest operador no té \textbf{condicions d'aplicabilitat}, ja que es pot usar sempre, fins i tot quan es tracta de l'única parada de la seva ruta, doncs l'intercanvi amb si mateixa és semànticament correcte, tot i que evitem utilitzar-lo en aquest cas perquè no es genera un estat diferent. El seu \textbf{factor de ramificació} és $P$, ja que podem escollir moure en una posició qualsevol parada.
 
 % section moure_en_ruta (end)

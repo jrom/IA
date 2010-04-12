@@ -1,7 +1,20 @@
 %!TEX root = document.tex
 
-Els experiments a fer són els següents:
+Per tal de justificar decisions preses durant el transcurs de la pràctica, o bé per comprovar-ne l'eficàcia, s'han anat duent a terme experiments que a continuació llistem i mostrem en profunditat.
 
+El primer que es demanava era calibrar l'algorisme de \emph{Simulated Annealing}, i per tant provar possibles valors pels 4 paràmetres. Es pot consultar a l'apartat ~\ref{sec:expSA}.
+
+A continuació a la secció ~\ref{sec:expsolini}
+ es comparen les diferents solucions inicials, observant-ne la qualitat i el temps d'execució necessari.
+
+També s'analitza la influència del paràmetre $K$ (nombre de rutes) en el cost i la qualitat de la cerca a l'apartat ~\ref{sec:expk}.
+
+En quant als paràmetres de la cerca, comencem comparant els efectes d'usar l'heurístic de la distància total contra el de les distàncies entre parades semblants (\ref{sec:comph1h2}). Després calculem el valor òptim de la ponderació d'aquests dos en un tercer heurístic (\ref{sec:expkh}). Finalment comparem els dos algorismes de cerca: Hill Climbing i Simulated Annealing (amb els paràmetres òptims experimentats) a l'apartat \ref{sec:comparacioalg}.
+
+Com a afegit, provem quin és el resultat si es prenen consideració la restricció addicional (\ref{sec:restadd}).
+
+
+\newpage
 \section{Paràmetres de Simulated Annealing} % (fold)
 \label{sec:expSA}
 \input{experiments/SA}
@@ -19,6 +32,15 @@ Els experiments a fer són els següents:
 
 % section expk (end)
 
+
+% section comparacioalg (end)
+\newpage
+\section{Comparació dels heurístics} % (fold)
+\label{sec:comph1h2}
+\input{experiments/h1vsh2}
+% section comph1h2 (end)
+
+
 % Experiment de ponderacio de KH21
 \newpage % Per ara ho faig així perquè quedi tot l'experiment en una pàgina i no se'n vagi la imatge porai
 \section{Paràmetre de ponderació dels heurístics} % (fold)
@@ -27,22 +49,14 @@ Els experiments a fer són els següents:
 % section expkh (end)
 
 
+\newpage
+\section{Comparació d'algorismes} % (fold)
+\label{sec:comparacioalg}
+\input{experiments/comparacioalg}
+
 
 \section{Com varia el problema aplicant la restricció addicional?} % (fold)
 \label{sec:restadd}
 \input{experiments/RA}
 
 % section restadd (end)
-
-
-
-\section{Preguntes de l'enunciat} % (fold)
-\label{sec:preguntes}
-
-En els experiments anteriors:
-\begin{itemize}
-\item Quins algorismes responen millor HC o SA?
-\item Quins paràmetres del Simulated Annealing fan obtenir millors resultats?
-\end{itemize}
-
-% section preguntes (end)

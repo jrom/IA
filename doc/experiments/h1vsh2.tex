@@ -1,0 +1,14 @@
+%!TEX root = ../document.tex
+
+Per tal de poder analitzar el comportament de l'algorisme amb els dos heurístics (sense combinar), comprovem quins resultats obtenim fent-ne servir cadascun d'ells.
+
+En el següent experiment hem fet servir 10 taulers diferents, i per cada tauler hem fet 10 iteracions per cada heurístic, combinant les dades fins tenir-ne dues series.
+
+La solució inicial escollida ha estat la de qualitat i l'algorisme Simulated Annealing amb els paràmetres comentats anteriorment.
+
+
+\imatge{images/h1vsh2.png}{Resultats amb h1 i h2}
+
+A la Figura~\ref{fig:{images/h1vsh2.png}} s'observa que com és d'esperar les execucions amb la cerca guiada per l'heurístic 1 obtenen un valor d'aquest més baix que les que han estat guiades per l'heurístic 2, tot i que la diferència no és molt gran. En aquest sentit, escollir un heurístic no perjudica el valor de l'altre.
+
+Per altra banda, observem un efecte molt contundent en aquest gràfic, i és que l'heurístic 1 consegueix resultats amb molts més passos per arribar a la solució però la meitat del temps d'execució. Finalment, comentar que l'heurístic 2 és el que consegueix (per poca diferència) el millor valor per l'heurístic 3, que no s'ha emprat per guiar la cerca sino només per il·lustrar.

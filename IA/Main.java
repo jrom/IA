@@ -26,19 +26,20 @@ public class Main
 		System.out.println("Experiment 1: Comparació solucions inicials");
 		System.out.println("Experiment 2: Estudi creixement de K");
 		System.out.println("Experiment 3: Efectes de l'incorporació de la restricció addicional");
-		System.out.println("Experiment 5");
+    // System.out.println("Experiment 5");
 		System.out.println("Experiment 6: Ponderació entre heurístics");
 		System.out.println("Experiment 7: Parametre Iteracions Totals de SimulatedAnnealing");
 		System.out.println("Experiment 8: Parametre Iteracions per pas de SimulatedAnnealing");
 		System.out.println("Experiment 9: Parametre K de SimulatedAnnealing");
 		System.out.println("Experiment 10: Parametre Lambda de SimulatedAnnealing");
+		System.out.println("Experiment 11: Comparació heurístics h1 i h2");
 		System.out.println("-----------------------------------------------------------------------------------");
 		
 		
 		int experiment = -1;
-		while (experiment > 9 || experiment < 1)
+		while (experiment > 11 || experiment < 1)
 		{
-			System.out.println("Introdueix el número d'experiment desitjat (de 1 a 9)");
+			System.out.println("Introdueix el número d'experiment desitjat (de 1 a 11)");
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
 			experiment = Integer.parseInt(in.readLine());
 		}
@@ -271,6 +272,29 @@ public class Main
           {
             experimenta(""+lambda, problem3, new SimulatedAnnealingSearch(5500,150,110,lambda)); // steps, limit, K, lambda
           }
+          printStats(stats);
+        }
+      }
+
+      if (experiment == 11)
+      { // Comparació H1 i H2
+        for(int exp = 0; exp < 10; exp++)
+        {
+          board = new SquareBoard(5,20);
+          board.solIni1(); // Of course, solucio inicial bona
+          problem2 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicDistTotal()); //H1
+          problem3 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicDistSemblant());
+
+          System.out.println(" ## Comparem h1 i h2 ## ");
+          stats = new ArrayList<Stats>(); // Netegem
+          experimenta("H1", problem2, new SimulatedAnnealingSearch(5500,150,110,0.02)); // steps, limit, K, lambda
+          experimenta("H2", problem3, new SimulatedAnnealingSearch(5500,150,110,0.02)); // steps, limit, K, lambda
           printStats(stats);
         }
       }
