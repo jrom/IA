@@ -13,13 +13,13 @@ import aima.search.informed.SimulatedAnnealingSearch;
 
 public class Main
 {
-  public static int ITER = 10;
+  public static int ITER = 5;
   static ArrayList<Stats> stats = new ArrayList<Stats>();
-	public static boolean bernat = true; // Activen els experiments del Bernat -> ja ho canviarem!
+	public static boolean segon = true; // Activen els experiments del Bernat -> ja ho canviarem!
 	
   public static void main (String[] args) throws Exception
   {
-		if(bernat) mainBernat(3);
+		if(segon) mainSegon(3);
 		else 
 		{
       SquareBoard board = new SquareBoard(5, 20);
@@ -253,7 +253,7 @@ public class Main
     }
   }
 
-  public static void mainBernat(int experiment) throws Exception
+  public static void mainSegon(int experiment) throws Exception
 	{
 		stats = new ArrayList<Stats>(); 
 		if(experiment == 1) // Es prova les diferents solucions inicials
@@ -404,7 +404,7 @@ public class Main
 			
 		} else if (experiment == 3) // Es prova la restricció addicional
 		{
-			bernat = false;
+			segon = false;
 			SquareBoard board1 = new SquareBoard(5, 30, true);
 			Problem problem1;
 		 
@@ -464,7 +464,7 @@ public class Main
     int nodes, steps;
     double h1 = 0.0, h2 = 0.0, h3 = 0.0;
 
-    if (!bernat) System.out.print(nom+" ");
+    if (!segon) System.out.print(nom+" ");
 		for(int i = 0; i < ITER; i++)
 		{
 		  ini = System.currentTimeMillis();
@@ -488,10 +488,10 @@ public class Main
 
       }
       st.add(nodes, steps, h1, h2, h3, (fi-ini));
-      if (!bernat) System.out.print(("."));
+      if (!segon) System.out.print(("."));
 		}
     stats.add(st);
-    if (!bernat) System.out.println("");
+    if (!segon) System.out.println("");
 		return st;
   }
   
