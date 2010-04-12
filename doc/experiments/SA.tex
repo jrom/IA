@@ -25,7 +25,7 @@ Amb aquest paràmetre definim el número màxim d'iteracions, de certa manera li
 
 \imatge{images/parsa_steps.png}{Influència del paràmetre iteracions màximes}
 
-A la figura ~\ref{fig:{images/parsa_steps.png}} observem que a mesura que el número màxim d'iteracions creix (en un rang entre 500 i 10000) creix també linealment el número de nodes expandits i l'elapsed time. D'una manera molt més erràtica i menys clara es pot veure que els valors dels tres heurístics es mouen d'una forma similar, i el número de passos fins a la millor solució trobada també segueix una mica el mateix patró. Sense que sigui una diferència molt gran, al punt de les \textbf{5500} iteracions s'observa una davallada dels heurístics i el número de passos, i en la zona fins a les 7500 iteracions és on s'observen els millors resultats globals.
+A la figura ~\ref{fig:{images/parsa_steps.png}} observem que a mesura que el número màxim d'iteracions creix (en un rang entre 500 i 10000) creix també linealment el número de nodes expandits i l'\emph{elapsed time}. D'una manera molt més erràtica i menys clara es pot veure que els valors dels tres heurístics es mouen d'una forma similar, i el número de passos fins a la millor solució trobada també segueix una mica el mateix patró. Sense que sigui una diferència molt gran, al punt de les \textbf{5500} iteracions s'observa una davallada dels heurístics i el número de passos, i en la zona fins a les 7500 iteracions és on s'observen els millors resultats globals.
 
 Per aquest fet s'ha escollit que el valor òptim d'aquest paràmetre és \textbf{5500} iteracions.
 
@@ -39,7 +39,7 @@ L'algorisme de \emph{Simulated Annealing} va variant el valor de la temperatura 
 
 \imatge{images/parsa_limit.png}{Influència del paràmetre iteracions per pas}
 
-En aquest cas no tenim cap increment lineal sino un valor constant, que és el número de nodes expandits. Aquest factor no és afectat pel número d'iteracions per pas. Per altra banda, observem que el número de passos sí que disminueix a mesura que el paràmetre augmenta, i l'elapsed time també tendeix a decréixer. Els heurístics tenen un comportament menys clar, tot i que en aquesta gràfica s'observa que al punt de les \textbf{150} iteracions tots els valors coincideixen en un mínim que fa clara l'elecció a prendre.
+En aquest cas no tenim cap increment lineal sino un valor constant, que és el número de nodes expandits. Aquest factor no és afectat pel número d'iteracions per pas. Per altra banda, observem que el número de passos sí que disminueix a mesura que el paràmetre augmenta, i l'\emph{elapsed time} també tendeix a decréixer. Els heurístics tenen un comportament menys clar, tot i que en aquesta gràfica s'observa que al punt de les \textbf{150} iteracions tots els valors coincideixen en un mínim que fa clara l'elecció a prendre.
 
 Tot i que el valor dels heurístics assoleix un mínim absolut a la zona dels 60-80, la combinació de tots els factors és clarament guanyadora en el punt dels 150. Si l'objectiu fos conseguir solucions amb un número de passos petit, es podria escollir el número més gran que minimitza aquest valor. En el nostre cas ens és irrellevant el camí per arribar a la millor solució.
 
@@ -49,10 +49,15 @@ Tot i que el valor dels heurístics assoleix un mínim absolut a la zona dels 60
 \subsection{Paràmetre K} % (fold)
 \label{sub:parametre_k}
 
-El valor de K determina quant triga la temperatura en començar a descendir. El valor per defecte d'AIMA és de 20 i nosaltres hem provat totes les possibilitats entre 10 i 200 de 10 en 10.
-
+El valor de $K$ determina quant triga la temperatura en començar a descendir. El valor per defecte d'AIMA és de 20 i nosaltres hem provat totes les possibilitats entre 10 i 200 de 10 en 10.
 
 \imatge{images/parsa_K.png}{Influència del paràmetre K}
+
+Podem comprovar que a els heurístics mostren una tendència a decréixer a mesura que augmenta K, i en canvi el número de passos incrementa. El valor de l'\emph{elapsed time} es comporta d'una manera irregular, tot i que amb els valors dels extrems aquest augmenta molt.
+
+Si el que es vol és millorar la qualitat dels heurístics, el punt òptim es troba quan $k = 110$ ja que aquests assoleixen un mínim, mentre que el número de passos tampoc és molt gran i l'\emph{elapsed time} també és moderat. Altres valors positius són el 120, 140 i 170, amb uns valors similars.
+
+Escollim com a valor per defecte del paràmetre $K$ \textbf{110}.
 
 
 % subsection parametre_k (end)
@@ -60,7 +65,31 @@ El valor de K determina quant triga la temperatura en començar a descendir. El 
 \subsection{Paràmetre $\lambda$} % (fold)
 \label{sub:parametre_lambda}
 
+El paràmetre $\lambda$ és el que marca la pendent del refredament de la funció, o sigui com n'és de ràpid aquest refredament un cop comença. A partir dels gràfics observats a les transparències sobre AIMA i el valor per defecte que aquesta classe defineix per $\lambda$, decidim provar els possibles valors entre $0.0005$ i $0.128$ incrementant a base de multiplicar per dos. D'aquesta manera podem contemplar el comportament de la cerca amb un ampli ventall de valors però sense haver de provar-ne milers. Els resultats són bastant clars en el següent gràfic:
+
 \imatge{images/parsa_lambda.png}{Influència del paràmetre $\lambda$}
+
+Degut a la naturalesa exponencial dels valors de l'eix X s'han d'interpretar els resultats exponencialment. S'observa que l'\emph{elapsed time} i el número de passos fins a la solució decrementa molt amb els primers valors de $\lambda$, i que tots els heurístics prenen millors valors amb les $\lambda$ més petites. Per trobar u ncompromís es pot escollir una $\lambda$ de \textbf{0.002} que obté molt bons valors en els heurístics i l'\emph{elapsed time} ha caigut bastant respecte els valors més petits.
+
+\subsection{Resum paràmetres} % (fold)
+\label{sub:resum_parametres}
+
+Després de comentar un per un els paràmetres requerits per l'algorisme de Simulated Annealing, mostrem les conclusions d'aquests experiments: Hem partit de la informació bàsica proporcionada pels apunts d'AIMA i el seu propi codi, on hem observat quins valors són raonables aplicar a aquest algorisme. A partir d'aquí hem decidit provar-ne tants com fos oportú per tenir la certesa de trobar l'òptim. Normalment hem provat 20 valors diferents per cada paràmetre, i ens hem quedat amb el que assolia millors resultats tant en el valor dels heurístics com (en menys mesura) els valors de l'\emph{elapsed time} i el número de passos.
+\begin{figure}[ht]
+  \caption{Taula amb els valors dels paràmetres per Simulated Annealing}
+	\label{fig:resumSA}
+  \begin{center}
+    \begin{tabular}{| l | c | c | c |}
+      \hline
+      						& \textbf{Valor AIMA}    & \textbf{Valors} & \textbf{Resultat} \\ \hline
+      Iteracions màximes 	& 10000 & 500 .. 10000 		& 5500 \\ \hline
+      Iteracions per pas 	& 100 	& 20 .. 200 		& 150 \\ \hline
+      K 					& 20 	& 10 .. 200 		& 110 \\ \hline
+      $\lambda$ 			& 0.045 & 0.0005 .. 0.128 	& 0.02 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{figure}
+% subsection resum_parametres (end)
 
 \newpage
 % subsection parametre_lambda (end)
