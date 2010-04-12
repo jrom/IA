@@ -71,7 +71,7 @@ El paràmetre $\lambda$ és el que marca la pendent del refredament de la funci�
 
 Degut a la naturalesa exponencial dels valors de l'eix X s'han d'interpretar els resultats exponencialment. S'observa que l'\emph{elapsed time} i el número de passos fins a la solució decrementa molt amb els primers valors de $\lambda$, i que tots els heurístics prenen millors valors amb les $\lambda$ més petites. Per trobar u ncompromís es pot escollir una $\lambda$ de \textbf{0.002} que obté molt bons valors en els heurístics i l'\emph{elapsed time} ha caigut bastant respecte els valors més petits.
 
-\subsection{Resum paràmetres} % (fold)
+\subsection{Resum dels paràmetres de Simulated Annealing} % (fold)
 \label{sub:resum_parametres}
 
 Després de comentar un per un els paràmetres requerits per l'algorisme de Simulated Annealing, mostrem les conclusions d'aquests experiments: Hem partit de la informació bàsica proporcionada pels apunts d'AIMA i el seu propi codi, on hem observat quins valors són raonables aplicar a aquest algorisme. A partir d'aquí hem decidit provar-ne tants com fos oportú per tenir la certesa de trobar l'òptim. Normalment hem provat 20 valors diferents per cada paràmetre, i ens hem quedat amb el que assolia millors resultats tant en el valor dels heurístics com (en menys mesura) els valors de l'\emph{elapsed time} i el número de passos.
@@ -90,6 +90,8 @@ Després de comentar un per un els paràmetres requerits per l'algorisme de Simu
   \end{center}
 \end{figure}
 % subsection resum_parametres (end)
+
+Donada la precisió amb la que hem intentat fer els experiments (amb 10 iteracions per cada possible valor) i repetint tot l'experiment en 10 taulers diferents (per tant 100 execucions per cada valor de cada paràmetre), amb un total de 8000 cerques per elaborar aquests quatre gràfics (evidentment automatitzades amb el codi de la classe \texttt{Main}), creiem que la diferència entre els resultats obtinguts i els paràmetres per defecte d'AIMA (notable tot i que dins dels paràmetres raonables) han de ser deguts a la peculiaritat del nostre problema. Tots els valors que hem trobat han estat dins del que cabia esperar i han millorat la qualitat de la cerca.
 
 \newpage
 % subsection parametre_lambda (end)
