@@ -32,6 +32,17 @@ La única \textbf{condició d'aplicabilitat} d'aquest operador és que:
 
 Això ens garanteix no sortir en cap momenet de l'espai de solucions. Aquesta restricció però no implica que no es pugui arribar a tot l'espai de solucions, perquè l'únic que cal és aplicar-la en un altre estat on aquella parada no sigui la única que queda en la seva ruta.
 
+\subsection{Restricció addicional} % (fold)
+\label{sub:restadd}
+
+En aquest operador s'aplica la restricció addicional creant una nova condició d'aplicabilitat, que és que:
+
+\begin{itemize}
+	\item La ruta a la que pertany la parada en qüestió té al menys $\frac{P}{2*K}$ parades
+\end{itemize}
+
+% subsection restadd (end)
+
 % TODO Factor de ramificacio operador canviar de ruta?
 
 % section canviar_de_ruta (end)
