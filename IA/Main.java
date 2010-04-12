@@ -16,7 +16,7 @@ import aima.search.informed.SimulatedAnnealingSearch;
 
 public class Main
 {
-  public static int ITER = 5;
+  public static int ITER = 10;
   static ArrayList<Stats> stats = new ArrayList<Stats>();
 	public static boolean segon = true; // Activen els experiments del Bernat -> ja ho canviarem!
 	
@@ -33,13 +33,14 @@ public class Main
 		System.out.println("Experiment 9: Parametre K de SimulatedAnnealing");
 		System.out.println("Experiment 10: Parametre Lambda de SimulatedAnnealing");
 		System.out.println("Experiment 11: Comparació heurístics h1 i h2");
+		System.out.println("Experiment 12: Comparació entre HC i SA");
 		System.out.println("-----------------------------------------------------------------------------------");
 		
 		
 		int experiment = -1;
-		while (experiment > 11 || experiment < 1)
+		while (experiment > 12 || experiment < 1)
 		{
-			System.out.println("Introdueix el número d'experiment desitjat (de 1 a 11)");
+			System.out.println("Introdueix el número d'experiment desitjat (de 1 a 12)");
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
 			experiment = Integer.parseInt(in.readLine());
 		}
@@ -295,6 +296,23 @@ public class Main
           stats = new ArrayList<Stats>(); // Netegem
           experimenta("H1", problem2, new SimulatedAnnealingSearch(5500,150,110,0.02)); // steps, limit, K, lambda
           experimenta("H2", problem3, new SimulatedAnnealingSearch(5500,150,110,0.02)); // steps, limit, K, lambda
+          printStats(stats);
+        }
+      }
+
+      if (experiment == 12)
+      { // Comparació H1 i H2
+        for(int exp = 0; exp < 20; exp++)
+        {
+          board = new SquareBoard(10,50);
+          board.solIni1(); // Of course, solucio inicial bona
+          problem1 = new Problem(board,
+                                new SquareSuccessorFunction(),
+                                new SquareGoalTest(),
+                                new SquareHeuristicComb()); //H3
+          stats = new ArrayList<Stats>(); // Netegem
+          experimenta("HC", problem1, new HillClimbingSearch());
+          experimenta("SA", problem1, new SimulatedAnnealingSearch(5500,150,110,0.02)); // steps, limit, K, lambda
           printStats(stats);
         }
       }

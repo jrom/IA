@@ -1,1 +1,9 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%!TEX root = ../document.tex
+
+En aquest experiment hem provat en 10 taulers diferents el resultat de fer 10 cerques amb l'algorisme Hill Climbing i 10 amb el de \emph{Simulated Annealing}. El resultat que s'observa és el promig de totes les execucions en tots els taulers. S'ha escollit usar els paràmetres òptims de Simulated Annealing (\ref{sec:expSA}), la solució de qualitat i l'heurístic combinat.
+
+Es pot observar en la figura \ref{fig:{images/hcvssa.png}} que en els tres heurístics donen un millor resultat les cerques amb \emph{Simulated Annealing}, i la diferència entres els heurístics és bastant equivalent, el que mostra gràficament que la ponderació entre $h_1$ i $h_2$ està ben calibrada.
+
+\imatge{images/hcvssa.png}{Hill Climbing contra Simulated Annealing}
+
+A més de veure quin és l'algorisme que proporciona més qualitat a la solució, també observem que \emph{Hill Climbing} és moltm és resolutiu, ja que assoleix un resultat prou similar amb una fracció molt petita de passos, i sobretot és més eficient perquè la diferència de nodes expandits i \emph{elapsed time} entre els algorismes és aclaparadorament millor en l'algorisme de \emph{Hill Climbing}.
