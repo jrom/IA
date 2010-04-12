@@ -1,1 +1,13 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%!TEX root = document.tex
+
+Després de tota la feina que s'ha fet de implementar la cerca, calibrar els diferents paràmetres i observar el comportament de tots els escenaris proposats, la primera conclusió és que el que a priori eren les millors condicions han estat efectivament les que han ofert millors resultats.
+
+Pel que fa a l'algorisme, entre \emph{Hill Climbing} i \emph{Simulated Annealing} ha sortit guanyador l'algorisme de \emph{Simulated Annealing}, tot i que hem fet entrar en joc un tercer algorisme, modificació del primer, que és \emph{Hill Climbing} amb reinici aleatori. Aquest ha mostrat sorprenentment resultats molt similars al de \emph{Simulated Annealing}, tot i que amb molt menys temps. Aquest és l'únic cas on el resultat ens ha sorprès ja que no ha complert amb el que esperavem (que fos simlement una lleu millora a la seva versió original).
+
+Dins de la disputa entre algorismes, la recerca de paràmetres òptims per a l'algorisme de \emph{Simulated Annealing} ha estat costosa, tot i que concloent. Aquest fet pot fer descartar aquest algorisme quan no es té la capacitat de fer un anàlisi acurat com el que s'ha dut a terme en aquest document.
+
+En quant als heurístics, els dos es comporten de manera similar, cadascun optimitzant el seu objectiu, i hem trobat que el tercer heurístic que combina ponderadament els anteriors aconsegueix uns resultats òptims per als dos heurístics originals. Sens dubte és el que ens permet obtenir millors resultats globals.
+
+Pel que fa a les solucions inicials també la lògica ha manat: la solució inicial de qualitat començava amb millors valors pels heurístics i acabava amb millors valors pels heurístics que la solució aleatòria. En aquest punt hi ha un cas especial que és la solució totalment aleatòria que hem necessitat per implementar el \emph{Hill Climbing} amb reinici aleatori. Aquesta en combinació amb l'algorisme ha proporcionat molts bons resultats, però el mèrit és de l'algorisme.
+
+Finalment, la restricció addicional proposada ha mostrat uns resultats manifestament pitjors a la proposta original, tant en temps d'execució com en la qualitat dels heurístics.
