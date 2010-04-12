@@ -373,7 +373,6 @@ public class SquareBoard
 	  return h;
 	}
 
-  // TODO Optimitzar...
 	public double getHeuristic2()
 	{
 	  double h = 0;
