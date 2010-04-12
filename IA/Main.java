@@ -289,7 +289,15 @@ public class Main
 			String out;
 			Stats s;
 			Problem problem1;
+			int IterRRHC = 100;
 			
+			long elapsed1 = 0;
+			long elapsed2 = 0;
+			long elapsed3 = 0;
+			long elapsed32 = 0;
+			long elapsed1sa = 0;
+			long elapsed2sa = 0;
+			long elapsed3sa = 0;
 			int h1ini1 = 0;
 			int h1ini2 = 0;
 			int h1ini3 = 0;
@@ -300,10 +308,8 @@ public class Main
 						
 			for (int k = 0; k < 5; k++)
 			{
-				
-			
 				double minim = Double.MAX_VALUE;
-				for (int i = 0;i < 50; i++)
+				for (int i = 0;i < IterRRHC; i++)
 				{
 			
 					  out = board.solIni3();
@@ -317,8 +323,9 @@ public class Main
 						if (s.stats().h1 < minim) 
 						{
 							minim = s.stats().h1;
-							if (i==49) System.out.println("It" + k + " " + out);
+							if (i==(IterRRHC - 1)) System.out.println("It" + k + " " + out);
 						}
+						elapsed3 += s.stats().elapsed;
 				}
 
 
@@ -333,6 +340,7 @@ public class Main
 												problem1,
 												new SimulatedAnnealingSearch(5500,150,50,0.01));
 				h1ini1sa += s.stats().h1;
+				elapsed1sa += s.stats().elapsed;
 				
 				
 			
@@ -345,6 +353,7 @@ public class Main
 												problem1,
 												new HillClimbingSearch());
 				h1ini1 += s.stats().h1;
+				elapsed1 += s.stats().elapsed;
 		
 		
 		
@@ -357,7 +366,7 @@ public class Main
 												problem1,
 												new SimulatedAnnealingSearch(5500,150,50,0.01));
 				h1ini2sa += s.stats().h1;
-				
+				elapsed2sa += s.stats().elapsed;				
 
 			  System.out.println(board.solIni2());				
 				problem1 = new Problem(board,                        
@@ -368,7 +377,7 @@ public class Main
 												problem1,
 												new HillClimbingSearch());
 				h1ini2 += s.stats().h1;
-				
+				elapsed2 += s.stats().elapsed;				
 
 			  System.out.println(board.solIni3());
 				problem1 = new Problem(board,                        
@@ -379,7 +388,7 @@ public class Main
 												problem1,
 												new SimulatedAnnealingSearch(5500,150,50,0.01));
 				h1ini3sa += s.stats().h1;
-				
+				elapsed3sa += s.stats().elapsed;				
 				
 			  System.out.println(board.solIni3());	
 				problem1 = new Problem(board,                        
@@ -390,15 +399,16 @@ public class Main
 												problem1,	
 												new HillClimbingSearch());
 				h1ini32 += s.stats().h1;
+				elapsed32 += s.stats().elapsed;				
 			}
 			System.out.println("*************** Valors H1 *****************");
-			System.out.println("HC amb solIni1 x 10: " + h1ini1/10);
-			System.out.println("HC amb solIni2 x 10: " + h1ini2/10);
-			System.out.println("HC amb solIni3 x 10: " + h1ini32/10);			
-			System.out.println("SA amb solIni1 x 10: " + h1ini1sa/10);
-			System.out.println("SA amb solIni2 x 10: " + h1ini2sa/10);
-			System.out.println("SA amb solIni3 x 10: " + h1ini3sa/10);
-			System.out.println("Valor Mínim 50 execucions HCRR amb solIni3 x 10: " + h1ini3/10);
+			System.out.println("HC amb solIni1 x 10: " + h1ini1/10 + " Elapsed: " + elapsed1/10);
+			System.out.println("HC amb solIni2 x 10: " + h1ini2/10 + " Elapsed: " + elapsed2/10);
+			System.out.println("HC amb solIni3 x 10: " + h1ini32/10 + " Elapsed: " + elapsed32/10);			
+			System.out.println("SA amb solIni1 x 10: " + h1ini1sa/10 + " Elapsed: " + elapsed1sa/10);
+			System.out.println("SA amb solIni2 x 10: " + h1ini2sa/10 + " Elapsed: " + elapsed2sa/10);
+			System.out.println("SA amb solIni3 x 10: " + h1ini3sa/10 + " Elapsed: " + elapsed3sa/10);
+			System.out.println("Valor Mínim 50 execucions HCRR amb solIni3 x 10: " + h1ini3/10 + " Elapsed: " + elapsed3/10);
 		} else if(experiment == 2) // Es prova l'increment de K
 		{
 			Stats s;

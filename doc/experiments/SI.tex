@@ -1,6 +1,7 @@
 %!TEX root = ../document.tex
 
-Tal com indica la teoria de la cerca local, obtenir una bona solució inicial fa més fàcil l'obtenció de millors resultats. Ho hem comprovat realitzant 10 execucions amb una mateixa configuració de parades. En la següent taula es pot veure el promig d'aquestes 10 execucions. En aquest cas, només s'intenta maximitzar l'heurístic 1.
+\subsection{Comparació entre solució inicial 1 i 2}
+Tal com indica la teoria de la cerca local, obtenir una bona solució inicial fa més fàcil l'obtenció de millors resultats. Ho hem comprovat realitzant 10 execucions amb una mateixa configuració de parades. En la següent taula es pot veure la mitjana d'aquestes 10 execucions. En aquest cas, només s'intenta maximitzar l'heurístic 1, tal com demana l'enunciat.
 
 Recordem que la solució inicial 1 és aquella que incorpora coneixement del problema i intenta optimitzar d'entrada la configuració inicial. La solució 2 és aquella generada immediatament a partir de la configuració aleatòria de parades.
 
@@ -22,22 +23,25 @@ Valor de l'heurístic 1 de la solució inicial 2: \textbf{384.0}
 	SA Simulated Annealing
 \end{verbatim}
 		
-L'ús de la solució inicial 1 millora els resultats de la solució 2 en un \textbf{17\%} en el cas de l'algorisme Hill Climbing i en un \textbf{4\%} en el cas de Simulated Annealing. D'això s'infereix que una bona solució inicial porta millors resultats pel Hill Climbing que pel Simulated Annealing.
+L'ús de la solució inicial 1 millora els resultats de la solució 2 en un \textbf{17\%} en el cas de l'algorisme Hill Climbing i en un \textbf{4\%} en el cas de Simulated Annealing. D'això s'infereix que una bona solució inicial porta millors resultats pel Hill Climbing que pel Simulated Annealing. 
 
-Per últim, hem volgut comprovar com es podia millorar els resultats del Hill Climbing mitjançant una estratègia de reinici aleatori (tal com ha estat explicat a classe). Per això hem executat l'algorisme de Hill Climbing 50 vegades, cadascuna amb una solució inicial aleatòria diferent (solució inicial 3) per acabar quedant-nos amb el mínim H1 obtingut. Aquest experiment l'hem realitzat 10 vegades i n'hem fet el promig en la següent taula:
+En els altres experiments, amb diferents paràmetres, amb diferents números de parades i rutes hem observat que la solució inicial de qualitat sempre millora els resultats notablement. Hem extret la conclusió que val la pena usar sempre una solució voraç. 
 
-Valor de l'heurístic 1 de la solució inicial 1: \textbf{248.0}
+\subsection{Experiment addicional: Hill Climbing amb reinici aleatori}
 
-Valor de l'heurístic 1 de la solució inicial 2: \textbf{360.0}
+Hem volgut comprovar com es podia millorar els resultats del Hill Climbing mitjançant una estratègia de reinici aleatori (tal com s'ha explicat a classe). Per això hem executat l'algorisme de Hill Climbing amb 100 reinicis aleatoris, cadascuna amb una solució inicial aleatòria diferent (per això hem creat la solució inicial 3) per trobar el valor mínim de l'heurístic 1 que s'obtenia. Aquest experiment l'hem realitzat 10 vegades i n'hem fet la mitjana en la següent taula:
 
 \begin{verbatim}
 	+-------------------------------+----------+----------+
-	| Experiment                    | H1 en HC | H1 en SA |
+	| Experiment                    | H1 en HC |  Elapsed |
 	+-------------------------------+----------+----------+
-	| Solució Inicial 1             |   123,00 |   111,00 |
-	| Solució Inicial 2             |   134,00 |   113,00 |
-	| Solució Inicial 3             |   145,00 |   115,00 |
-	| RRHC - Sol. Inicial 3 x 50    |   119,00 |        - |
+	| Solució Inicial 1 HC          |   130,00 |        0 |
+	| Solució Inicial 2 HC          |   150,00 |        1 |
+	| Solució Inicial 3 HC          |   147,00 |        0 |
+	| Solució Inicial 1 SA          |   121,00 |      631 |
+	| Solució Inicial 2 SA          |   118,00 |      625 |
+	| Solució Inicial 3 SA          |   122,00 |      637 |
+	| RRHC - Sol. Inicial 3 x 50    |   122,00 |       77 |
 	+-------------------------------+----------+----------+
 
 	HC Hill Climbing
@@ -46,5 +50,5 @@ Valor de l'heurístic 1 de la solució inicial 2: \textbf{360.0}
 \end{verbatim}
 
                                           
-Es pot comprovar que la solució de qualitat aquí segueix millorant les aleatòries però quan usem l'estratègia de reinici aleatori (amb 50 execucions) obtenim per un cost, fins i tot inferior al del Simulated Annealing, resultats semblants a aquest amb la solució de qualitat. En particular, obtenim un resultat 4 punts millor que la solució obtinguda amb Hill Climbing + la solució inicial de qualitat i tant sols 8 punts pitjor que Simulated Annealing + solució inicial de qualitat, o bé 4 punts pitjor que Simulated Annealing amb solució inicial aleatòria.
+Es pot comprovar que la solució de qualitat aquí segueix millorant les aleatòries però quan usem l'estratègia de reinici aleatori amb 100 reinicis obtenim per un cost, molt més econòmic que el de la solució de Simulated Annealing, resultats semblants a aquest. En particular, obtenim un resultat 8 punts millor que la solució obtinguda amb Hill Climbing + solució inicial de qualitat i tant sols 4 punts pitjor que Simulated Annealing + solució inicial de qualitat, la  mateixa solució obtinguda amb Simulated Annealing i solució aleatòria. Cal fixar-se el temps d'execució dels algorismes de Simulated Annealing, de l'ordre de 630 u.t. mentre que el HC amb Reinici Aleatori té un cost de l'ordre dels 80 u.t.
 
