@@ -12,6 +12,8 @@ Aquesta solució (mètode anomenat \textbf{solIni1}), en canvi, intenta ser bona
 
 En concret, el procediment consisteix en anar afegint a cada ruta la parada més propera a l'última parada afegida i, a la vegada, més propera a la parada final. Aquesta última restricció evita que apareguin \emph{recorreguts en cercle} (veure figures ~\ref{fig:{images/grafic_sense_control_final.png}} i ~\ref{fig:{images/grafic_amb_control_final.png}}). Aquestes comprovacions faciliten que la solució obtinguda segueixi el primer criteri a optimitzar (minimitzar el recorregut de les rutes), però no garanteixen explícitament millores pel que fa al segon criteri. Tanmateix, pel fet d'escollir sempre les distàncies menors entre parades estarem també reduint la diferència de la separació entre parades (que altrament seria aleatòria), així que també oferirà millors resultats pel que fa al compliment del segon criteri a optimitzar (minimitzar diferència entre separació de parades) respecte a la solució aleatòria.
 
+A més, com que la repartició de les parades entre rutes es fa de forma homogènia, també garanteix d'entrada el compliment de la restricció addicional, posat que totes les parades tindran el mateix número de rutes o una diferència de 1.
+
 En definitiva, aquest algorisme ofereix una solució raonablement bona amb un cost de l'ordre $\Theta(K * P)$.
 
 \imatgePetita{images/grafic_sense_control_final.png}{No es té en compte la distància entre la parada candidata i el final, les solucions poden caure en recorreguts en cercle.} 

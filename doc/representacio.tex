@@ -11,17 +11,16 @@ Definim una configuració com a vàlida quan compleix que totes les rutes comenc
 
 L'espai de cerca és molt gran tenint en compte la quantitat de combinacions possibles que es poden donar. Precisament per això, s'encara el problema mitjançant una estratègia de cerca local, que evita visitar gran part de l'espai de cerca. En general, l'espai de cerca s'obté recorrent totes les possibles permutacions de parades dins d'una mateixa ruta per cada configuració nova de parades de la ruta. Això és així, evidentment, sempre que la nova configuració sigui un estat vàlid. 
 
-Es pot comprovar que l'espai de cerca creix ràpidament segons els paràmetres P i K. En particular, és de l'ordre següent:
+Es pot comprovar que l'espai de cerca creix ràpidament segons els paràmetres P i es redueix en funció del número de rutes K. Per calcular-lo considerem les possibles combinacions de P en K grups i després les permutacions de les P parades dins de cada grup. En particular, és de l'ordre següent:
 
 \begin{center}
-\Large{$\Theta(C_{p}^{k} P(P)) = \Theta({P \choose K} P!) = \Theta(\frac{P!P!}{K!(P-K)!}) $}
+\Large{$\Theta(C_{p-k}^{k} P(P)) = \Theta({P - K \choose K} P!) = \Theta(\frac{(P-K)!P!}{K!(P-2K)!}) $}
 \end{center}
 
-
-En el cas d'aplicar la restricció addicional, l'espai de cerca es redueix a:
+Val a dir que el nombre de combinacions no es fa sobre P sinó sobre (P - K) per ser coherents amb la restricció que cada parada ha de tenir almenys una ruta. En cas d'aplicar la restricció addicional, l'espai de cerca es redueix parcialment, ja que el nombre de dalt del binomi aquest cop és $P - \frac{P}{2K} = P(2K-1)$. En concret:
 
 \begin{center}
-\Large{$\Theta(\frac{C_{p}^{k} P(P)}{\frac{P}{2*K}}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
+\Large{$\Theta(C_{p(2K-1)}^{k} P(P)) = \Theta({P(2K-1) \choose K} P!) = \Theta(\frac{(P(2K-1)!P!}{K!(P(2K-1)-K)!})$ }
 \end{center}
 
 \section{Estructures de dades}	% (fold)
