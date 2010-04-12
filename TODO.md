@@ -5,3 +5,4 @@ DOC
 * Experiments
   * <del>Paràmetres de SA</del>
   * <del>Ponderació heurístic 3</del>
+* Comentar als operadors la restricció addicional!
