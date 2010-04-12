@@ -4,12 +4,12 @@ El primer a plantejar-se és què és el que considerem \textbf{estat} en el con
 
 Un estat és qualsevol configuració vàlida (o solució candidata) de rutes, recordem que qualsevol problema de cerca local es mou sempre dins l'espai de solucions i no en tot l'espai de camins, per tant, tot estat és solució. 
 
-Definim una configuració com a vàlida quan compleix que totes les rutes comencen per la casella (1,1) i acaben a la (19, 19). A més, totes tenen almenys una parada assignada i, en el cas d'aplicació de la restricció addicional, cada ruta té almenys p / (2 x k) parades.
+Definim una configuració com a vàlida quan compleix que totes les rutes comencen per la casella (1,1) i acaben a la (19, 19). A més, totes tenen almenys una parada assignada i, només en el cas que s'apliqui la restricció addicional, cada ruta té almenys $\frac{P}{2*K}$ parades.
 
 \section{Espai de cerca} % (fold)
 \label{sec:espaicerca}
 
-L'espai de cerca és molt gran tenint en compte la quantitat de combinacions possibles que es poden donar. Precisament per això, s'encara el problema mitjançant una estratègia de cerca local, que omet gran part de l'espai de cerca. En general, l'espai de cerca s'obté recorrent totes les possibles permutacions de parades dins d'una mateixa ruta per cada configuració nova de parades de la ruta. Això és així, evidentment, sempre que la nova configuració sigui un estat vàlid. 
+L'espai de cerca és molt gran tenint en compte la quantitat de combinacions possibles que es poden donar. Precisament per això, s'encara el problema mitjançant una estratègia de cerca local, que evita visitar gran part de l'espai de cerca. En general, l'espai de cerca s'obté recorrent totes les possibles permutacions de parades dins d'una mateixa ruta per cada configuració nova de parades de la ruta. Això és així, evidentment, sempre que la nova configuració sigui un estat vàlid. 
 
 Es pot comprovar que l'espai de cerca creix ràpidament segons els paràmetres P i K. En particular, és de l'ordre següent:
 
@@ -18,10 +18,10 @@ Es pot comprovar que l'espai de cerca creix ràpidament segons els paràmetres P
 \end{center}
 
 
-En el cas d'aplicar la restricció addicional, el cost es redueix a:
+En el cas d'aplicar la restricció addicional, l'espai de cerca es redueix a:
 
 \begin{center}
-\Large{$\Theta(\frac{C_{p}^{k} P(P) 2K}{P}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
+\Large{$\Theta(\frac{C_{p}^{k} P(P)}{\frac{P}{2*K}}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
 \end{center}
 
 \section{Estructures de dades}	% (fold)
@@ -37,6 +37,7 @@ El primer \textbf{distParadaFisica} calcula la distància física entre dos para
 \begin{center}
 $(p1,p2)=|p1_{x} - p2_{x}|+|p1_{y} - p2_{y}|$ 
 \end{center}
+$p1_{x}$ i $p2_{y}$ són els valors de les coordenades (x,y) de dues parades consecutives.
 
 El segon mètode \textbf{distParada} calcula la distància entre parades a través de les rutes. En cas que l'altra parada no es trobi a la mateixa ruta, es calcula la distància fent transbord entre rutes a la prada (1,1) o (19,19).
 

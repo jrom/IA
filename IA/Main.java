@@ -4,12 +4,15 @@ import java.util.Properties;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
+import java.io.*; 
 
 import aima.search.framework.Problem;
 import aima.search.framework.SearchAgent;
 import aima.search.framework.Search;
 import aima.search.informed.HillClimbingSearch;
 import aima.search.informed.SimulatedAnnealingSearch;
+
+/* CLASSE DE TESTING DE LA PRÀCTICA */
 
 public class Main
 {
@@ -19,7 +22,28 @@ public class Main
 	
   public static void main (String[] args) throws Exception
   {
-		if(segon) mainSegon(3);
+		System.out.println("----------------------------- Selecció d'experiments -----------------------------");
+		System.out.println("Experiment 1: Comparació solucions inicials");
+		System.out.println("Experiment 2: Estudi creixement de K");
+		System.out.println("Experiment 3: Efectes de l'incorporació de la restricció addicional");
+		System.out.println("Experiment 5");
+		System.out.println("Experiment 6");
+		System.out.println("Experiment 7");
+		System.out.println("Experiment 8");
+		System.out.println("Experiment 9");
+		System.out.println("-----------------------------------------------------------------------------------");
+		
+		
+		int experiment = -1;
+		while (experiment > 9 || experiment < 1)
+		{
+			System.out.println("Introdueix el número d'experiment desitjat (de 1 a 9)");
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+			experiment = Integer.parseInt(in.readLine());
+		}
+		
+		
+		if(experiment < 4) mainSegon(experiment);
 		else 
 		{
       SquareBoard board = new SquareBoard(5, 20);
@@ -45,7 +69,7 @@ public class Main
                               new SquareHeuristicComb());
 
 
-      if (true)
+      if (experiment == 5)
       {
         // Heuristic 1
         // Hill Climbing
@@ -151,7 +175,7 @@ public class Main
         printStats(stats); // Imprimim els resultats que tenim guardats fins ara
       }
 
-      if (false)
+      if (experiment == 6)
       {
         // Experiment per provar el valor de ponderació dels heurístics
         // Fem servir el board i problem3 que ja tenen els valors que desitgem!
@@ -187,7 +211,7 @@ public class Main
         }
       }
 
-      if (false) // Modificar a true si volem realitzar aquest experiment
+      if (experiment == 7) // Modificar a true si volem realitzar aquest experiment
       {
         for(int exp = 0; exp < 5; exp++)
         {
@@ -208,7 +232,7 @@ public class Main
         }
       }
 
-      if (false) // Modificar a true si volem realitzar aquest experiment
+      if (experiment == 8) // Modificar a true si volem realitzar aquest experiment
       {
         for(int exp = 0; exp < 5; exp++)
         {
@@ -229,7 +253,7 @@ public class Main
         }
       }
 
-      if (true) // Modificar a true si volem realitzar aquest experiment
+      if (experiment == 9) // Modificar a true si volem realitzar aquest experiment
       {
         for(int exp = 0; exp < 5; exp++)
         {

@@ -1,21 +1,21 @@
 %!TEX root = ../document.tex
 
-Se'ns demana estudiar el comportament dels algorismes quan s'aplica la restricció addicional descrita a l'enunciat. Aquesta consisteix en limitar l'espai de cerca a totes les rutes amb almenys $\frac{P}{2*K}$ parades.
+Se'ns demana estudiar el comportament dels algorismes quan s'aplica la restricció addicional descrita a l'enunciat. Aquesta consisteix en limitar l'espai de cerca per tal que totes les rutes tinguin almenys $\frac{P}{2*K}$ parades.
 
-L'experiment es basa en l'execució sobre un taulell generat aleatòriament per la solució inicial aleatòria i on s'apliquen els algorismes de Hill Climbing i Simulated Annealing amb i sense restriccions. Els algorismes s'executen 10 vegades sobre el taulell i es mostra la mitjana dels valors obtinguts. En la següent taula es pot veure la informació del temps d'execució, els nodes expandits, els passos, el recorregut de les rutes (H1), la distància entre parades (H2) i la combinació d'ambdós (H3).
+L'experiment es basa en l'execució sobre un taulell generat aleatòriament per la solució inicial aleatòria i on s'apliquen els algorismes de Hill Climbing i Simulated Annealing amb i sense restriccions. Els algorismes s'executen 10 vegades sobre el taulell per extreure'n la mitjana dels resultats obtinguts. En la següent taula es pot veure la informació del temps d'execució, els nodes expandits, els passos i el recorregut total de les rutes (heurístic 1). L'algorisme optimitza l'heurístic 1.
 
 \begin{verbatim}
-+----------+-------+-----+-----+------+-------+-------+
-|Experiment|Elapsed|Nodes|Steps|  H1  |   H2  |  H3   |
-+----------+-------+-----+-----+------+-------+-------+
-|HC Rest   |     19|    4|    3|348,00|6524,00|3436,00|
-|SA Rest   |   3626| 5501|  233|305,20|6215,50|3260,35|
-|HC No Rest|      1|    2|    1|298,00|5607,00|2952,50|
-|SA No Rest|   3209| 5501|  150|293,00|5645,80|2969,40|
-+----------+-------+-----+-----+------+-------+-------+
++------------+---------+-------+-------+--------+
+| Experiment | Elapsed | Nodes | Steps |   H1   |
++------------+---------+-------+-------+--------+
+| HC Rest    |      19 |     4 |     3 | 348,00 |
+| SA Rest    |    3626 |  5501 |   233 | 305,20 |
+| HC No Rest |       1 |     2 |     1 | 298,00 |
+| SA No Rest |    3209 |  5501 |   150 | 293,00 |
++------------+---------+-------+-------+--------+
                                                
 HC Rest: Hill Climbing amb o sense rest. addicional.
 SA Rest: Simulated Annealing amb o sense rest. addicional.
 \end{verbatim}  
 
-Com es pot comprovar, lluny de facilitar el problema el complica. Tant l'algorisme de Hill Climbing com el de Simulated Annealing empitjoren els seus resulats. Mentre el temps d'execució, els passos i els nodes empitjoren en el Hill Climbing, en el cas de Simulated Annealing els nodes expandits es mantenen invariables, tot i que els passos i el temps d'execució són més alts aplicant la restricció. Deduïm doncs que en aquest cas resulta més convenient permetre que es generin sempre tots els successors sense la restricció en l'espai de cerca.                                    
+Com es pot comprovar, lluny de facilitar el problema el complica. Tant l'algorisme de Hill Climbing com el de Simulated Annealing empitjoren els seus resultats. Mentre el temps d'execució, els passos i els nodes empitjoren en el Hill Climbing, en el cas de Simulated Annealing els nodes expandits es mantenen invariables, tot i que els passos i el temps d'execució també creixen quan s'aplica la restricció. Deduïm doncs que en aquest cas resulta més convenient permetre que es generin sempre tots els successors sense la restricció en l'espai de cerca.                                    
