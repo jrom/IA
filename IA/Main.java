@@ -27,10 +27,11 @@ public class Main
 		System.out.println("Experiment 2: Estudi creixement de K");
 		System.out.println("Experiment 3: Efectes de l'incorporació de la restricció addicional");
 		System.out.println("Experiment 5");
-		System.out.println("Experiment 6");
-		System.out.println("Experiment 7");
-		System.out.println("Experiment 8");
-		System.out.println("Experiment 9");
+		System.out.println("Experiment 6: Ponderació entre heurístics");
+		System.out.println("Experiment 7: Parametre Iteracions Totals de SimulatedAnnealing");
+		System.out.println("Experiment 8: Parametre Iteracions per pas de SimulatedAnnealing");
+		System.out.println("Experiment 9: Parametre K de SimulatedAnnealing");
+		System.out.println("Experiment 10: Parametre Lambda de SimulatedAnnealing");
 		System.out.println("-----------------------------------------------------------------------------------");
 		
 		
@@ -190,9 +191,9 @@ public class Main
         printStats(stats);
       }
     
-      if (false) // Modificar a true si volem realitzar aquest experiment
-      {
-        for(int exp = 0; exp < 5; exp++)
+      if (experiment == 7) // Modificar a true si volem realitzar aquest experiment
+      { // Experiment per provar parametre ITERACIONS TOTALS de Simulated Annealing
+        for(int exp = 0; exp < 10; exp++)
         {
           board = new SquareBoard(5,20);
           problem3 = new Problem(board,
@@ -211,9 +212,9 @@ public class Main
         }
       }
 
-      if (experiment == 7) // Modificar a true si volem realitzar aquest experiment
-      {
-        for(int exp = 0; exp < 5; exp++)
+      if (experiment == 8) // Modificar a true si volem realitzar aquest experiment
+      { // Experiment per provar parametre Iteracions per pas de Simulated Annealing
+        for(int exp = 0; exp < 10; exp++)
         {
           board = new SquareBoard(5,20);
           problem3 = new Problem(board,
@@ -232,9 +233,9 @@ public class Main
         }
       }
 
-      if (experiment == 8) // Modificar a true si volem realitzar aquest experiment
-      {
-        for(int exp = 0; exp < 5; exp++)
+      if (experiment == 9) // Modificar a true si volem realitzar aquest experiment
+      { // Experiment per provar parametre K de Simulated Annealing
+        for(int exp = 0; exp < 10; exp++)
         {
           board = new SquareBoard(5,20);
           problem3 = new Problem(board,
@@ -253,9 +254,9 @@ public class Main
         }
       }
 
-      if (experiment == 9) // Modificar a true si volem realitzar aquest experiment
-      {
-        for(int exp = 0; exp < 5; exp++)
+      if (experiment == 10) // Modificar a true si volem realitzar aquest experiment
+      { // Experiment per provar parametre Lambda de Simulated Annealing
+        for(int exp = 0; exp < 10; exp++)
         {
           board = new SquareBoard(5,20);
           problem3 = new Problem(board,
