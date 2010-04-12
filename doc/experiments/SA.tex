@@ -1,3 +1,66 @@
 %!TEX root = ../document.tex
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+L'algorisme \emph{Simulated Annealing} pren quatre paràmetres per definir el seu comportament. Aquests serveixen per indicar de quina manera ha d'efectuar l'\emph{escalfament} que orientarà l'algorisme.
+
+Els paràmetres són:
+
+\begin{itemize}
+	\item Iteracions
+	\item Iteracions per cada pas de temperatura
+	\item Paràmetre K
+	\item Paràmetre $\lambda$
+\end{itemize}
+
+A continuació mostrem els resultats d'experimentar amb possibles valors de cadascun d'ells. Per aquests experiments s'ha triat fixar tres dels valors amb els valors per defecte que assigna AIMA si no s'especifiquen (10000, 100, 20 i 0.045 respectivament) i en el valor experimentat provar un àmpli ventall de possibilitats, per observar gràficament quina és la opció que ofereix millor resultats.
+
+En els gràfics que es mostren a continuació tots els valors s'han normalitzat per tal de poder observar si l'efecte és positiu o negatiu en cada un dels paràmetres observats. Simplement convé observar quins valors creixen i quins decreixen amb diferents possibilitats en els paràmetres de \emph{Simulated Annealing}.
+
+Per a executar aquestes proves hem escollit la solució inicial de qualitat. S'ha executat 10 vegades la cerca per cada tauler i valor del paràmetre en concret, amb 10 taulers diferents. Els gràfics estan fets amb el promig d'aquests 100 resultats (per valor per paràmetre).
+
+\newpage
+\subsection{Iteracions màximes} % (fold)
+\label{sub:iteracions}
+
+Amb aquest paràmetre definim el número màxim d'iteracions, de certa manera limitant tota la resta de factors obtinguts per l'algorisme perquè no desemboqui en massa càrrega de treball.
+
+\imatge{images/parsa_steps.png}{Influència del paràmetre iteracions màximes}
+
+A la figura ~\ref{fig:{images/parsa_steps.png}} observem que a mesura que el número màxim d'iteracions creix (en un rang entre 500 i 10000) creix també linealment el número de nodes expandits i l'elapsed time. D'una manera molt més erràtica i menys clara es pot veure que els valors dels tres heurístics es mouen d'una forma similar, i el número de passos fins a la millor solució trobada també segueix una mica el mateix patró. Sense que sigui una diferència molt gran, al punt de les \textbf{5500} iteracions s'observa una davallada dels heurístics i el número de passos, i en la zona fins a les 7500 iteracions és on s'observen els millors resultats globals.
+
+Per aquest fet s'ha escollit que el valor òptim d'aquest paràmetre és \textbf{5500} iteracions.
+
+% subsection iteracions (end)
+
+\newpage
+\subsection{Iteracions per cada pas de temperatura} % (fold)
+\label{sub:iteracions_per_cada_pas}
+
+L'algorisme de \emph{Simulated Annealing} va variant el valor de la temperatura que empra per guiar-se, i en cada temperatura diferent realitza un número d'iteracions. Aquest és el paràmetre que estudiem ara. En el codi per defecte d'AIMA s'utilitza un valor de 100 iteracions, i per aquest motiu hem decidit provar els valors entre 20 i 200 amb increments de 10 per escollir-ne l'òptim.
+
+\imatge{images/parsa_limit.png}{Influència del paràmetre iteracions per pas}
+
+En aquest cas no tenim cap increment lineal sino un valor constant, que és el número de nodes expandits. Aquest factor no és afectat pel número d'iteracions per pas. Per altra banda, observem que el número de passos sí que disminueix a mesura que el paràmetre augmenta, i l'elapsed time també tendeix a decréixer. Els heurístics tenen un comportament menys clar, tot i que en aquesta gràfica s'observa que al punt de les \textbf{150} iteracions tots els valors coincideixen en un mínim que fa clara l'elecció a prendre.
+
+Tot i que el valor dels heurístics assoleix un mínim absolut a la zona dels 60-80, la combinació de tots els factors és clarament guanyadora en el punt dels 150. Si l'objectiu fos conseguir solucions amb un número de passos petit, es podria escollir el número més gran que minimitza aquest valor. En el nostre cas ens és irrellevant el camí per arribar a la millor solució.
+
+% subsection iteracions_per_cada_pas (end)
+
+\newpage
+\subsection{Paràmetre K} % (fold)
+\label{sub:parametre_k}
+
+El valor de K determina quant triga la temperatura en començar a descendir. El valor per defecte d'AIMA és de 20 i nosaltres hem provat totes les possibilitats entre 10 i 200 de 10 en 10.
+
+
+\imatge{images/parsa_K.png}{Influència del paràmetre K}
+
+
+% subsection parametre_k (end)
+\newpage
+\subsection{Paràmetre $\lambda$} % (fold)
+\label{sub:parametre_lambda}
+
+\imatge{images/parsa_lambda.png}{Influència del paràmetre $\lambda$}
+
+\newpage
+% subsection parametre_lambda (end)
