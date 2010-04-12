@@ -46,7 +46,7 @@ public class SquareBoard
 			rutes[i] = new Ruta(i);
 
     // solIni1();
-    // Now this is done in the Main class
+    // Aixo ara es fa a la classe del Main
   }
 
   // Copy operator
@@ -287,16 +287,6 @@ public class SquareBoard
 			}
 			out += " dist: " + rutes[i].dist + "\n";
 		}
-
-		// Mostra distancies entre tots els parells de parades
-    // for(i = 0; i < P; i++)
-    // {
-    //   for(j = i+1; j < P; j++)
-    //   {
-    //           out += "Dist entre "+i+" i "+j+" :"+ parades[i].distParada(parades[j]) + "\n";
-    //   }
-    // }
-
     return out;
   }
 
@@ -340,7 +330,6 @@ public class SquareBoard
 	    {
 	      newboard = new SquareBoard(this);
         newboard.moureParada(rutes[i].paradesRuta[j]);
-        // System.out.println(newboard);
         list.add(new Successor("P " +rutes[i].paradesRuta[j]+ " move in route " + i + " ", newboard));
 	    }
 	  }
@@ -354,7 +343,6 @@ public class SquareBoard
 	      {
 	        newboard = new SquareBoard(this);
 	        newboard.canviarRuta(i, j);
-          // System.out.println(newboard);
           list.add(new Successor("P " +i+ " move to route " + j + " ", newboard));
 	      }
 	    }
@@ -369,7 +357,6 @@ public class SquareBoard
     for (int i = 0; i < K; i++)
       d += rutes[i].dist;
 	  h = (double) d;
-    // System.out.println("Heuristic: " + h);
 	  return h;
 	}
 
@@ -392,7 +379,6 @@ public class SquareBoard
             stdev += Math.abs(parades[i].distParada(parades[j]) - avg);
 
     h = stdev;
-    // System.out.println("Heuristic: " + h);
 	  return h;
 	}
 
@@ -425,7 +411,7 @@ public class SquareBoard
 		  ruta = original.ruta;
 		}
 
-		// Retorna la distanfia fisica entre dues parades, independent de les rutes
+		// Retorna la distancia fisica entre dues parades, independent de les rutes
 		public int distParadaFisica(Parada desti)
 		{
       return Math.abs(x - desti.x) + Math.abs(y - desti.y);
@@ -543,7 +529,7 @@ public class SquareBoard
 		  int i, d;
 		  d = new Parada(0,0,-1).distParadaFisica(parades[paradesRuta[0]]); // Dist entre origen i primera parada
 
-      // Si ja hem trobat la que buscave, finito
+      // Si ja hem trobat la que buscavem
       if (paradesRuta[0] == parada.id) return d;
 
 		  // Comencem des d'1 perque assumim que aquesta ruta com a minim te una parada
@@ -561,7 +547,7 @@ public class SquareBoard
 		  int i, d;
 		  d = new Parada(19,19,-1).distParadaFisica(parades[paradesRuta[numparades-1]]); // Dist entre final i ultima parada
 
-		  // Ja hem trobat la que buscavem, finito
+		  // Ja hem trobat la que buscavem
       if (paradesRuta[numparades-1] == parada.id) return d;
 		  // Comencem des d'1 perque assumim que aquesta ruta com a minim te una parada
 		  for(i = numparades - 2; i >= 0; i--)
