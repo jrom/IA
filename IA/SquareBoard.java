@@ -481,7 +481,10 @@ public class SquareBoard
 
 		public void afegirParada(int id_)
 		{
-			// TODO Comprovar que la parada no estigui ja a la ruta
+			// Comprovem que no sigui ja la parada a la ruta...
+			for(int i = 0; i < numparades; i++)
+			  if (paradesRuta[i] == id_) return;
+
 			paradesRuta[numparades] = id_;
 			parades[id_].ruta = this.id;
 			numparades++;
