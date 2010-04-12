@@ -6,7 +6,7 @@ Un estat és qualsevol configuració vàlida (o solució candidata) de rutes, re
 
 Definim una configuració com a vàlida quan compleix que totes les rutes comencen per la casella (1,1) i acaben a la (19, 19). A més, totes tenen almenys una parada assignada i, en el cas d'aplicació de la restricció addicional, cada ruta té almenys p / (2 x k) parades.
 
-\subsection{Espai de cerca} % (fold)
+\section{Espai de cerca} % (fold)
 \label{sec:espaicerca}
 
 L'espai de cerca és molt gran tenint en compte la quantitat de combinacions possibles que es poden donar. Precisament per això, s'encara el problema mitjançant una estratègia de cerca local, que omet gran part de l'espai de cerca. En general, l'espai de cerca s'obté recorrent totes les possibles permutacions de parades dins d'una mateixa ruta per cada configuració nova de parades de la ruta. Això és així, evidentment, sempre que la nova configuració sigui un estat vàlid. 
@@ -24,11 +24,11 @@ En el cas d'aplicar la restricció addicional, el cost es redueix a:
 \Large{$\Theta(\frac{C_{p}^{k} P(P) 2K}{P}) = \Theta(\frac{({P \choose K} P!K)}{P}) = \Theta(\frac{(P-1)!P!}{(K-1)!(P-K)!})$ }
 \end{center}
 
-\subsection{Estructures de dades}	% (fold)
+\section{Estructures de dades}	% (fold)
 
 Per emmagatzemar l'estat hem dissenyat les següents estructures de dades.
 
-\subsubsection{Parada} % (fold)
+\subsection{Parada} % (fold)
 
 Una parada consta d'una posició (x, y) (per les columnes i files respectivament) dins del taulell i un identificador de parada. La parada és la unitat bàsica del nostre problema, és el que s'assignarà a diferents rutes i en diferents posicions dins d'una mateixa ruta. Per facilitar la feina, i posat que la independència i reutilització de les classes no és cap prioritat en aquesta pràctica, hem inclòs la informació de la ruta actual a la parada. També hem implementat dos mètodes per calcular les distàncies entre parades. 
 
@@ -42,17 +42,17 @@ El segon mètode \textbf{distParada} calcula la distància entre parades a trav�
 
 Ambdós mètodes calculen sempre la distància mínima, ja que la minimització del recorregut de les rutes és objectiu del problema.
 
-\subsubsection{Ruta} % (fold)
+\subsection{Ruta} % (fold)
 
 Una ruta consta principalment d'un vector de parades (en particular, emmagatzemem tant sols l'identificador de les parades d'aquella ruta). L'algorisme que implementa la nostra solució farà variar aquestes parades fins trobar l'òptim local entre totes les rutes. Per ajudar en l'implementació, les rutes també contenen la informació del seu nombre de parades i la seva distància (el mètode \textbf{calcularDist()} s'encarrega de calcular-la després de l'aplicació d'un operador).
 
 Dins de la classe Ruta s'implementen també els operadors, dels quals es parlarà més endavant.
 
-\subsubsection{Vector de rutes} % (fold)
+\subsection{Vector de rutes} % (fold)
 
 El vector de rutes conté totes les rutes creades en cada moment. La solució inicial les inicialitza al principi i els operadors el modifiquen fins obtenir l'òptim local.
 
-\subsubsection{Vector de parades} % (fold)
+\subsection{Vector de parades} % (fold)
 
 El vector de parades conté la configuració de parades de la ciutat. Aquesta configuració s'obté aleatòriament des d'un inici i no és modificable pel problema.
 
